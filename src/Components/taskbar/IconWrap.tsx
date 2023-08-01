@@ -13,13 +13,12 @@ const IconWrap = ({
   title,
   classValue,
   onClick,
-  onDoubleClick = () => {},
+
 }: IconProps) => {
   return (
     <div
       className={`Icon ${classValue}`}
       onClick={()=>onClick(title)}
-      onDoubleClick={onDoubleClick}
     >
       <img width={40} src={img} alt="" />
       <span>{title}</span>

@@ -13,14 +13,18 @@ const value = {
 const StartMenu = () => {
   return (
     <div className='Start-menu'>
-      <div className='menu-box top'></div>
+      <div className='menu-box top'>
+
+      </div>
       <div className='icon-wrap'>
-        <div className='icon-left'>
+        <div className='icon-wrap-left'>
           <IconWrap {...value} />
         </div>
-        <div className='icon-right'></div>
+        <div className='icon--wrap-right'></div>
       </div>
-      <div className='menu-box bottom'></div>
+      <div className='menu-box bottom'>
+        
+      </div>
     </div>
   )
 }
