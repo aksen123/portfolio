@@ -1,0 +1,103 @@
+$mainColor : #2561D9;
+
+.Main {
+  background-image: url('../images/bg.jpg');
+  width: 100%;
+  height: 100vh;
+  background-position: center;
+
+
+}
+
+.Taskbar-wrap {
+  height: 40px;
+  width: 100%;
+  // background-color: $mainColor;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+
+  .taskbar {
+    flex: 1;
+    height: inherit;
+    background: linear-gradient(#1f2f86, #3165c4 3%, #3682e5 6%, #4490e6 10%, #3883e5 12%, #2b71e0 15%, #2663da 18%, #235bd6 20%, #2258d5 23%, #2157d6 38%, #245ddb 54%, #2562df 86%, #245fdc 89%, #2158d4 92%, #1d4ec0 95%, #1941a5 98%);
+  
+  }
+  .start-btn {
+    width: 90px;
+    height: inherit;
+    background: linear-gradient(90deg, rgba(64, 148, 64, 1) 0%, rgba(125, 187, 11, 1) 41%, rgba(53, 142, 53, 1) 100%);
+    background: linear-gradient(#219500 1%, #0dc909 6%, #18f218 10%, #29eb13 14%, #12e836 19%, #0dea1c 63%, #0df142 81%, #0fed0f 88%, #11e92e 91%, #13e21a 94%, #0dc909 97%, #219500);
+  
+    &:hover {
+      opacity: 0.9;
+    }
+  
+    &:active {
+      box-shadow: inset 3px 3px 15px #219500;
+    }
+  }
+  
+  .DateWrap {
+    width: 150px;
+    height: inherit;
+    // padding: 3px 0;
+    background: linear-gradient(#0c59b9 1%, #139ee9 6%, #18b5f2 10%, #139beb 14%, #1290e8 19%, #0d8dea 63%, #0d9ff1 81%, #0f9eed 88%, #119be9 91%, #1392e2 94%, #137ed7 97%, #095bc9);
+    text-align: center;
+    color: #fff;
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+
+
+// ======= start menu ======
+.Start-menu {
+  box-shadow: 1px 1px #2561D9;
+  width: 440px;
+  height: 600px;
+  position: absolute;
+  bottom: 40px;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  // background: rgb(68,128,247);
+
+  .menu-box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  
+    &.top {
+      height: 100px;
+      background-image: linear-gradient(to bottom, #2561d9, #326adc, #3e73df, #4a7ce1, #5585e3);
+    }
+  
+    &.bottom {
+      height: 80px;
+      background-image: linear-gradient(to top, #2561d9, #326adc, #3e73df, #4a7ce1, #5585e3);
+    }
+  }
+  .icon-wrap {
+    flex: 1;
+    display: flex;
+    .icon-left {
+      height: 100%;
+      width: 50%;
+      background-color: #fff;
+    }
+    .icon-right {
+      height: 100%;
+      width: 50%;
+      background-color: #a6bbd6;
+    }
+  }
+}
+
