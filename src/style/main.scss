@@ -2,11 +2,44 @@ $mainColor : #2561D9;
 
 .Main {
   background-image: url('../images/bg.jpg');
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background-position: center;
 
-
+  .test1 {
+    width: 100%;
+    height: calc(100vh - 40px);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    z-index: -1;
+  }
+  .SubMenu {
+    width: 240px;
+    height: 700px;
+    border:  1px solid red;
+    position: absolute;
+    bottom: 120px;
+    left: 220px;
+    z-index: 1;
+  }
+  .Icon {
+    &.descTop {
+      width: 70px;
+      height: 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      // z-index: 100;
+    }
+    &.bg {
+      background-color: rgba($color: $mainColor, $alpha: 0.8);
+      color: #fff;
+    }
+  }
 }
 
 .Taskbar-wrap {
@@ -87,20 +120,36 @@ $mainColor : #2561D9;
     }
   }
 
-  .icon-wrap {
+  .icon-wrapper {
     flex: 1;
     display: flex;
 
-    .icon-wrap-left {
+    .icon-wrap {
       height: 100%;
       width: 50%;
-      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+
+      &.left {
+        background-color: #fff;
+      }
+
+      &.right {
+        background-color: #a6bbd6;
+      }
+
+      .Icon {
+        display: flex;
+        align-items: center;
+        height: 50px;
+
+        &:hover {
+          background-color: $mainColor;
+          color: #fff;
+        }
+
+      }
     }
 
-    .icon-wrap-right {
-      height: 100%;
-      width: 50%;
-      background-color: #a6bbd6;
-    }
   }
 }

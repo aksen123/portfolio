@@ -4,8 +4,10 @@ type IconProps = {
   img: string;
   title: string;
   classValue: string;
-  onClick: (str:string) => void;
+  onClick?: (e:React.MouseEvent<HTMLDivElement>,str:string) => void 
+  menuIconClick? : ()=>void
   onDoubleClick?: () => void;
+  bg?: string
 };
 
 const IconWrap = ({
@@ -13,15 +15,18 @@ const IconWrap = ({
   title,
   classValue,
   onClick,
-
+  onDoubleClick,
+  menuIconClick,
+  bg
 }: IconProps) => {
   return (
     <div
-      className={`Icon ${classValue}`}
-      onClick={()=>onClick(title)}
+      className={bg === title ? `Icon ${classValue} bg` : `Icon ${classValue}`}
+      onClick={()=> (bg != undefined) ? onClick : menuIconClick}
+      onDoubleClick={onDoubleClick}
     >
-      <img width={40} src={img} alt="" />
-      <span>{title}</span>
+      <img width={40} src={img} alt=""/>
+      <span >{title}</span>
     </div>
   );
 };
