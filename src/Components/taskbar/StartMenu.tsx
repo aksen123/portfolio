@@ -7,7 +7,7 @@ import { toggleSubmenu, hideMenu } from '../../redux/toggleSlice'
 
 export const value = {
   img : img,
-  title: '아이콘',
+  title: '123 ',
   classValue : 'menu',
 }
 
@@ -16,8 +16,7 @@ const StartMenu = () => {
   const dispatch = useDispatch()
 
   const onClick = (): void => {
-    alert('아이콘 클릭')
-    dispatch(toggleSubmenu())
+    dispatch(toggleSubmenu({value : ''}))
   }
   return (
     <div className='Start-menu'>
@@ -26,8 +25,8 @@ const StartMenu = () => {
       </div>
       <div className='icon-wrapper'>
         <div className='icon-wrap left'>
-          <IconWrap {...value} menuIconClick={onClick}/>
-          <IconWrap {...value} menuIconClick={onClick}/>
+          <IconWrap {...value} onClick={onClick}/>
+          <IconWrap {...value} onClick={onClick}/>
         </div>
         <div className='icon-wrap right'></div>
       </div>

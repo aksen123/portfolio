@@ -15,25 +15,22 @@ const test = ['123','234','345','456','123','234','345','456','123','234','345',
 
 
 const Main = () => {
-  const [background, setBackground] = useState<string>('')
   const dispatch = useDispatch()
+
   const value = {
     img : img,
     // title: '바탕화면',
     classValue : 'descTop',
     // onClick : (str:string)=> alert(str),
-    bg : background
+    setBackground : (value: React.SetStateAction<string>) => {}
   }
+
   const StartMenuToggle = useSelector((state: RootState) => state.toggle.startMenuToggle)
   const subMenu = useSelector((state: RootState) => state.toggle.subMenu)
   console.log(subMenu)
   
   // 클릭시 백그라운드 컬러 변경
-  const onClick = (e:React.MouseEvent<HTMLDivElement> ,str:string):void=> {
-    e.stopPropagation()
-    setBackground(str)
-    // alert(background)
-  }
+
   // 더블 클릭시 폴더 띄우기 
   const onDoubleClick = ():void =>{
     alert('더블클릭')
@@ -41,14 +38,12 @@ const Main = () => {
   // 왜 안됨 ..?
   const mainClick = ():void => {
     // console.log(e.target)
-    setBackground('')
-    dispatch(hideMenu())
+    dispatch(hideMenu({value : ''}))
   }
-  console.log(background)
   return (
     <div className='Main' >
-      <span className='test1' onClick={()=>mainClick}>
-      {test.map((it,idx)=> <IconWrap {...value} onClick={onClick} title={it} key={it+idx} onDoubleClick={onDoubleClick}/>)}
+      <span className='test1' onClick={mainClick}>
+      {test.map((it,idx)=> <IconWrap {...value} title={it} key={it+idx} onDoubleClick={onDoubleClick}/>)}
       </span>
 
       {subMenu && <SubMenu />}

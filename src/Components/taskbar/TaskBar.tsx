@@ -12,7 +12,7 @@ const TaskBar = () => {
     <div className='Taskbar-wrap'>
       <div 
       className='start-btn'
-      onClick={()=>dispatch(toggleStartMenu())}
+      onClick={()=>dispatch(toggleStartMenu({value : ''}))}
       >
 
       </div>
