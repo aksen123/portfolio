@@ -4,6 +4,7 @@ import TaskBar from '../Components/taskbar/TaskBar'
 import StartMenu from '../Components/taskbar/StartMenu'
 import SubMenu from '../Components/taskbar/SubMenu'
 import IconWrap from '../Components/taskbar/IconWrap'
+import WindowForm from '../Components/windowForm/WindowForm'
 import { useSelector,useDispatch } from 'react-redux'
 import { RootState } from '../redux/store'
 import img from '../images/folder.png'
@@ -11,7 +12,7 @@ import { hideMenu } from '../redux/toggleSlice'
 
 
 
-const test = ['123','234','345','456','123','234','345','456','123','234','345','456','123','234','345','456']
+const test = ['123','234','345','456']
 
 
 const Main = () => {
@@ -40,12 +41,13 @@ const Main = () => {
     // console.log(e.target)
     dispatch(hideMenu({value : ''}))
   }
+
   return (
     <div className='Main' >
       <span className='test1' onClick={mainClick}>
       {test.map((it,idx)=> <IconWrap {...value} title={it} key={it+idx} onDoubleClick={onDoubleClick}/>)}
       </span>
-
+      <WindowForm />
       {subMenu && <SubMenu />}
       {StartMenuToggle && <StartMenu />}
       <TaskBar />

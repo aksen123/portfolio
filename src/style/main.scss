@@ -5,7 +5,10 @@ $mainColor : #2561D9;
   width: 100vw;
   height: 100vh;
   background-position: center;
+  position: relative;
+  .WindowForm {
 
+  }
   .test1 {
     width: 100%;
     height: calc(100vh - 40px);
