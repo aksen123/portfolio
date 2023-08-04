@@ -1,7 +1,7 @@
 // ======= Form Wrapper ======== 
 .WindowForm {
-  width: 700px;
-  height: 600px;
+  width: 800px;
+  height: 650px;
 
   position: absolute;
   top: 50%;
@@ -50,7 +50,7 @@
 // ======= Toolbar =======
 .Toolbar {
   width: 100%;
-  height: 100px;
+  height: auto;
   background-color: beige;
 
     .top {
@@ -82,12 +82,12 @@
     }
 
     .bottom {
-      
       height: 45%;
+      padding: 5px 0;
       border-bottom: 1px solid #aaa;
       display: flex;
       align-items: center;
-        
+      gap: 10px;
         .back-forward {
           margin-left: 5px;
           display: flex;
@@ -99,8 +99,63 @@
             margin-left: 10px;
           }
         }
+      .search-folder {
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        .folders{
+          display: inline-block;
+          margin-left: 10px;
+        }
+      }
     }
     .search {
-      height: 20%;
+      height: 20px;
+      padding: 1px 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+        .search-address {
+          height: 100%;
+          // width: 60px;
+          color: gray; 
+          font-size: 15px;
+
+        }
+        .search-bar{
+          height: 16px;
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin: 0 5px;
+            .search-text{
+              border: 1px solid #ddd;
+              flex: 1;
+              height: 100%;
+              background-color: #fff;
+              font-size: 14px;
+              display: flex;
+              align-items: center;
+            }
+        }
+        .go-button {
+          display: flex;
+          align-items: center;
+          cursor: default;
+            &:hover img {
+              filter: brightness(120%);
+            }
+            &:active img {
+              filter: brightness(100%)
+            }
+        }
     }
+}
+
+.FormMain-wrap {
+  width: 100%;
+  height: 100%;
 }
