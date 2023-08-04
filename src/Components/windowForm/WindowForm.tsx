@@ -8,7 +8,10 @@ const WindowForm = () => {
   return (
     <div className='WindowForm'>
       <FormHead img={handle_img.maxsize} title={'window'}/>
+      <div className="window-body">
       <Toolbar />
+      
+      </div>
     </div>
   )
 }

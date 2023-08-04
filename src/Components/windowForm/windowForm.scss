@@ -1,8 +1,8 @@
 // ======= Form Wrapper ======== 
 .WindowForm {
-  width: 500px;
-  height: 500px;
-  border: 1px solid red;
+  width: 700px;
+  height: 600px;
+
   position: absolute;
   top: 50%;
   left: 50%;
@@ -39,11 +39,20 @@
   }
 }
 
+
+// ======= Form body =======
+.window-body {
+  border: 5px solid #2561D9;
+  border-top: none;
+  height: calc(100% - 35px);
+}
+
 // ======= Toolbar =======
 .Toolbar {
   width: 100%;
   height: 100px;
   background-color: beige;
+
     .top {
       height: 35%;
       border-bottom: 1px solid #ddd;
@@ -58,8 +67,12 @@
           height: 100%;
           cursor:default;
           &:hover {
+            box-shadow:  1px 1px 1px 0 #ddd;
             border-top: 2px solid #ddd;
             border-left: 2px solid #ddd;
+          }
+          &:active {
+            box-shadow: inset 1px 1px 1px 0 #000;
           }
         }
         img {
@@ -67,9 +80,25 @@
         z-index: 1;
         }
     }
+
     .bottom {
+      
       height: 45%;
       border-bottom: 1px solid #aaa;
+      display: flex;
+      align-items: center;
+        
+        .back-forward {
+          margin-left: 5px;
+          display: flex;
+          align-items: center;
+          img {
+            filter: grayscale(100%);
+          }
+          .arrow {
+            margin-left: 10px;
+          }
+        }
     }
     .search {
       height: 20%;
