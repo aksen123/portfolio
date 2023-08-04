@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector,useDispatch } from "react-redux";
 import { RootState } from "../../redux/store";
-import { toggleIcon } from "../../redux/toggleSlice";
+import { clickIcon } from "../../redux/toggleSlice";
 type IconProps = {
-  img: string;
+  iconImg?: string;
   title: string;
   classValue: string;
   onClick?: ()=>void
@@ -11,7 +11,7 @@ type IconProps = {
 };
 
 const IconWrap = ({
-  img,
+  iconImg,
   title,
   classValue,
   onClick, // start menu icon Click
@@ -25,7 +25,7 @@ const IconWrap = ({
   //descTop icon Click Event
   const iconOnClick = (e:React.MouseEvent<HTMLDivElement>):void => {
     e.stopPropagation()
-    dispatch(toggleIcon({value: title}))
+    dispatch(clickIcon({value: title}))
   }
 
   return (
@@ -34,7 +34,7 @@ const IconWrap = ({
       onClick={onClick || iconOnClick}
       onDoubleClick={onDoubleClick}
     >
-      <img width={40} src={img} alt=""/>
+      <img width={40} src={iconImg} alt=""/>
       <span >{title}</span>
     </div>
   );

@@ -20,21 +20,21 @@ const toggleSlice = createSlice({
   name: "toggle",
   initialState,
   reducers: {
-    toggleStartMenu(state:StateType,action:PayloadAction<PayloadType>) {
+    toggleStartMenu(state,action:PayloadAction<PayloadType>) {
       state.startMenuToggle = !state.startMenuToggle;
       state.subMenu = state.startMenuToggle == false? false : state.subMenu
       state.iconValue = action.payload.value
     },
-    toggleSubmenu(state:StateType, action:PayloadAction<PayloadType>) {
+    toggleSubmenu(state, action:PayloadAction<PayloadType>) {
       state.subMenu = !state.subMenu;
       state.iconValue = action.payload.value
     },
-    hideMenu(state:StateType,action:PayloadAction<PayloadType>) {
+    hideMenu(state,action:PayloadAction<PayloadType>) {
       state.startMenuToggle = false; 
       state.subMenu = false;
       state.iconValue = action.payload.value
     },
-    toggleIcon(state, action:PayloadAction<PayloadType>) {
+    clickIcon(state, action:PayloadAction<PayloadType>) {
       state.iconValue = action.payload.value
     },
     toggleScreen(state) {
@@ -45,6 +45,6 @@ const toggleSlice = createSlice({
 
 export default toggleSlice.reducer;
 
-export const { toggleStartMenu, toggleSubmenu, hideMenu,toggleIcon,toggleScreen } = toggleSlice.actions;
+export const { toggleStartMenu, toggleSubmenu, hideMenu,clickIcon,toggleScreen } = toggleSlice.actions;
 
 export type ActionType = ReturnType<typeof toggleSlice.reducer> 

@@ -67,8 +67,8 @@ const Toolbar = () => {
           <div className="search-text"></div>
           <img src={toolbar_img.down} alt="" />
         </div>
-        {/* title ,onClick 추가하기 */}
-        <div className="go-button">
+        {/* title > search-bar ,onClick > go-button 추가하기 */}
+        <div className="go-button"> 
           <img src={toolbar_img.go} alt="" />
           <span>이동</span>
         </div>

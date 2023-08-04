@@ -18,13 +18,7 @@ const test = ['123','234','345','456']
 const Main = () => {
   const dispatch = useDispatch()
 
-  const value = {
-    img : img,
-    // title: '바탕화면',
-    classValue : 'descTop',
-    // onClick : (str:string)=> alert(str),
 
-  }
 
   const StartMenuToggle = useSelector((state: RootState) => state.toggle.startMenuToggle)
   const subMenu = useSelector((state: RootState) => state.toggle.subMenu)
@@ -42,7 +36,7 @@ const Main = () => {
   return (
     <div className='Main' >
       <div className='main-screen' onClick={mainClick}>
-      {test.map((it,idx)=> <IconWrap {...value} title={it} key={it+idx} onDoubleClick={onDoubleClick}/>)}
+
       </div>
       <WindowForm />
       {subMenu && <SubMenu />}
