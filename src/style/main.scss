@@ -6,7 +6,7 @@ $mainColor : #2561D9;
   height: 100vh;
   background-position: center;
   position: relative;
-
+  overflow: hidden;
   .main-screen {
     width: 100%;
     height: calc(100vh - 40px);

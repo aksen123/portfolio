@@ -1,7 +1,8 @@
 import React from "react";
 import "./windowForm.scss";
 import { handle_img } from "../../data/data";
-
+import { useDispatch } from "react-redux";
+import { toggleScreen } from "../../redux/toggleSlice";
 // 컨트롤 버튼 이벤트 넣어주기 
 // dispatch 사용  boolean 값으로 주면 될듯 
 
@@ -11,6 +12,11 @@ type HeadType = {
 }
 
 const FormHead = ({img,title}:HeadType) => {
+  const dispatch =useDispatch();
+
+  const screenToggle = ():void => {
+    dispatch(toggleScreen())
+  }
   return (
     <div className="titleWrap">
       <div className="title">
@@ -19,7 +25,7 @@ const FormHead = ({img,title}:HeadType) => {
       </div>
       <div className="control-buttons">
         <img width={25} src={handle_img.miniSize} alt="최소화" />
-        <img width={25} src={handle_img.maxsize} alt="최대화" />
+        <img onClick={screenToggle} width={25} src={handle_img.maxsize} alt="최대화" />
         <img width={25} src={handle_img.close} alt="닫기" />
       </div>
     </div>

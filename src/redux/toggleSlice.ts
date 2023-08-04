@@ -3,7 +3,8 @@ import { PayloadAction } from "@reduxjs/toolkit";
 type StateType = {
   startMenuToggle: boolean;
   subMenu: boolean;
-  iconValue: string
+  iconValue: string;
+  formToggle: boolean
 };
 type PayloadType = {
   value:string
@@ -11,7 +12,8 @@ type PayloadType = {
 const initialState: StateType = {
   startMenuToggle: false,
   subMenu: false,
-  iconValue : ''
+  iconValue : '',
+  formToggle: false
 };
 
 const toggleSlice = createSlice({
@@ -34,12 +36,15 @@ const toggleSlice = createSlice({
     },
     toggleIcon(state, action:PayloadAction<PayloadType>) {
       state.iconValue = action.payload.value
+    },
+    toggleScreen(state) {
+      state.formToggle = !state.formToggle
     }
   },
 });
 
 export default toggleSlice.reducer;
 
-export const { toggleStartMenu, toggleSubmenu, hideMenu,toggleIcon } = toggleSlice.actions;
+export const { toggleStartMenu, toggleSubmenu, hideMenu,toggleIcon,toggleScreen } = toggleSlice.actions;
 
 export type ActionType = ReturnType<typeof toggleSlice.reducer> 
