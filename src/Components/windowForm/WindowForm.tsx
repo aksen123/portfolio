@@ -8,8 +8,8 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
 const WindowForm = () => {
   const {formToggle} = useSelector((state:RootState)=> state.toggle)
-  const screenWidth = formToggle ? '100%' : '800px'
-  const screenHeight = formToggle ? '100%' : '650px'
+  const screenWidth = formToggle ? '100%' : '900px'
+  const screenHeight = formToggle ? '100%' : '750px'
   return (
 
     <div

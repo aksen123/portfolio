@@ -1,6 +1,6 @@
 // ======= Form Wrapper ======== 
 .WindowForm {
-  width: 800px;
+  width: 900px;
   height: 650px;
 
   position: absolute;
@@ -253,11 +253,11 @@
       }
 
       &.img {
-        height: 200px;
+        height: 300px;
       }
 
       &.skill {
-        height: 500px;
+        height: 100px;
       }
 
       &.desc {
@@ -273,21 +273,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 70px;
+  .slide-btn {
+    font-size: 50px;
+    color: #2561D9;
+  }
   .slide-content-wrap {
-    width: 200px;
+    width: 250px;
     overflow: hidden;
     // display: flex;
     // flex-wrap: nowrap;
     .slide-content {
       display: flex;
-      transform: translateX(-200px);
       transition: 0.5s;
     }
     img {
       // display: inline-block;
-      width: 150px;
-      height: 150px;
+      width: 200px;
+      height: 200px;
       margin: 0 25px;
     }
   
