@@ -33,7 +33,10 @@ const FormMain = () => {
         </div>
       </div>
       <div className="main-right">
-            content
+        <div>title</div>
+        <div>img</div>
+        <div>language</div>
+        <div>desc</div>
       </div>
     </div>
   );
