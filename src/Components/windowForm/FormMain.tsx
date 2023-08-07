@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import up from "../../images/icon/accordionbtn.png";
 import down from "../../images/icon/accordionbtnd.png";
-
+import Slide from "./Slide";
 const FormMain = () => {
   const [contentView, setContentView] = useState<boolean>(true);
   const contentToggle: () => void = () => {
@@ -21,22 +21,31 @@ const FormMain = () => {
             onClick={contentToggle}
           >
             <span>프로젝트</span>
-            <img  src={titleImg} alt="" />
+            <img src={titleImg} alt="" />
           </div>
           <div
             className={
               !contentView ? "accordion-content" : "accordion-content on"
             }
           >
-          content
+            content
           </div>
         </div>
       </div>
       <div className="main-right">
-        <div>title</div>
-        <div>img</div>
-        <div>language</div>
-        <div>desc</div>
+        <div className="content form-title">title</div>
+        <div className="content img">
+          <Slide />
+        </div>
+        <div className="content skill">skill</div>
+        <div className="content desc">
+            <ul>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+              <li>1</li>
+            </ul>
+        </div>
       </div>
     </div>
   );

@@ -92,6 +92,7 @@ type ProjectType = {
   desc: string;
   project_img: string[];
   url : string;
+  skill: string[]
 }
 export const projectData:ProjectType[] = [
   {
@@ -100,6 +101,7 @@ export const projectData:ProjectType[] = [
     icon:'',
     desc: '',
     project_img: [''],
-    url : ''
+    url : '',
+    skill:['']
   }
 ]
