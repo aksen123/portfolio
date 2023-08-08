@@ -1,8 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaCircleChevronLeft, FaCircleChevronRight } from "react-icons/fa6";
-import { toolbar_img } from "../../data/data";
+import { toolbar_img,ProjectType } from "../../data/data";
 
-const Slide = () => {
+type ImagesType = Pick<ProjectType, "project_img">
+
+const Slide = ({project_img}: ImagesType) => {
+  const max_num: number = project_img.length - 1;
   const [moveImg, setMoveImg] = useState<number>(0);
   const moveSlide = (num: number): void => {
     if (num > 0 && moveImg === 0) {
@@ -10,8 +13,8 @@ const Slide = () => {
       console.log(moveImg);
       return;
     }
-    if (num < 0 && moveImg === -3) {
-      setMoveImg(-3);
+    else if (num < 0 && moveImg === -max_num) {
+      setMoveImg(-max_num);
       console.log(moveImg);
       return;
     } else setMoveImg(moveImg + num);
@@ -28,15 +31,12 @@ const Slide = () => {
           className="slide-content"
           style={{ transform: `translateX(${moveImg * 250}px)` }}
         >
-          <img src={toolbar_img.arrow} alt="" />
-          <img src={toolbar_img.back} alt="" />
-          <img src={toolbar_img.folders} alt="" />
-          <img src={toolbar_img.arrow} alt="" />
+          {project_img.map((img,i) => <img src={img} key={`slide${i}`} />)}
         </div>
       </div>
       <FaCircleChevronRight
         className="slide-btn"
-        style={{ color: moveImg === -3 ? "#eee" : "#2561D9" }}
+        style={{ color: moveImg === -max_num ? "#eee" : "#2561D9" }}
         onClick={() => moveSlide(-1)}
       />
     </div>

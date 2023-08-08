@@ -47,4 +47,4 @@ export default toggleSlice.reducer;
 
 export const { toggleStartMenu, toggleSubmenu, hideMenu,clickIcon,toggleScreen } = toggleSlice.actions;
 
-export type ActionType = ReturnType<typeof toggleSlice.reducer> 
+// export type ToggleType = ReturnType<typeof toggleSlice.reducer> 

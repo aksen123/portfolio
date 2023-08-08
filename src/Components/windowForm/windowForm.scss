@@ -258,6 +258,11 @@
 
       &.skill {
         height: 100px;
+        display: flex;
+        gap: 20px;
+        img {
+          height: 30px;
+        }
       }
 
       &.desc {

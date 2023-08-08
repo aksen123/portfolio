@@ -6,11 +6,11 @@ import { toggleScreen,hideMenu } from "../../redux/toggleSlice";
 import { RootState } from "../../redux/store";
 
 type HeadType = {
-  img: string;
+  icon: string;
   title: string
 }
 
-const FormHead = ({img,title}:HeadType) => {
+const FormHead = ({icon,title}:HeadType) => {
   const dispatch =useDispatch();
   const {formToggle} = useSelector((state:RootState)=> state.toggle)
   const screenToggle = ():void => {
@@ -21,7 +21,7 @@ const FormHead = ({img,title}:HeadType) => {
   return (
     <div className="titleWrap" onClick={()=>dispatch(hideMenu({value:''}))}>
       <div className="title">
-        <img width={25} src={img} alt="" />
+        <img width={25} src={icon} alt="" />
         <span>{title}</span>
       </div>
       <div className="control-buttons">
