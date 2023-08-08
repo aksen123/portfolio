@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import up from "../../images/icon/accordionbtn.png";
 import down from "../../images/icon/accordionbtnd.png";
-import { RootState } from "../../redux/store";
-import { useSelector, useDispatch } from "react-redux";
-import { ProjectType } from "../../data/data";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../redux/store";
+import { ProjectType,projectData } from "../../data/data";
 import Slide from "./Slide";
 import IconWrap from "../taskbar/IconWrap";
 import { select } from "../../redux/formSlice";
+
+
+
+
 const FormMain = (Props: ProjectType) => {
-  const { allData } = useSelector((state: RootState) => state.form);
-  const dispatch = useDispatch();
+
+  const dispatch = useDispatch<AppDispatch>();
   const [contentView, setContentView] = useState<boolean>(true);
 
   const onclick = (id: number):void => {
@@ -36,12 +40,13 @@ const FormMain = (Props: ProjectType) => {
             <span>프로젝트</span>
             <img src={titleImg} alt="" />
           </div>
+          <div className="content-wrapper">
           <div
             className={
               !contentView ? "accordion-content" : "accordion-content on"
             }
           >
-            {allData.map((data, i) => (
+            {projectData.map((data) => (
               <IconWrap
                 key={`${data.id}`}
                 iconImg={data.icon}
@@ -50,6 +55,7 @@ const FormMain = (Props: ProjectType) => {
                 onClick={()=>onclick(data.id)}
               />
             ))}
+          </div>
           </div>
         </div>
       </div>

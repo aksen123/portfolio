@@ -34,7 +34,7 @@ const WindowForm = () => {
     className='WindowForm'>
       <FormHead icon={selectData.icon} title={selectData.title}/>
       <div className="window-body">
-      <Toolbar />
+      <Toolbar url={selectData.url} icon={selectData.icon}/>
       <FormMain {...selectData}/>
       </div>
     </div>

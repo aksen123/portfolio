@@ -6,7 +6,7 @@ import { toggleStartMenu, hideMenu } from '../../redux/toggleSlice'
 import { useDispatch } from 'react-redux'
 const TaskBar = () => {
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<AppDispatch>()
 
   return (
     <div className='Taskbar-wrap'>

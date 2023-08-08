@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector,useDispatch } from "react-redux";
-import { RootState } from "../../redux/store";
+import { RootState,AppDispatch } from "../../redux/store";
 import { clickIcon } from "../../redux/toggleSlice";
 type IconProps = {
   iconImg?: string;
@@ -19,7 +19,7 @@ const IconWrap = ({
 
 }: IconProps) => {
   const {iconValue} = useSelector((state: RootState)=>state.toggle)
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<AppDispatch>()
   console.log('iconValue :', iconValue)
   
   //descTop icon Click Event

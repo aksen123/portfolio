@@ -157,27 +157,45 @@
         flex: 1;
         height: 100%;
         background-color: #fff;
-        font-size: 14px;
+        padding: 0 5px;
+        font-size: 13px;
         display: flex;
         align-items: center;
+          img {
+            margin-right: 5px;
+          }
       }
     }
 
     .go-button {
       display: flex;
       align-items: center;
-      cursor: default;
+      cursor: pointer;
+     animation: imgBrightness 1s infinite linear;
+      // &:hover img {
+      //   filter: brightness(120%);
+      // }
 
-      &:hover img {
-        filter: brightness(120%);
-      }
-
-      &:active img {
-        filter: brightness(100%)
-      }
+      // &:active img {
+      //   filter: brightness(100%)
+      // }
+      
     }
   }
 }
+
+@keyframes imgBrightness {
+  0% {
+    filter: brightness(110%);
+  }
+  50% {
+    filter: brightness(130%)
+  }
+  100% {
+    filter: brightness(100%)
+  }
+}
+
 
 .FormMain-wrap {
   flex-grow: 1;
@@ -187,7 +205,7 @@
   overflow: auto;
 
   .main-left {
-    width: 220px;
+    width: 200px;
     padding: 10px;
     background: linear-gradient(#748aff, #4057d3);
     display: flex;
@@ -212,18 +230,46 @@
       color: #2561D9;
       z-index: 1;
     }
+    .content-wrapper {
+      overflow: hidden;
+    }
 
     .accordion-content {
+      width: 200px;
       padding: 0;
       background: linear-gradient(90deg, #b4c8fb 0, #a4b9fb 50%, #b4c8fb) rgba(198, 211, 255, .87);
-      height: 0;
-
+      // height: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(-100px);
+      transition: 0.5s;
+      // z-index: -10;
       &.on {
-        // opacity: 0;
+        opacity: 1;
         transform: translateY(0);
         height: auto;
         padding: 5px 10px;
         border-radius: 0 0 5px 5px;
+      }
+      .Icon.side {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+          img {
+            width: 30px;
+          }
+          span {
+            flex: calc(100% - 30px);
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            text-decoration: underline;
+            text-underline-offset : 3px;
+          }
       }
     }
   }

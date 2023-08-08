@@ -6,23 +6,22 @@ import SubMenu from '../Components/taskbar/SubMenu'
 import IconWrap from '../Components/taskbar/IconWrap'
 import WindowForm from '../Components/windowForm/WindowForm'
 import { useSelector,useDispatch } from 'react-redux'
-import { RootState } from '../redux/store'
+import { RootState,AppDispatch } from '../redux/store'
 import img from '../images/folder.png'
 import { hideMenu } from '../redux/toggleSlice'
 
 
 
-const test = ['123','234','345','456']
 
 
 const Main = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<AppDispatch>()
 
 
 
   const StartMenuToggle = useSelector((state: RootState) => state.toggle.startMenuToggle)
   const subMenu = useSelector((state: RootState) => state.toggle.subMenu)
-  console.log(subMenu)
+
   
   // 더블 클릭시 폴더 띄우기 
   const onDoubleClick = ():void =>{

@@ -3,11 +3,12 @@ import "../../style/main.scss";
 import IconWrap from "./IconWrap";
 import img from "../../images/folder.png";
 import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../redux/store";
 import { toggleSubmenu, hideMenu } from "../../redux/toggleSlice";
 import { rightIcon_data, menu_img } from "../../data/data";
 
 const StartMenu = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const onClick = (): void => {
     dispatch(toggleSubmenu({ value: "" }));

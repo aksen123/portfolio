@@ -1,5 +1,5 @@
 import React from "react";
-import { toolbar_img } from "../../data/data";
+import { toolbar_img,ProjectType } from "../../data/data";
 
 const menuTitle: string[] = [
   "파일(F)",
@@ -9,8 +9,14 @@ const menuTitle: string[] = [
   "도구(T)",
   "도움말(H)",
 ];
+type ToolType = {
+  url: string;
+  icon: string
+}
 
-const Toolbar = () => {
+
+
+const Toolbar = ({url, icon}:ToolType) => {
   return (
     <div className="Toolbar">
       <div className="top">
@@ -64,12 +70,15 @@ const Toolbar = () => {
       <div className="search">
         <div className="search-address">주소(D)</div>
         <div className="search-bar">
-          <div className="search-text"></div>
+          <div className="search-text">
+            <img width={15} src={icon} alt="" />{url}
+            </div>
           <img src={toolbar_img.down} alt="" />
         </div>
-        {/* title > search-bar ,onClick > go-button 추가하기 */}
+        {/* onClick > go-button 추가하기 */}
         <div className="go-button"> 
           <img src={toolbar_img.go} alt="" />
+          {/* <a href={url}>이동</a> */}
           <span>이동</span>
         </div>
       </div>
