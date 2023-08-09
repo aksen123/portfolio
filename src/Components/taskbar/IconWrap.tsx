@@ -3,7 +3,7 @@ import { useSelector,useDispatch } from "react-redux";
 import { RootState,AppDispatch } from "../../redux/store";
 import { clickIcon } from "../../redux/toggleSlice";
 type IconProps = {
-  iconImg?: string;
+  iconImg: string;
   title: string;
   classValue: string;
   onClick?: ()=>void
@@ -20,7 +20,7 @@ const IconWrap = ({
 }: IconProps) => {
   const {iconValue} = useSelector((state: RootState)=>state.toggle)
   const dispatch = useDispatch<AppDispatch>()
-  console.log('iconValue :', iconValue)
+  // console.log('iconValue :', iconValue)
   
   //descTop icon Click Event
   const iconOnClick = (e:React.MouseEvent<HTMLDivElement>):void => {

@@ -7,27 +7,26 @@ import IconWrap from '../Components/taskbar/IconWrap'
 import WindowForm from '../Components/windowForm/WindowForm'
 import { useSelector,useDispatch } from 'react-redux'
 import { RootState,AppDispatch } from '../redux/store'
-import img from '../images/folder.png'
 import { hideMenu } from '../redux/toggleSlice'
-
-
+import { projectData,toolbar_img } from '../data/data'
+import { openForm } from '../redux/formSlice'
 
 
 
 const Main = () => {
   const dispatch = useDispatch<AppDispatch>()
 
-
-
+  const {formArray} = useSelector((state: RootState) => state.form)
   const StartMenuToggle = useSelector((state: RootState) => state.toggle.startMenuToggle)
   const subMenu = useSelector((state: RootState) => state.toggle.subMenu)
 
   
   // 더블 클릭시 폴더 띄우기 
-  const onDoubleClick = ():void =>{
-    alert('더블클릭')
+  const onDoubleClick = (id: number):void =>{
+   dispatch(openForm({index : id}))
   }
 
+  console.log(formArray)
   const mainClick = ():void => {
     dispatch(hideMenu({value : ''}))
   }
@@ -36,8 +35,16 @@ const Main = () => {
     <div className='Main' >
       <div className='main-screen' onClick={mainClick}>
 
+        <IconWrap
+          title={'test'}
+          iconImg={toolbar_img .folder}
+          classValue='descTop'
+          onDoubleClick={()=>onDoubleClick(1)}
+        />
       </div>
-      <WindowForm />
+      {formArray.length > 0 && formArray.map((form,i) =>
+        <WindowForm key={i} {...form} idx={i}/>
+      )}
       {subMenu && <SubMenu />}
       {StartMenuToggle && <StartMenu />}
       <TaskBar />

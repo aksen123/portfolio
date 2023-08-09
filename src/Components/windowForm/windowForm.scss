@@ -263,7 +263,7 @@
             width: 30px;
           }
           span {
-            flex: calc(100% - 30px);
+            width: calc(100% - 50px);
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;

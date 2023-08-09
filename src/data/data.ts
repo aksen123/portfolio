@@ -129,7 +129,7 @@ export const projectData: ProjectType[] = [
     icon: folder2,
     desc: ["설명 1","설명 2", "설명 3", "설명 4", "설명 5"],
     project_img: [MainLogo,myComputer, folder, back],
-    url: "https://www.naver.com/",
+    url: "naver.com/",
     skill: [react,html,bootstrap],
   },
   {
@@ -138,7 +138,7 @@ export const projectData: ProjectType[] = [
     icon: folders,
     desc: ["설명 1","설명 2", "설명 3", "설명 4", "설명 5"],
     project_img: [MainLogo,myComputer, folder, back],
-    url: "https://www.naver.com/",
+    url: "http",
     skill: [react,html,bootstrap],
   },
   {
@@ -147,7 +147,7 @@ export const projectData: ProjectType[] = [
     icon: thumbnail,
     desc: ["설명 1","설명 2", "설명 3", "설명 4", "설명 5"],
     project_img: [MainLogo,myComputer, folder, back],
-    url: "https://www.naver.com/",
+    url: "abc",
     skill: [react,html,bootstrap],
   },
 ];

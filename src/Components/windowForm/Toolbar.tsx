@@ -17,6 +17,9 @@ type ToolType = {
 
 
 const Toolbar = ({url, icon}:ToolType) => {
+
+
+
   return (
     <div className="Toolbar">
       <div className="top">

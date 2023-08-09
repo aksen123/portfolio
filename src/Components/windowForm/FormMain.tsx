@@ -1,31 +1,31 @@
 import React, { useState } from "react";
 import up from "../../images/icon/accordionbtn.png";
 import down from "../../images/icon/accordionbtnd.png";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../redux/store";
+import { useDispatch,useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../redux/store";
 import { ProjectType,projectData } from "../../data/data";
 import Slide from "./Slide";
 import IconWrap from "../taskbar/IconWrap";
 import { select } from "../../redux/formSlice";
+import { selectType } from "./WindowForm";
 
 
 
-
-const FormMain = (Props: ProjectType) => {
-
+const FormMain = (selectData:selectType) => {
+  // const {selectData} = useSelector((state:RootState) => state.form)
   const dispatch = useDispatch<AppDispatch>();
   const [contentView, setContentView] = useState<boolean>(true);
 
-  const onclick = (id: number):void => {
-    dispatch(select({index: id}))
+  const onclick = (id: number, idx:number):void => {
+    dispatch(select({id: id, index: idx}))
     console.log(id)
   }
-  const contentToggle: () => void = () => {
+  const contentToggle = ():void => {
     setContentView(!contentView);
   };
   const titleImg = contentView ? up : down;
   const titleBorder = contentView ? "5px 5px 0 0" : "5px 5px 5px 5px";
-  // console.log(Props.project_img)
+  // console.log(selectData.project_img)
   return (
     <div className="FormMain-wrap">
       <div className="main-left">
@@ -52,7 +52,7 @@ const FormMain = (Props: ProjectType) => {
                 iconImg={data.icon}
                 title={data.title}
                 classValue="side"
-                onClick={()=>onclick(data.id)}
+                onClick={()=>onclick(data.id,selectData.idx)}
               />
             ))}
           </div>
@@ -60,18 +60,18 @@ const FormMain = (Props: ProjectType) => {
         </div>
       </div>
       <div className="main-right">
-        <div className="content form-title">{Props.title}</div>
+        <div className="content form-title">{selectData.title}</div>
         <div className="content img">
-          <Slide project_img={Props.project_img} />
+          <Slide project_img={selectData.project_img} />
         </div>
         <div className="content skill">
-          {Props.skill.map((it, idx) => (
+          {selectData.skill.map((it, idx) => (
             <img src={it} key={`skill${idx}`} />
           ))}
         </div>
         <div className="content desc">
           <ul>
-            {Props.desc.map((it, idx) => (
+            {selectData.desc.map((it, idx) => (
               <li key={"desc" + idx}>{it}</li>
             ))}
           </ul>

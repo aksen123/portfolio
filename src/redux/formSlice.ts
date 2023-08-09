@@ -12,12 +12,12 @@ import { projectData, ProjectType } from "../data/data";
 //   skill: string[];
 // };
 type InitType = {
-  allData : ProjectType[];
+  formArray : ProjectType[];
   selectData: ProjectType
 }
 
 const initialState:InitType = {
-  allData: projectData,
+  formArray: [],
   selectData : projectData[0]
 }
 
@@ -26,11 +26,17 @@ const formSlice = createSlice({
   name: 'form',
   initialState,
   reducers: {
-    select(state, action:PayloadAction<{index: number}>) {
-      state.selectData = projectData[action.payload.index]
-    }
+    select(state, action:PayloadAction<{id: number, index: number }>) {
+      state.formArray[action.payload.index] = projectData[action.payload.id]
+    },
+    openForm(state, action:PayloadAction<{index: number}>) {
+      state.formArray.push(projectData[action.payload.index])
+    },
+    closeForm(state, action:PayloadAction<{index: number}>) {
+      state.formArray = state.formArray.filter((form,i) => i !== action.payload.index)
+    },
   }
 })
 
 export default formSlice.reducer;
-export const {select} = formSlice.actions
+export const {select,openForm,closeForm} = formSlice.actions
