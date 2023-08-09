@@ -3,7 +3,7 @@ import '../style/main.scss'
 import TaskBar from '../Components/taskbar/TaskBar'
 import StartMenu from '../Components/taskbar/StartMenu'
 import SubMenu from '../Components/taskbar/SubMenu'
-import IconWrap from '../Components/taskbar/IconWrap'
+import IconDescTop from '../Components/taskbar/IconDescTop'
 import WindowForm from '../Components/windowForm/WindowForm'
 import { useSelector,useDispatch } from 'react-redux'
 import { RootState,AppDispatch } from '../redux/store'
@@ -35,10 +35,9 @@ const Main = () => {
     <div className='Main' >
       <div className='main-screen' onClick={mainClick}>
 
-        <IconWrap
+        <IconDescTop
           title={'test'}
           iconImg={toolbar_img .folder}
-          classValue='descTop'
           onDoubleClick={()=>onDoubleClick(1)}
         />
       </div>

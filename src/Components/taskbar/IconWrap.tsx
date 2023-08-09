@@ -7,32 +7,23 @@ type IconProps = {
   title: string;
   classValue: string;
   onClick?: ()=>void
-  onDoubleClick?: () => void;
+
 };
 
 const IconWrap = ({
   iconImg,
   title,
   classValue,
-  onClick, // start menu icon Click
-  onDoubleClick ,
+  onClick,
+
 
 }: IconProps) => {
-  const {iconValue} = useSelector((state: RootState)=>state.toggle)
-  const dispatch = useDispatch<AppDispatch>()
-  // console.log('iconValue :', iconValue)
-  
-  //descTop icon Click Event
-  const iconOnClick = (e:React.MouseEvent<HTMLDivElement>):void => {
-    e.stopPropagation()
-    dispatch(clickIcon({value: title}))
-  }
+
 
   return (
     <div
-      className={iconValue === title ? `Icon ${classValue} bg` : `Icon ${classValue}`}
-      onClick={onClick || iconOnClick}
-      onDoubleClick={onDoubleClick}
+      className={`Icon ${classValue}`}
+      onClick={onClick}
     >
       <img width={40} src={iconImg} alt=""/>
       <span >{title}</span>
