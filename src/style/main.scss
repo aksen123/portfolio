@@ -30,6 +30,7 @@ $mainColor : #2561D9;
       align-items: center;
       margin: 0;
       cursor: default;
+      position: absolute;
     }
     &.bg {
       background-color: rgba($color: $mainColor, $alpha: 0.8);

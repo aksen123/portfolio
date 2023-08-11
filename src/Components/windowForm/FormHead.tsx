@@ -11,7 +11,6 @@ type HeadType = {
   icon: string;
   title: string;
 };
-
 const FormHead = ({ id, icon, title }: HeadType) => {
   const dispatch = useDispatch<AppDispatch>();
   const { formToggle } = useSelector((state: RootState) => state.toggle);

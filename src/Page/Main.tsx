@@ -29,6 +29,8 @@ const Main = () => {
   console.log(formArray)
   const mainClick = ():void => {
     dispatch(hideMenu({value : ''}))
+    const test = document.querySelectorAll('.Icon');
+    test.forEach(it => it.classList.remove('bg'))
   }
 
   return (
@@ -40,6 +42,7 @@ const Main = () => {
           iconImg={toolbar_img .folder}
           onDoubleClick={()=>onDoubleClick(1)}
         />
+
       </div>
       {formArray.length > 0 && formArray.map((form,i) =>
         <WindowForm key={i} {...form} idx={i}/>
