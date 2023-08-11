@@ -26,11 +26,10 @@ const Main = () => {
    dispatch(openForm({index : id}))
   }
 
-  console.log(formArray)
   const mainClick = ():void => {
     dispatch(hideMenu({value : ''}))
-    const test = document.querySelectorAll('.Icon');
-    test.forEach(it => it.classList.remove('bg'))
+    const remove = document.querySelectorAll('.Icon');
+    remove.forEach(it => it.classList.remove('bg'))
   }
 
   return (

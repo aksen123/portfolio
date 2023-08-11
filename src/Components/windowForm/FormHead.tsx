@@ -1,8 +1,8 @@
-import React from "react";
+import React,{useRef} from "react";
 import "./windowForm.scss";
 import { handle_img } from "../../data/data";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleScreen, hideMenu } from "../../redux/toggleSlice";
+import { toggleScreen } from "../../redux/toggleSlice";
 import { closeForm } from "../../redux/formSlice";
 import { RootState, AppDispatch } from "../../redux/store";
 
@@ -17,18 +17,19 @@ const FormHead = ({ id, icon, title }: HeadType) => {
 
   const screenToggle = (): void => {
     dispatch(toggleScreen());
-    dispatch(hideMenu({ value: "" }));
   };
   const formClose = (id: number): void => {
     dispatch(closeForm({ index: id }));
     console.log(id)
   };
   const resizeImg = formToggle ? handle_img.resize : handle_img.maxsize;
+const testRef = useRef<HTMLDivElement>(null)
+
 
   return (
     <div
       className="titleWrap"
-      onClick={() => dispatch(hideMenu({ value: "" }))}
+      ref={testRef}
     >
       <div className="title">
         <img width={25} src={icon} alt="" />
