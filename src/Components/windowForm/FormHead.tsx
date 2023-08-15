@@ -30,6 +30,7 @@ const testRef = useRef<HTMLDivElement>(null)
     <div
       className="titleWrap"
       ref={testRef}
+      onDoubleClick={screenToggle}
     >
       <div className="title">
         <img width={25} src={icon} alt="" />

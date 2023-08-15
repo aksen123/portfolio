@@ -7,7 +7,6 @@ $mainColor : #2561D9;
   background-position: center;
   position: relative;
   overflow: hidden;
-
   .main-screen {
     width: 100%;
     height: calc(100vh - 40px);
@@ -16,6 +15,7 @@ $mainColor : #2561D9;
     flex-wrap: wrap;
     align-content: flex-start;
     z-index: -1;
+
   }
 
  
@@ -31,11 +31,13 @@ $mainColor : #2561D9;
       margin: 0;
       cursor: default;
       position: absolute;
+      
     }
     &.bg {
       background-color: rgba($color: $mainColor, $alpha: 0.8);
       color: #fff;
     }
+    
   }
 }
 

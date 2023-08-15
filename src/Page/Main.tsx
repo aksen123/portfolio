@@ -26,10 +26,11 @@ const Main = () => {
    dispatch(openForm({index : id}))
   }
 
-  const mainClick = ():void => {
+  const mainClick = (e:any):void => {
     dispatch(hideMenu({value : ''}))
     const remove = document.querySelectorAll('.Icon');
     remove.forEach(it => it.classList.remove('bg'))
+    console.log('바탕화면',e.clientY,e.currentTarget.offsetTop)
   }
 
   return (
@@ -37,7 +38,7 @@ const Main = () => {
       <div className='main-screen' onClick={mainClick}>
 
         <IconDescTop
-          title={'test'}
+          title={'test1'}
           iconImg={toolbar_img .folder}
           onDoubleClick={()=>onDoubleClick(1)}
         />

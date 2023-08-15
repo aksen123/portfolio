@@ -8,7 +8,7 @@ type IconProps = {
   title: string;
   onDoubleClick?: () => void;
 };
-type PositionType = {
+export type PositionType = {
   x: number;
   y: number;
 };
@@ -39,13 +39,23 @@ const IconDescTop = ({ iconImg, title, onDoubleClick }: IconProps) => {
     iconRef.current?.classList.add('bg')
   }
   const onDrag = (e: React.DragEvent<HTMLDivElement>):void=> {
+    console.log("ing...")
   }
   const dragEnd = (e: React.DragEvent<HTMLDivElement>):void => {
     const IconPosition = {...position}
   IconPosition.x = e.clientX - mouseGap.x    
   IconPosition.y = e.clientY - mouseGap.y    
-    setPosition(IconPosition)
-    // iconRef.current?.classList.remove('bg')
+    if (
+      e.clientX - mouseGap.x < 0 ||
+      e.clientY - mouseGap.y < 0 ||
+      e.clientX + mouseGap.x > window.innerWidth || 
+      e.clientY + mouseGap.y > window.innerHeight - 40
+    ) {
+      setPosition(originPos)
+    } else {
+      setPosition(IconPosition)
+    }
+    
   }
   return (
     <div className={iconValue === title ? 'Icon descTop bg' : 'Icon descTop'}
@@ -54,6 +64,7 @@ const IconDescTop = ({ iconImg, title, onDoubleClick }: IconProps) => {
       onClick={iconOnClick}
       onDoubleClick={onDoubleClick}
       onDragStart={dragStart}
+      onDrag={onDrag}
       onDragEnd={dragEnd}
       style={{left: position.x, top: position.y}}
     >
