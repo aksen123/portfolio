@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "../../redux/store";
 import { hideMenu } from "../../redux/toggleSlice";
 import { PositionType } from "../taskbar/IconDescTop";
-
+import { formPosition } from "../../redux/formSlice";
 export type selectType = ProjectType & {
   idx: number;
 };
@@ -16,15 +16,16 @@ export type selectType = ProjectType & {
 const WindowForm = (selectData: selectType) => {
   const dispatch = useDispatch<AppDispatch>();
   const { formToggle } = useSelector((state: RootState) => state.toggle);
+  const {formArray} = useSelector((state:RootState) => state.form)
   const screenWidth = formToggle ? "100%" : "800px";
   const screenHeight = formToggle ? "100%" : "650px";
 
   const [originPos, setOriginPos] = useState<PositionType>({ x: 0, y: 0 });
   const [mouseGap, setMouseGap] = useState<PositionType>({ x: 0, y: 0 });
   const [position, setPosition] = useState<PositionType>({ x: 0, y: 0 });
+  console.log(selectData.position)
 
   const dragStart = (e: React.DragEvent<HTMLDivElement>): void => {
-    // e.currentTarget.style.transform = 'translate(0, 0)'
 
     const mousePosition = { ...mouseGap };
     mousePosition.x = e.clientX -e.currentTarget.offsetLeft ;
@@ -42,8 +43,14 @@ const WindowForm = (selectData: selectType) => {
     const IconPosition = { ...position };
     IconPosition.x = e.clientX - mouseGap.x;
     IconPosition.y = e.clientY - mouseGap.y;
-
-    setPosition(IconPosition);
+    dispatch(
+      formPosition({
+        idx: selectData.idx,
+        x: IconPosition.x,
+        y: IconPosition.y,
+      })
+    );
+    // setPosition(IconPosition);
   };
 
   const dragEnd = (e: React.DragEvent<HTMLDivElement>): void => {
@@ -52,9 +59,23 @@ const WindowForm = (selectData: selectType) => {
     IconPosition.y = e.clientY - mouseGap.y;
     console.log({...IconPosition, y:0})
     if (IconPosition.y - e.currentTarget.offsetHeight / 2 < 0) {
-      setPosition(originPos);
+      dispatch(
+        formPosition({
+          idx: selectData.idx,
+          x: originPos.x,
+          y: originPos.y,
+        })
+      );
+      // setPosition(originPos);
     } else {
-      setPosition(IconPosition);
+      dispatch(
+        formPosition({
+          idx: selectData.idx,
+          x: IconPosition.x,
+          y: IconPosition.y,
+        })
+      );
+      // setPosition(IconPosition);
     }
   };
 
@@ -63,8 +84,8 @@ const WindowForm = (selectData: selectType) => {
       style={{
         width: `${screenWidth}`,
         height: `${screenHeight}`,
-        left: position.x === 0 ? "50%" : position.x,
-        top: position.y === 0 ? "50%" : position.y,
+        left: selectData.position.x === 0 ? "50%" : selectData.position.x,
+        top: selectData.position.y === 0 ? "50%" : selectData.position.y,
       }}
       className="WindowForm"
       draggable

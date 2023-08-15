@@ -112,6 +112,8 @@ export type ProjectType = {
   project_img: string[];
   url: string;
   skill: string[];
+  fullscreen : boolean;
+  position: {x:number, y:number}
 };
 export const projectData: ProjectType[] = [
   {
@@ -122,6 +124,8 @@ export const projectData: ProjectType[] = [
     project_img: [MainLogo,myComputer, folder, back],
     url: "https://www.naver.com/",
     skill: [react,html,bootstrap],
+    fullscreen : false,
+    position: {x:0, y:0}
   },
   {
     id: 1,
@@ -131,6 +135,8 @@ export const projectData: ProjectType[] = [
     project_img: [MainLogo,myComputer, folder, back],
     url: "naver.com/",
     skill: [react,html,bootstrap],
+    fullscreen : false,
+    position: {x:0, y:0}
   },
   {
     id: 2,
@@ -140,6 +146,8 @@ export const projectData: ProjectType[] = [
     project_img: [MainLogo,myComputer, folder, back],
     url: "http",
     skill: [react,html,bootstrap],
+    fullscreen : false,
+    position: {x:0, y:0}
   },
   {
     id: 3,
@@ -149,5 +157,7 @@ export const projectData: ProjectType[] = [
     project_img: [MainLogo,myComputer, folder, back],
     url: "abc",
     skill: [react,html,bootstrap],
+    fullscreen : false,
+    position: {x:0, y:0}
   },
 ];

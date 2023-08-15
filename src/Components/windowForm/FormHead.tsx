@@ -14,14 +14,15 @@ type HeadType = {
 const FormHead = ({ id, icon, title }: HeadType) => {
   const dispatch = useDispatch<AppDispatch>();
   const { formToggle } = useSelector((state: RootState) => state.toggle);
-
+  const {formArray} = useSelector((state:RootState) => state.form)
   const screenToggle = (): void => {
     dispatch(toggleScreen());
   };
   const formClose = (id: number): void => {
     dispatch(closeForm({ index: id }));
-    console.log(id)
+    console.log('close',id)
   };
+  // console.log(id,formArray)
   const resizeImg = formToggle ? handle_img.resize : handle_img.maxsize;
 const testRef = useRef<HTMLDivElement>(null)
 

@@ -57,7 +57,6 @@ const IconDescTop = ({ iconImg, title, onDoubleClick }: IconProps) => {
       }
     }
   }, [originPos]);
-  console.log(rects);
   const dragStart = (e: React.DragEvent<HTMLDivElement>): void => {
     const mousePosition = { ...mouseGap };
     mousePosition.x = e.clientX - e.currentTarget.offsetLeft;

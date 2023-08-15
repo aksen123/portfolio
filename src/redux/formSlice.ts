@@ -23,20 +23,30 @@ const initialState:InitType = {
 
 
 const formSlice = createSlice({
-  name: 'form',
+  name: "form",
   initialState,
   reducers: {
-    select(state, action:PayloadAction<{id: number, index: number }>) {
-      state.formArray[action.payload.index] = projectData[action.payload.id]
+    select(state, action: PayloadAction<{ id: number; index: number }>) {
+      state.formArray[action.payload.index] = projectData[action.payload.id];
     },
-    openForm(state, action:PayloadAction<{index: number}>) {
-      state.formArray.push(projectData[action.payload.index])
+    openForm(state, action: PayloadAction<{ index: number }>) {
+      state.formArray.push(projectData[action.payload.index]);
     },
-    closeForm(state, action:PayloadAction<{index: number}>) {
-      state.formArray = state.formArray.filter((form,i) => i !== action.payload.index)
+    closeForm(state, action: PayloadAction<{ index: number }>) {
+      // state.formArray = state.formArray.filter((form,i) => i !== action.payload.index);
+      state.formArray.splice(action.payload.index, 1);
     },
-  }
-})
+    formToggle(state, action: PayloadAction<{ id: number }>) {},
+    formPosition(
+      state,
+      action: PayloadAction<{ idx: number; x: number; y: number }>
+    ) {
+      state.formArray[action.payload.idx].position.x = action.payload.x
+      state.formArray[action.payload.idx].position.y = action.payload.y
+    },
+  },
+});
 
 export default formSlice.reducer;
-export const {select,openForm,closeForm} = formSlice.actions
+export const { select, openForm, closeForm, formToggle, formPosition } =
+  formSlice.actions;

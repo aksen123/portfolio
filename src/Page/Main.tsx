@@ -20,7 +20,7 @@ const Main = () => {
   const StartMenuToggle = useSelector((state: RootState) => state.toggle.startMenuToggle)
   const subMenu = useSelector((state: RootState) => state.toggle.subMenu)
 
-  
+  console.log(formArray)
   // 더블 클릭시 폴더 띄우기 
   const onDoubleClick = (id: number):void =>{
    dispatch(openForm({index : id}))
