@@ -27,7 +27,7 @@ const formSlice = createSlice({
   initialState,
   reducers: {
     select(state, action: PayloadAction<{ id: number; index: number }>) {
-      state.formArray[action.payload.index] = projectData[action.payload.id];
+      state.formArray[action.payload.index] ={...projectData[action.payload.id], position: {...state.formArray[action.payload.index].position} }
     },
     openForm(state, action: PayloadAction<{ index: number }>) {
       state.formArray.push(projectData[action.payload.index]);
