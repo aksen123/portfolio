@@ -26,11 +26,10 @@ const Main = () => {
    dispatch(openForm({index : id}))
   }
 
-  const mainClick = (e:any):void => {
+  const mainClick = ():void => {
     dispatch(hideMenu({value : ''}))
     const remove = document.querySelectorAll('.Icon');
     remove.forEach(it => it.classList.remove('bg'))
-    console.log('바탕화면',e.clientY,e.currentTarget.offsetTop)
   }
 
   return (
@@ -50,8 +49,6 @@ const Main = () => {
       {subMenu && <SubMenu />}
       {StartMenuToggle && <StartMenu />}
       <TaskBar />
-
-
     </div>
   )
 }
