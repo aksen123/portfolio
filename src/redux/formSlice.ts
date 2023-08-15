@@ -36,7 +36,9 @@ const formSlice = createSlice({
       // state.formArray = state.formArray.filter((form,i) => i !== action.payload.index);
       state.formArray.splice(action.payload.index, 1);
     },
-    formToggle(state, action: PayloadAction<{ id: number }>) {},
+    fullscreen(state, action: PayloadAction<{ id: number }>) {
+      state.formArray[action.payload.id].fullscreen = !state.formArray[action.payload.id].fullscreen
+    },
     formPosition(
       state,
       action: PayloadAction<{ idx: number; x: number; y: number }>
@@ -48,5 +50,5 @@ const formSlice = createSlice({
 });
 
 export default formSlice.reducer;
-export const { select, openForm, closeForm, formToggle, formPosition } =
+export const { select, openForm, closeForm, fullscreen, formPosition } =
   formSlice.actions;

@@ -17,8 +17,8 @@ const WindowForm = (selectData: selectType) => {
   const dispatch = useDispatch<AppDispatch>();
   const { formToggle } = useSelector((state: RootState) => state.toggle);
   const {formArray} = useSelector((state:RootState) => state.form)
-  const screenWidth = formToggle ? "100%" : "800px";
-  const screenHeight = formToggle ? "100%" : "650px";
+  const screenWidth = selectData.fullscreen ? "100%" : "800px";
+  const screenHeight = selectData.fullscreen ? "100%" : "650px";
 
   const [originPos, setOriginPos] = useState<PositionType>({ x: 0, y: 0 });
   const [mouseGap, setMouseGap] = useState<PositionType>({ x: 0, y: 0 });
@@ -58,7 +58,7 @@ const WindowForm = (selectData: selectType) => {
     IconPosition.x = e.clientX - mouseGap.x;
     IconPosition.y = e.clientY - mouseGap.y;
     console.log({...IconPosition, y:0})
-    if (IconPosition.y - e.currentTarget.offsetHeight / 2 < 0) {
+    if (IconPosition.y - e.currentTarget.offsetHeight / 2 < 0 ) {
       dispatch(
         formPosition({
           idx: selectData.idx,
@@ -84,8 +84,19 @@ const WindowForm = (selectData: selectType) => {
       style={{
         width: `${screenWidth}`,
         height: `${screenHeight}`,
-        left: selectData.position.x === 0 ? "50%" : selectData.position.x,
-        top: selectData.position.y === 0 ? "50%" : selectData.position.y,
+        left: selectData.fullscreen
+          ? 0
+          : selectData.position.x == 0
+          ? "50%"
+          : selectData.position.x,
+        top: selectData.fullscreen
+          ? 0
+          : selectData.position.y == 0
+          ? "50%"
+          : selectData.position.y,
+        transform: selectData.fullscreen
+          ? "translate(0,0)"
+          : "translate(-50%,-50%)",
       }}
       className="WindowForm"
       draggable

@@ -48,11 +48,11 @@ const IconDescTop = ({ iconImg, title, onDoubleClick }: IconProps) => {
   const iconRef = useRef<HTMLDivElement>(null);
   let rects: any[] = [];
   useEffect(() => {
-    let test = Math.floor(window.innerWidth / 70);
-    let test2 = Math.floor((window.innerHeight - 40) / 70);
+    let width = Math.floor(window.innerWidth / 70);
+    let height = Math.floor((window.innerHeight - 40) / 70);
 
-    for (let i = 0; i < test; i++) {
-      for (let j = 0; j < test2; j++) {
+    for (let i = 0; i < width; i++) {
+      for (let j = 0; j < height; j++) {
         rects = [...rects, new Rect(i * 70, j * 70, 70, 70)];
       }
     }
@@ -75,7 +75,7 @@ const IconDescTop = ({ iconImg, title, onDoubleClick }: IconProps) => {
     IconPosition.y = e.clientY - mouseGap.y;
 
     const changePosition: Rect = rects.find(rect => rect.check(e.clientX, e.clientY))
-
+    console.log(rects.find(rect => rect.check(e.clientX, e.clientY)), e.clientX,e.clientY)
     
     if (
       e.clientX - mouseGap.x < 0 ||

@@ -41,6 +41,16 @@ const Main = () => {
           iconImg={toolbar_img .folder}
           onDoubleClick={()=>onDoubleClick(1)}
         />
+        <IconDescTop
+          title={'test1'}
+          iconImg={toolbar_img .folder}
+          onDoubleClick={()=>onDoubleClick(1)}
+        />
+        <IconDescTop
+          title={'test1'}
+          iconImg={toolbar_img .folder}
+          onDoubleClick={()=>onDoubleClick(1)}
+        />
 
       </div>
       {formArray.length > 0 && formArray.map((form,i) =>

@@ -2,7 +2,7 @@ import React,{useRef} from "react";
 import "./windowForm.scss";
 import { handle_img } from "../../data/data";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleScreen } from "../../redux/toggleSlice";
+import { fullscreen } from "../../redux/formSlice";
 import { closeForm } from "../../redux/formSlice";
 import { RootState, AppDispatch } from "../../redux/store";
 
@@ -14,9 +14,9 @@ type HeadType = {
 const FormHead = ({ id, icon, title }: HeadType) => {
   const dispatch = useDispatch<AppDispatch>();
   const { formToggle } = useSelector((state: RootState) => state.toggle);
-  const {formArray} = useSelector((state:RootState) => state.form)
+
   const screenToggle = (): void => {
-    dispatch(toggleScreen());
+    dispatch(fullscreen({id: id}));
   };
   const formClose = (id: number): void => {
     dispatch(closeForm({ index: id }));

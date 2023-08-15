@@ -37,14 +37,12 @@ const toggleSlice = createSlice({
     clickIcon(state, action:PayloadAction<PayloadType>) {
       state.iconValue = action.payload.value
     },
-    toggleScreen(state) {
-      state.formToggle = !state.formToggle
-    }
+
   },
 });
 
 export default toggleSlice.reducer;
 
-export const { toggleStartMenu, toggleSubmenu, hideMenu,clickIcon,toggleScreen } = toggleSlice.actions;
+export const { toggleStartMenu, toggleSubmenu, hideMenu,clickIcon } = toggleSlice.actions;
 
 // export type ToggleType = ReturnType<typeof toggleSlice.reducer> 
