@@ -16,7 +16,7 @@ export type selectType = ProjectType & {
 const WindowForm = (selectData: selectType) => {
   const dispatch = useDispatch<AppDispatch>();
   const { formToggle } = useSelector((state: RootState) => state.toggle);
-  const {formArray} = useSelector((state:RootState) => state.form)
+
   const screenWidth = selectData.fullscreen ? "100%" : "800px";
   const screenHeight = selectData.fullscreen ? "100%" : "650px";
 
@@ -50,7 +50,7 @@ const WindowForm = (selectData: selectType) => {
         y: IconPosition.y,
       })
     );
-    // setPosition(IconPosition);
+    setPosition(IconPosition);
   };
 
   const dragEnd = (e: React.DragEvent<HTMLDivElement>): void => {
