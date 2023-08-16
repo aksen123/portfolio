@@ -18,7 +18,17 @@ type ToolType = {
 
 const Toolbar = ({url, icon}:ToolType) => {
 
-
+const test = () => {
+  window.open(
+    "https://www.naver.com/",
+    "_blank",
+    "width=700px,height=800px, top=300px, left=500px"
+    );
+    if(!document.fullscreen) {
+      console.log(document.fullscreen)
+      document.documentElement.requestFullscreen()
+    }
+}
 
   return (
     <div className="Toolbar">
@@ -79,11 +89,12 @@ const Toolbar = ({url, icon}:ToolType) => {
           <img src={toolbar_img.down} alt="" />
         </div>
         {/* onClick > go-button 추가하기 */}
-        <div className="go-button"> 
+ 
+        <div className="go-button" onClick={test}> 
           <img src={toolbar_img.go} alt="" />
-          {/* <a href={url}>이동</a> */}
           <span>이동</span>
         </div>
+
       </div>
     </div>
   );

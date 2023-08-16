@@ -5,7 +5,7 @@ import {useNavigate} from 'react-router-dom';
 const Test = () => {
   const navigate = useNavigate() 
   const abc = () => {
-    document.documentElement.requestFullscreen();
+    // document.documentElement.requestFullscreen();
     navigate('/test')
     // setTimeout(()=>{
     // },1000)

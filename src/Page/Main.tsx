@@ -26,7 +26,8 @@ const Main = () => {
   const onDoubleClick = (id: number): void => {
     dispatch(openForm({ index: id }));
   };
-  useEffect(() => {}, []);
+  useEffect(() => {
+  }, []);
   const mainClick = (): void => {
     dispatch(hideMenu({ value: "" }));
     const remove = document.querySelectorAll(".Icon");
@@ -34,7 +35,11 @@ const Main = () => {
   };
 
   return (
-    <div className="Main" ref={testRef}>
+    <div className="Main" ref={testRef} onClick={()=>{
+      if(!document.fullscreen) {
+        // document.documentElement.requestFullscreen()
+      }
+    }}>
       <div className="main-screen" onClick={mainClick}>
         <IconDescTop
           title={"test1"}
