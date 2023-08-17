@@ -12,7 +12,7 @@ import { formPosition, activeTab } from "../../redux/formSlice";
 export type selectType = ProjectType & {
   idx: number;
 };
-const WindowForm = (selectData: selectType) => {
+const InternetForm = (selectData: selectType) => {
   const dispatch = useDispatch<AppDispatch>();
   const { formToggle } = useSelector((state: RootState) => state.toggle);
 
@@ -116,4 +116,4 @@ const WindowForm = (selectData: selectType) => {
   );
 };
 
-export default WindowForm;
+export default InternetForm;

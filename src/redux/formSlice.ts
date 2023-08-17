@@ -42,7 +42,9 @@ const formSlice = createSlice({
       state.formArray[action.payload.id].fullscreen = !state.formArray[action.payload.id].fullscreen
     },
     hideForm(state,action: PayloadAction<{ idx: number }>) {
-      state.formArray[action.payload.idx].hide = !state.formArray[action.payload.idx].hide
+      const i = action.payload.idx
+      state.formArray[i] = {...state.formArray[i], hide: !state.formArray[i].hide, active: !state.formArray[i].active ? false : !state.formArray[i].active }
+      console.log(state.formArray[i].active)
     },
     formPosition(
       state,
@@ -52,7 +54,7 @@ const formSlice = createSlice({
       state.formArray[action.payload.idx].position.y = action.payload.y
     },
     activeTab(state, action: PayloadAction<{idx : number}>) {
-      state.formArray = state.formArray.map((form, i) => i == action.payload.idx ? {...form, active: !form.active} : {...form, active: false})
+      state.formArray = state.formArray.map((form, i) => i == action.payload.idx ? {...form, active: form.active ? true : !form.active} : {...form, active: false})
       console.log(state.formArray)
     }
   },

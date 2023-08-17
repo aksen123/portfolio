@@ -17,7 +17,7 @@ const WindowTab = ({title, icon, idx, active, hide}: TapType) => {
   const click = () =>{
     if(active) {
       dispatch(hideForm({idx : idx}))
-      dispatch(activeTab({idx : idx}))
+      // dispatch(activeTab({idx : idx}))
     }else if(!active && hide){
       dispatch(hideForm({idx : idx}))
       dispatch(activeTab({idx : idx}))

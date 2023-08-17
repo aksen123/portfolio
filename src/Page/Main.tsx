@@ -34,11 +34,7 @@ const Main = () => {
   };
 
   return (
-    <div className="Main" ref={testRef} onClick={()=>{
-      if(!document.fullscreen) {
-        // document.documentElement.requestFullscreen()
-      }
-    }}>
+    <div className="Main" ref={testRef}>
       <div className="main-screen" onClick={mainClick}>
         <IconDescTop
           title={"test1"}
