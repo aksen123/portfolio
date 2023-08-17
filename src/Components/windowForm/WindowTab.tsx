@@ -2,27 +2,32 @@ import React from 'react'
 import { menu_img } from '../../data/data'
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from '../../redux/store';
-import { activeTab } from '../../redux/formSlice';
+import { activeTab,hideForm } from '../../redux/formSlice';
 type TapType = {
   title: string;
   icon: string;
   idx: number;
-  active: boolean
+  active: boolean;
+  hide: boolean
 }
 
-const WindowTab = ({title, icon, idx, active}: TapType) => {
+const WindowTab = ({title, icon, idx, active, hide}: TapType) => {
 
   const dispatch = useDispatch<AppDispatch>()
   const click = () =>{
     if(active) {
-      active = false
-      console.log(active)
+      dispatch(hideForm({idx : idx}))
+      dispatch(activeTab({idx : idx}))
+    }else if(!active && hide){
+      dispatch(hideForm({idx : idx}))
+      dispatch(activeTab({idx : idx}))
+    } else if(!active &&!hide) {
+      dispatch(activeTab({idx : idx}))
     }
-    dispatch(activeTab({idx : idx}))
   }
 
   return (
-    <div className={active ? `window-tab on` : `window-tab`} onClick={click}>
+    <div className={ active ? `window-tab on` : `window-tab`} onClick={click}>
       <img width={30} src={icon} alt="" />
       <span>{title}</span>
     </div>

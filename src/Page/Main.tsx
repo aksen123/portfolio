@@ -10,7 +10,7 @@ import { RootState, AppDispatch } from "../redux/store";
 import { hideMenu } from "../redux/toggleSlice";
 import { projectData, toolbar_img } from "../data/data";
 import { openForm } from "../redux/formSlice";
-
+import Test3 from "../Components/Test3";
 const Main = () => {
   const testRef = useRef<any>(null);
 
@@ -56,6 +56,7 @@ const Main = () => {
           onDoubleClick={() => onDoubleClick(1)}
         />
       </div>
+      
       {formArray.length > 0 &&
         formArray.map((form, i) => <WindowForm key={i} {...form} idx={i} />)}
       {subMenu && <SubMenu />}

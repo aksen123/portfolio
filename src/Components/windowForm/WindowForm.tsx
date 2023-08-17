@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "../../redux/store";
 import { hideMenu } from "../../redux/toggleSlice";
 import { PositionType } from "../taskbar/IconDescTop";
-import { formPosition } from "../../redux/formSlice";
+import { formPosition, activeTab } from "../../redux/formSlice";
 export type selectType = ProjectType & {
   idx: number;
 };
@@ -76,7 +76,10 @@ const WindowForm = (selectData: selectType) => {
       // setPosition(IconPosition);
     }
   };
-
+  const test  =() => {
+    dispatch(hideMenu({ value: "" }));
+    dispatch(activeTab({idx: selectData.idx}))
+  }
   return (
     <div
       style={{
@@ -96,21 +99,17 @@ const WindowForm = (selectData: selectType) => {
           ? "translate(0,0)"
           : "translate(-50%,-50%)",
       }}
-      className="WindowForm"
+      className={selectData.hide ?"WindowForm hide" : "WindowForm"}
       draggable
       onDragStart={dragStart}
       onDrag={onDrag}
       onDragEnd={dragEnd}
-      onClick={() => {
-        dispatch(hideMenu({ value: "" }));
-      }}
+      onClick={test}
     >
       <FormHead
-        id={selectData.idx}
-        icon={selectData.icon}
-        title={selectData.title}
+      {...selectData}
       />
-      <div className="window-body">
+      <div className={selectData.active ?"window-body" :"window-body out" }>
         <Toolbar url={selectData.url} icon={selectData.icon} />
         <FormMain {...selectData} />
       </div>

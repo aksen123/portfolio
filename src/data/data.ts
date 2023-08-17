@@ -114,7 +114,8 @@ export type ProjectType = {
   skill: string[];
   fullscreen : boolean;
   position: {x:number, y:number};
-  active: boolean
+  active: boolean;
+  hide: boolean
 };
 export const projectData: ProjectType[] = [
   {
@@ -127,7 +128,8 @@ export const projectData: ProjectType[] = [
     skill: [react,html,bootstrap],
     fullscreen : false,
     position: {x:0, y:0},
-    active: true
+    active: true,
+    hide: false
   },
   {
     id: 1,
@@ -139,7 +141,8 @@ export const projectData: ProjectType[] = [
     skill: [react,html,bootstrap],
     fullscreen : false,
     position: {x:0, y:0},
-    active: true
+    active: true,
+    hide: false
   },
   {
     id: 2,
@@ -151,7 +154,8 @@ export const projectData: ProjectType[] = [
     skill: [react,html,bootstrap],
     fullscreen : false,
     position: {x:0, y:0},
-    active: true
+    active: true,
+    hide: false
   },
   {
     id: 3,
@@ -163,6 +167,7 @@ export const projectData: ProjectType[] = [
     skill: [react,html,bootstrap],
     fullscreen : false,
     position: {x:0, y:0},
-    active: true
+    active: true,
+    hide: false
   },
 ];
