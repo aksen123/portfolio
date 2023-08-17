@@ -23,7 +23,6 @@ const WindowForm = (selectData: selectType) => {
   const [originPos, setOriginPos] = useState<PositionType>({ x: 0, y: 0 });
   const [mouseGap, setMouseGap] = useState<PositionType>({ x: 0, y: 0 });
   const [position, setPosition] = useState<PositionType>({ x: 0, y: 0 });
-  console.log(selectData.position)
 
   const dragStart = (e: React.DragEvent<HTMLDivElement>): void => {
 
@@ -36,7 +35,6 @@ const WindowForm = (selectData: selectType) => {
     originPosition.y = e.currentTarget.offsetTop;
     setOriginPos(originPosition);
 
-    console.log("start", mousePosition);
   };
 
   const onDrag = (e: React.DragEvent<HTMLDivElement>): void => {
@@ -107,7 +105,6 @@ const WindowForm = (selectData: selectType) => {
         dispatch(hideMenu({ value: "" }));
       }}
     >
-      <div className="testForm">|</div>
       <FormHead
         id={selectData.idx}
         icon={selectData.icon}

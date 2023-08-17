@@ -30,6 +30,7 @@ const formSlice = createSlice({
       state.formArray[action.payload.index] ={...projectData[action.payload.id], position: {...state.formArray[action.payload.index].position} }
     },
     openForm(state, action: PayloadAction<{ index: number }>) {
+      state.formArray = state.formArray.map((form) => form = {...form, active: false})
       state.formArray.push(projectData[action.payload.index]);
     },
     closeForm(state, action: PayloadAction<{ index: number }>) {
@@ -46,9 +47,19 @@ const formSlice = createSlice({
       state.formArray[action.payload.idx].position.x = action.payload.x
       state.formArray[action.payload.idx].position.y = action.payload.y
     },
+    activeTab(state, action: PayloadAction<{idx : number}>) {
+      state.formArray = state.formArray.map((form, i) => i == action.payload.idx ? {...form, active: true} : {...form, active: false})
+      console.log(state.formArray)
+    }
   },
 });
 
 export default formSlice.reducer;
-export const { select, openForm, closeForm, fullscreen, formPosition } =
-  formSlice.actions;
+export const {
+  select,
+  openForm,
+  closeForm,
+  fullscreen,
+  formPosition,
+  activeTab,
+} = formSlice.actions;

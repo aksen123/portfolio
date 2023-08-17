@@ -1,13 +1,14 @@
 import React from 'react'
 import '../../style/main.scss'
 import DateWrap from './DateWrap'
-import { AppDispatch } from '../../redux/store'
+import { AppDispatch,RootState } from '../../redux/store'
 import { toggleStartMenu, hideMenu } from '../../redux/toggleSlice'
-import { useDispatch } from 'react-redux'
+import { useDispatch,useSelector } from 'react-redux'
+import WindowTab from '../windowForm/WindowTab'
 const TaskBar = () => {
 
   const dispatch = useDispatch<AppDispatch>()
-
+  const { formArray } = useSelector((state: RootState) => state.form);
   return (
     <div className='Taskbar-wrap'>
       <div 
@@ -16,7 +17,9 @@ const TaskBar = () => {
       >
 
       </div>
-      <div className='taskbar'></div>
+      <div className='taskbar'>
+        {formArray.length > 0 && formArray.map((form, i) => <WindowTab title={form.title} icon={form.icon} idx={i} active={form.active}/>)}
+      </div>
       <DateWrap />
     </div>
   )
