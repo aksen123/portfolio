@@ -63,7 +63,6 @@ const InternetForm = (selectData: selectType) => {
           y: originPos.y,
         })
       );
-      // setPosition(originPos);
     } else {
       dispatch(
         formPosition({
@@ -72,7 +71,6 @@ const InternetForm = (selectData: selectType) => {
           y: IconPosition.y,
         })
       );
-      // setPosition(IconPosition);
     }
   };
   const onClick  =() => {

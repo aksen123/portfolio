@@ -2,19 +2,17 @@ import React,{useRef} from "react";
 import "./windowForm.scss";
 import { handle_img } from "../../data/data";
 import { useDispatch, useSelector } from "react-redux";
-import { fullscreen,closeForm, hideForm } from "../../redux/formSlice";
+import { fullscreen,closeForm, hideForm, activeTab } from "../../redux/formSlice";
 import { RootState, AppDispatch } from "../../redux/store";
+import { selectType } from "./WindowForm";
 
-type HeadType = {
-  idx: number;
-  icon: string;
-  title: string;
-  active: boolean
-};
-const FormHead = ({ idx, icon, title,active }: HeadType) => {
+
+const FormHead = ({ idx, icon, title,active, hide }: selectType) => {
   const dispatch = useDispatch<AppDispatch>();
   const { formToggle } = useSelector((state: RootState) => state.toggle);
-  const hide = ():void => {
+
+  const onClickHide = (e:React.MouseEvent<HTMLImageElement>):void => {
+    e.stopPropagation()
     dispatch(hideForm({idx : idx}))
   }
   const screenToggle = (): void => {
@@ -40,9 +38,12 @@ const testRef = useRef<HTMLDivElement>(null)
         <span>{title}</span>
       </div>
       <div className="control-buttons">
-        <img width={25} src={handle_img.miniSize} alt="최소화" onClick={hide}/>
+        <img width={25} src={handle_img.miniSize} alt="최소화" onClick={onClickHide}/>
         <img onClick={screenToggle} width={25} src={resizeImg} alt="최대화" />
-        <img width={25} src={handle_img.close} alt="닫기" onClick={()=>formClose(idx)}/>
+        <img width={25} src={handle_img.close} alt="닫기" onClick={(e)=>{
+          formClose(idx)
+          e.stopPropagation();
+          }}/>
       </div>
     </div>
   );

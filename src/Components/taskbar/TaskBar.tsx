@@ -18,7 +18,7 @@ const TaskBar = () => {
 
       </div>
       <div className='taskbar'>
-        {formArray.length > 0 && formArray.map((form, i) => <WindowTab {...form} idx={i}/>)}
+        {formArray.length > 0 && formArray.map((form, i) => <WindowTab key={i} {...form} idx={i}/>)}
       </div>
       <DateWrap />
     </div>
