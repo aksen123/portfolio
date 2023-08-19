@@ -19,8 +19,8 @@ const WindowForm = (selectData: selectType) => {
   const screenWidth = selectData.fullscreen ? "100%" : "800px";
   const screenHeight = selectData.fullscreen ? "calc(100% - 40px)" : "650px";
 
-  const [originPos, setOriginPos] = useState<PositionType>({ x: 0, y: 0 });
-  const [mouseGap, setMouseGap] = useState<PositionType>({ x: 0, y: 0 });
+  const [originPos, setOriginPos] = useState<{x:number,y:number}>({ x: 0, y: 0 });
+  const [mouseGap, setMouseGap] = useState<{x:number,y:number}>({ x: 0, y: 0 });
   const [position, setPosition] = useState<PositionType>({ x: 0, y: 0 });
 
   const dragStart = (e: React.DragEvent<HTMLDivElement>): void => {

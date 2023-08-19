@@ -11,6 +11,31 @@ import { hideMenu } from "../redux/toggleSlice";
 import { projectData, toolbar_img } from "../data/data";
 import { openForm } from "../redux/formSlice";
 import Test3 from "../Components/Test3";
+
+export class Rect {
+  constructor(
+    public x: number,
+    public y: number,
+    public width: number,
+    public height: number
+  ) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+  }
+  public check(x: number, y: number): boolean {
+    return (
+      this.x <= x &&
+      x <= this.x + this.width &&
+      this.y <= y &&
+      y <= this.y + this.height
+    );
+  }
+}
+
+
+
 const Main = () => {
   const testRef = useRef<any>(null);
 
@@ -26,32 +51,40 @@ const Main = () => {
     dispatch(openForm({ index: id }));
     dispatch(hideMenu({value:''}))
   };
-  useEffect(() => {
-  }, []);
+   const rects = (): Rect[] => {
+    let rects: Rect[] = [];
+    let width = Math.floor(window.innerWidth / 70);
+    let height = Math.floor((window.innerHeight - 40) / 70);
+
+    for (let i = 0; i < width; i++) {
+      for (let j = 0; j < height; j++) {
+        rects = [...rects, new Rect(i * 70, j * 70, 70, 70)];
+      }
+    }
+    return rects
+  }
+  console.log(rects()[0])
   const mainClick = (): void => {
     dispatch(hideMenu({ value: "" }));
     const remove = document.querySelectorAll(".Icon");
     remove.forEach((it) => it.classList.remove("bg"));
   };
-
+  
   return (
     <div className="Main" ref={testRef}>
       <div className="main-screen" onClick={mainClick}>
-        <IconDescTop
-          title={"test1"}
-          iconImg={toolbar_img.folder}
-          onDoubleClick={() => onDoubleClick(1)}
+      {projectData.map((data,i) => (
+        <IconDescTop 
+          title={data.title}
+          iconImg={data.icon}
+          onDoubleClick={()=>onDoubleClick(data.id)}
+          rects={()=>rects()}
+          initX={rects()[i].x}
+          initY={rects()[i].y}
         />
-        <IconDescTop
-          title={"test1"}
-          iconImg={toolbar_img.folder}
-          onDoubleClick={() => onDoubleClick(1)}
-        />
-        <IconDescTop
-          title={"test1"}
-          iconImg={toolbar_img.folder}
-          onDoubleClick={() => onDoubleClick(1)}
-        />
+
+      ))}
+
       </div>
       
       {formArray.length > 0 &&

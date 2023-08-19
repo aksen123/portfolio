@@ -31,11 +31,22 @@ $mainColor : #2561D9;
       margin: 0;
       cursor: default;
       position: absolute;
-      
+      span {
+        width: 100%;
+        text-align: center;
+        text-overflow: ellipsis;
+        white-space:  nowrap;
+        overflow: hidden;
+      }
     }
     &.bg {
       background-color: rgba($color: $mainColor, $alpha: 0.8);
       color: #fff;
+    }
+    .iconTitle {
+      white-space:pre-wrap;
+      font-size: 12px;
+      width: auto;
     }
     
   }

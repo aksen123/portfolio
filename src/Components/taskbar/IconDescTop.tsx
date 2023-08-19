@@ -2,38 +2,21 @@ import React, { useState, useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "../../redux/store";
 import { clickIcon } from "../../redux/toggleSlice";
-
+import { Rect } from "../../Page/Main";
 type IconProps = {
   iconImg: string;
   title: string;
   onDoubleClick?: () => void;
+  rects: ()=> Rect[];
+  initX: number;
+  initY: number;
 };
 export type PositionType = {
-  x: number;
-  y: number;
+  x: number | undefined;
+  y: number | undefined;
 };
-class Rect {
-  constructor(
-    public x: number,
-    public y: number,
-    public width: number,
-    public height: number
-  ) {
-    this.x = x;
-    this.y = y;
-    this.width = width;
-    this.height = height;
-  }
-  public check(x: number, y: number): boolean {
-    return (
-      this.x <= x &&
-      x <= this.x + this.width &&
-      this.y <= y &&
-      y <= this.y + this.height
-    );
-  }
-}
-const IconDescTop = ({ iconImg, title, onDoubleClick }: IconProps) => {
+
+const IconDescTop = ({ iconImg, title, onDoubleClick ,rects, initX, initY }: IconProps) => {
   const { iconValue } = useSelector((state: RootState) => state.toggle);
   const dispatch = useDispatch<AppDispatch>();
 
@@ -42,50 +25,41 @@ const IconDescTop = ({ iconImg, title, onDoubleClick }: IconProps) => {
     dispatch(clickIcon({ value: title }));
   };
 
-  const [originPos, setOriginPos] = useState<PositionType>({ x: 0, y: 0 });
-  const [mouseGap, setMouseGap] = useState<PositionType>({ x: 0, y: 0 });
+  const [originPos, setOriginPos] = useState<{x:number,y:number}>({ x: 0, y: 0 });
+  const [mouseGap, setMouseGap] = useState<{x:number,y:number}>({ x: 0, y: 0 });
   const [position, setPosition] = useState<PositionType>({ x: 0, y: 0 });
   const iconRef = useRef<HTMLDivElement>(null);
-  let rects: any[] = [];
-  useEffect(() => {
-    let width = Math.floor(window.innerWidth / 70);
-    let height = Math.floor((window.innerHeight - 40) / 70);
 
-    for (let i = 0; i < width; i++) {
-      for (let j = 0; j < height; j++) {
-        rects = [...rects, new Rect(i * 70, j * 70, 70, 70)];
-      }
-    }
-  }, [originPos]);
+
   const dragStart = (e: React.DragEvent<HTMLDivElement>): void => {
-    const mousePosition = { ...mouseGap };
-    mousePosition.x = e.clientX - e.currentTarget.offsetLeft;
-    mousePosition.y = e.clientY - e.currentTarget.offsetTop;
-    setMouseGap(mousePosition);
+    // const mousePosition = { ...mouseGap };
+    // mousePosition.x = e.clientX - e.currentTarget.offsetLeft;
+    // mousePosition.y = e.clientY - e.currentTarget.offsetTop;
+    // setMouseGap(mousePosition);
     const originPosition = { ...originPos };
     originPosition.x = e.currentTarget.offsetLeft;
     originPosition.y = e.currentTarget.offsetTop;
     setOriginPos(originPosition);
+    console.log(originPosition)
     iconRef.current?.classList.add("bg");
   };
 
   const dragEnd = (e: React.DragEvent<HTMLDivElement>): void => {
     const IconPosition = { ...position };
-    IconPosition.x = e.clientX - mouseGap.x;
-    IconPosition.y = e.clientY - mouseGap.y;
+    // IconPosition.x = e.clientX - mouseGap.x;
+    // IconPosition.y = e.clientY - mouseGap.y;
 
-    const changePosition: Rect = rects.find(rect => rect.check(e.clientX, e.clientY))
-    console.log(rects.find(rect => rect.check(e.clientX, e.clientY)), e.clientX,e.clientY)
-    
+    const changePosition = rects().find(rect => rect.check(e.clientX, e.clientY))
+
     if (
-      e.clientX - mouseGap.x < 0 ||
-      e.clientY - mouseGap.y < 0 ||
-      e.clientX + mouseGap.x > window.innerWidth ||
-      e.clientY + mouseGap.y > window.innerHeight - 40
+      e.clientX  < 0 ||
+      e.clientY  < 0 ||
+      e.clientX > window.innerWidth ||
+      e.clientY > window.innerHeight - 40
     ) {
       setPosition(originPos);
     } else {
-      setPosition({x:changePosition.x, y:changePosition.y})
+      setPosition({x:changePosition?.x, y:changePosition?.y})
     }
   };
   return (
@@ -97,10 +71,10 @@ const IconDescTop = ({ iconImg, title, onDoubleClick }: IconProps) => {
       onDoubleClick={onDoubleClick}
       onDragStart={dragStart}
       onDragEnd={dragEnd}
-      style={{ left: position.x, top: position.y }}
+      style={{ left: position.x == 0 ? initX : position.x , top: position.y == 0 ? initY : position.y  }}
     >
       <img width={40} src={iconImg} alt="" />
-      <span>{title}</span>
+      <span className={iconValue === title ? title.length > 8 ? "iconTitle" : '' : ''}>{title}</span>
     </div>
   );
 };
