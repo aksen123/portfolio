@@ -103,11 +103,11 @@ const InternetForm = (selectData: selectType) => {
       onDragEnd={dragEnd}
       onClick={onClick}
     >
-      <FormHead
+      {/* <FormHead
       {...selectData}
-      />
+      /> */}
       <div className={selectData.active ?"window-body" :"window-body out" }>
-        <Toolbar url={selectData.url} icon={selectData.icon} />
+        {/* <Toolbar url={selectData.url} icon={selectData.icon} /> */}
         <FormMain {...selectData} />
       </div>
     </div>

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "../../redux/store";
 import { clickIcon } from "../../redux/toggleSlice";
 import { Rect } from "../../Page/Main";
+
 type IconProps = {
   iconImg: string;
   title: string;
@@ -26,16 +27,11 @@ const IconDescTop = ({ iconImg, title, onDoubleClick ,rects, initX, initY }: Ico
   };
 
   const [originPos, setOriginPos] = useState<{x:number,y:number}>({ x: 0, y: 0 });
-  const [mouseGap, setMouseGap] = useState<{x:number,y:number}>({ x: 0, y: 0 });
   const [position, setPosition] = useState<PositionType>({ x: 0, y: 0 });
   const iconRef = useRef<HTMLDivElement>(null);
 
 
   const dragStart = (e: React.DragEvent<HTMLDivElement>): void => {
-    // const mousePosition = { ...mouseGap };
-    // mousePosition.x = e.clientX - e.currentTarget.offsetLeft;
-    // mousePosition.y = e.clientY - e.currentTarget.offsetTop;
-    // setMouseGap(mousePosition);
     const originPosition = { ...originPos };
     originPosition.x = e.currentTarget.offsetLeft;
     originPosition.y = e.currentTarget.offsetTop;
@@ -46,8 +42,6 @@ const IconDescTop = ({ iconImg, title, onDoubleClick ,rects, initX, initY }: Ico
 
   const dragEnd = (e: React.DragEvent<HTMLDivElement>): void => {
     const IconPosition = { ...position };
-    // IconPosition.x = e.clientX - mouseGap.x;
-    // IconPosition.y = e.clientY - mouseGap.y;
 
     const changePosition = rects().find(rect => rect.check(e.clientX, e.clientY))
 

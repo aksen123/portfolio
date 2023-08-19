@@ -63,7 +63,6 @@ const Main = () => {
     }
     return rects
   }
-  console.log(rects()[0])
   const mainClick = (): void => {
     dispatch(hideMenu({ value: "" }));
     const remove = document.querySelectorAll(".Icon");
@@ -75,6 +74,7 @@ const Main = () => {
       <div className="main-screen" onClick={mainClick}>
       {projectData.map((data,i) => (
         <IconDescTop 
+        key={i}
           title={data.title}
           iconImg={data.icon}
           onDoubleClick={()=>onDoubleClick(data.id)}

@@ -65,7 +65,6 @@ const formSlice = createSlice({
           ? { ...form, active: form.active ? true : !form.active, zIndex: ++state.form_zIndex }
           : { ...form, active: false }
       );
-      console.log(...state.formArray);
     },
   },
 });

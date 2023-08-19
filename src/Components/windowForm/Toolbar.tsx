@@ -1,6 +1,5 @@
 import React from "react";
-import { toolbar_img,ProjectType } from "../../data/data";
-
+import { toolbar_img, ProjectType } from "../../data/data";
 const menuTitle: string[] = [
   "파일(F)",
   "편집(E)",
@@ -9,16 +8,12 @@ const menuTitle: string[] = [
   "도구(T)",
   "도움말(H)",
 ];
-type ToolType = {
-  url: string;
-  icon: string
-}
 
 
-
-const Toolbar = ({url, icon}:ToolType) => {
-
-
+const Toolbar = ({ url, icon, zIndex }: ProjectType) => {
+  const onClick = (e: React.DragEvent<HTMLDivElement>) => {
+    // e.stopPropagation()
+  };
 
   return (
     <div className="Toolbar">
@@ -59,32 +54,32 @@ const Toolbar = ({url, icon}:ToolType) => {
         <div className="search-folder">
           <img width={30} src={toolbar_img.search} alt="" />
           <span>검색</span>
-          <img className="folders" width={30} src={toolbar_img.folders} alt="" />
+          <img
+            className="folders"
+            width={30}
+            src={toolbar_img.folders}
+            alt=""
+          />
           <span>폴더</span>
         </div>
         <img width={30} src={toolbar_img.thumbnail} alt="thumbnail" />
-          <img
-            className="arrow"
-            width={7}
-            src={toolbar_img.arrow}
-            alt="arrow"
-          />
+        <img className="arrow" width={7} src={toolbar_img.arrow} alt="arrow" />
       </div>
       <div className="search">
         <div className="search-address">주소(D)</div>
         <div className="search-bar">
           <div className="search-text">
-            <img width={15} src={icon} alt="" />{url}
-            </div>
+            <img width={15} src={icon} alt="" />
+            {url}
+          </div>
           <img src={toolbar_img.down} alt="" />
         </div>
         {/* onClick > go-button 추가하기 */}
- 
-        <div className="go-button" > 
+
+        <div className="go-button">
           <img src={toolbar_img.go} alt="" />
           <span>이동</span>
         </div>
-
       </div>
     </div>
   );
