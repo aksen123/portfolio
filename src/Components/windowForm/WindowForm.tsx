@@ -17,7 +17,7 @@ const WindowForm = (selectData: selectType) => {
   const { formToggle } = useSelector((state: RootState) => state.toggle);
 
   const screenWidth = selectData.fullscreen ? "100%" : "800px";
-  const screenHeight = selectData.fullscreen ? "100%" : "650px";
+  const screenHeight = selectData.fullscreen ? "calc(100% - 40px)" : "650px";
 
   const [originPos, setOriginPos] = useState<PositionType>({ x: 0, y: 0 });
   const [mouseGap, setMouseGap] = useState<PositionType>({ x: 0, y: 0 });
@@ -84,6 +84,7 @@ const WindowForm = (selectData: selectType) => {
       style={{
         width: `${screenWidth}`,
         height: `${screenHeight}`,
+        zIndex: selectData.zIndex,
         left: selectData.fullscreen
           ? 0
           : selectData.position.x == 0

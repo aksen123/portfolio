@@ -24,6 +24,7 @@ const Main = () => {
   // 더블 클릭시 폴더 띄우기
   const onDoubleClick = (id: number): void => {
     dispatch(openForm({ index: id }));
+    dispatch(hideMenu({value:''}))
   };
   useEffect(() => {
   }, []);

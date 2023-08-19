@@ -115,7 +115,8 @@ export type ProjectType = {
   fullscreen : boolean;
   position: {x:number, y:number};
   active: boolean;
-  hide: boolean
+  hide: boolean;
+  zIndex: number;
 };
 export const projectData: ProjectType[] = [
   {
@@ -129,7 +130,8 @@ export const projectData: ProjectType[] = [
     fullscreen : false,
     position: {x:0, y:0},
     active: true,
-    hide: false
+    hide: false,
+    zIndex: 0
   },
   {
     id: 1,
@@ -142,7 +144,8 @@ export const projectData: ProjectType[] = [
     fullscreen : false,
     position: {x:0, y:0},
     active: true,
-    hide: false
+    hide: false,
+    zIndex: 0
   },
   {
     id: 2,
@@ -155,7 +158,8 @@ export const projectData: ProjectType[] = [
     fullscreen : false,
     position: {x:0, y:0},
     active: true,
-    hide: false
+    hide: false,
+    zIndex: 0
   },
   {
     id: 3,
@@ -168,6 +172,7 @@ export const projectData: ProjectType[] = [
     fullscreen : false,
     position: {x:0, y:0},
     active: true,
-    hide: false
+    hide: false,
+    zIndex: 0
   },
 ];

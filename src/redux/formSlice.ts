@@ -13,12 +13,12 @@ import { projectData, ProjectType } from "../data/data";
 // };
 type InitType = {
   formArray: ProjectType[];
-  selectData: ProjectType;
+  form_zIndex:number;
 };
 
 const initialState: InitType = {
   formArray: [],
-  selectData: projectData[0],
+  form_zIndex: 0,
 };
 
 const formSlice = createSlice({
@@ -35,8 +35,7 @@ const formSlice = createSlice({
       state.formArray = state.formArray.map(
         (form) => (form = { ...form, active: false })
       );
-      state.formArray.push(projectData[action.payload.index]);
-      console.log(state.formArray);
+      state.formArray.push({...projectData[action.payload.index], zIndex: ++state.form_zIndex});
     },
     closeForm(state, action: PayloadAction<{ index: number }>) {
       state.formArray = state.formArray.filter((form,i) => i !== action.payload.index);
@@ -63,7 +62,7 @@ const formSlice = createSlice({
     activeTab(state, action: PayloadAction<{ idx: number }>) {
       state.formArray = state.formArray.map((form, i) =>
         i == action.payload.idx
-          ?{ ...form, active: form.active ? true : !form.active }
+          ? { ...form, active: form.active ? true : !form.active, zIndex: ++state.form_zIndex }
           : { ...form, active: false }
       );
       console.log(...state.formArray);

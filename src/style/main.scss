@@ -50,7 +50,7 @@ $mainColor : #2561D9;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  z-index: 1000;
 
   .taskbar {
     flex: 1;
@@ -106,7 +106,7 @@ $mainColor : #2561D9;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-
+  z-index: 1000;
   // background: rgb(68,128,247);
   .Icon {
     display: flex;
@@ -223,13 +223,13 @@ $mainColor : #2561D9;
 // ====== SubMenu =======
 .SubMenu {
   width: 240px;
-  height: 700px;
+  height: 550px;
   position: absolute;
   bottom: 120px;
   left: 220px;
   background-color: #fff;
   box-shadow: 2px 2px 5px 0 #000;
-  z-index: 1;
+  z-index: 1001;
   
     .Icon.menu {
       padding: 5px;
