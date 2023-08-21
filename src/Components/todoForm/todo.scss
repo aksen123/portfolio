@@ -2,45 +2,52 @@
   width: 100%;
   height: 100%;
   background-color: #fff;
-  display:  flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   padding-bottom: 20px;
-  overflow:auto;
-
+  overflow: auto;
 }
+
 .CreateTodo {
   text-align: center;
   width: 60%;
   margin-bottom: 20px;
-   input {
+
+  input {
     width: 50%;
     height: 30px;
     outline: none;
     font-size: 15px;
-    border:  none;
-    border-bottom:  1px solid #eee;
+    border: none;
+    border-bottom: 1px solid #eee;
+
     &:focus {
       border-bottom: 1px solid #2561D9;
     }
   }
 }
+
 .listWrap {
   display: flex;
   gap: 20px;
-  width: 100%;
+  width: calc(100% - 5%);
   justify-content: center;
   flex-direction: column;
-    &.on {
-      // display:block;
-      flex-direction: row;
-      .TodoList {
-        width: 100%;
-        height: min-content;
-        display: inline-block;
-      }
+
+  &.on {
+    // display:block;
+    flex-direction: row;
+    width: calc(100% - 20px);
+    .TodoList {
+      width: 100%;
+      height: min-content;
+      display: inline-block;
+      min-width:min-content;
     }
+  }
 }
+
 .TodoList {
   border-radius: 10px;
   background-color: rgba(37, 97, 217, 0.5);
@@ -48,42 +55,94 @@
   box-shadow: 1px 1px 5px #000;
   // height: auto;
   min-height: 100px;
-  h2{
-      color: #fff;
-      border-bottom: 1px dotted #fff;
-      padding-bottom: 5px;
-    }
-}
-.TodoItem {
   // width: 100%;
-  padding: 10px;
-  border-bottom: 1px solid #2561D9;
-  display: flex;
-  justify-content: space-between;
-  .date {
-    margin-right: 10px;
-    font-weight: bold;
-  }
-  .todoText {
-    flex: 1;
-    margin-right: 10px;
-    // flex: 1;
-  }
-  button {
-    width: 60px;
-    padding: 5px;
-    margin-right: 5px;
-    border: none;
-    cursor: pointer;
-    // background-color: transparent;
-    &:hover {
-      background-color: rgba($color: #eee, $alpha: 0.7);
-    }
-    &:active {
-      box-shadow: inset 1px 1px 2px #000;
-    }
+  h2 {
+    color: #fff;
+    border-bottom: 1px dotted #fff;
+    padding-bottom: 5px;
   }
 }
+
+  .todoWrap {
+    // width: 100%;
+    padding: 10px;
+
+    border-bottom: 1px solid #2561D9;
+    display: flex;
+    align-items: center;
+    height: auto;
+    gap: 10px;
+    margin-bottom: 5px;
+    position: relative;
+
+    .date {
+      font-weight: bold;
+    }
+
+    .todoText {
+      display: block;
+      flex: 1;
+      // margin-right: 100px;
+      // padding: 10px;
+      min-width: 0;
+      height: 100%;
+      white-space: normal;
+    }
+
+    .done {
+      text-decoration: line-through;
+      color: rgba($color: #eee, $alpha: 0.5);
+    }
+    img {
+    }
+    .buttons {
+      // position: absolute;
+      // right: 10px;
+      width: 70px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    button {
+      width: calc(100% - 10px);
+      height: 30%;
+      padding: 1px;
+      margin-left: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      flex: 1;
+      img {
+        width: 20px;
+      }
+      // background-color: transparent;
+      &:hover {
+        background-color: rgba($color: #eee, $alpha: 0.7);
+      }
+
+      &:active {
+        box-shadow: inset 1px 1px 2px #000;
+      }
+    }
+  }
+  .correction {
+    display: none;
+    &.on {
+      display: block;
+    }
+    input {
+      width: 100%;
+      padding: 5px 0;
+      font-size: 20px;
+      border: none;
+      outline: none;
+      &::placeholder {
+        font-size: 15px;
+
+      }
+    }
+  }
+
 
 
 
@@ -120,4 +179,3 @@
 .TodoForm::-webkit-scrollbar-button:end:increment {
   background: url('../../images/icon/tooldropdown.png');
 }
-

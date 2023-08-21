@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { PayloadAction } from "@reduxjs/toolkit";
+
 export type TodoType = {
   id: number;
   date: string;
@@ -17,7 +18,7 @@ type InitType = {
 }
 
 const initialState: InitType = {
-  todoList: [],
+  todoList:  [],
 }
 
 const todoSlice = createSlice({
@@ -31,9 +32,17 @@ const todoSlice = createSlice({
     changCategory(state, action:PayloadAction<{id: number, category : Category }>) {
       const {id, category} = action.payload
       state.todoList.map(it => it.id === id ? it.category = category : it )
+    },
+    changeText(state,action:PayloadAction<{id : number, text: string}>) {
+      const {id, text} = action.payload
+      state.todoList.map(it => it.id === id ? it.text = text : it )
+    },
+    deleteTodo(state,action:PayloadAction<{id : number}>) {
+      const {id} = action.payload
+      state.todoList = state.todoList.filter(todo => todo.id !== id)
     }
   }
 })
 
 export default todoSlice.reducer
-export const {addTodo,changCategory} = todoSlice.actions
+export const { addTodo, changCategory, changeText, deleteTodo } = todoSlice.actions;
