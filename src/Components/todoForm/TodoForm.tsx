@@ -14,8 +14,8 @@ const TodoForm = ({title,screenToggle}: ProjectType) => {
 
       <div className={screenToggle ? 'listWrap on' : 'listWrap'}>
       <TodoList title='해야함' type={Category.TODO}/>
-      <TodoList title='하는중' type={Category.DOING}/>
-      <TodoList title='끝' type={Category.DONE}/>
+      <TodoList title='하는 중' type={Category.DOING}/>
+      <TodoList title='완료' type={Category.DONE}/>
 
       </div>
     </div>

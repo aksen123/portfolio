@@ -26,7 +26,12 @@ const CreateTodo = () => {
     <div className='CreateTodo'>
       <h1>할 일 목록</h1>
       <form onSubmit={add}>
-      <input value={text} onChange={onChange} type="text" name="todoInput" placeholder='내용 입력후, Enter를 누르세요'/>
+      <input value={text} onChange={onChange} type="text" className="todoInput" placeholder='내용 입력후, Enter를 누르세요'/>
+      <div className="boxWrap">
+      <input type="radio" name="test" id="" />
+      <input type="radio" name="test" id="" />
+      <input type="radio" name="test" id="" />
+      </div>
       </form>
     </div>
   )
