@@ -8,18 +8,19 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "../../redux/store";
 import { hideMenu } from "../../redux/toggleSlice";
 import { PositionType } from "../taskbar/IconDescTop";
-import { formPosition, activeTab } from "../../redux/formSlice";
+import { activeTab } from "../../redux/formSlice";
 import Test3 from "../Test3";
+import TodoForm from "../todoForm/TodoForm";
 
 export type selectType = ProjectType & {
   idx: number;
+
 };
 const WindowForm = (selectData: selectType) => {
   const dispatch = useDispatch<AppDispatch>();
-  const { formToggle } = useSelector((state: RootState) => state.toggle);
 
-  const screenWidth = selectData.fullscreen ? "100%" : "800px";
-  const screenHeight = selectData.fullscreen ? "calc(100% - 40px)" : "650px";
+  const screenWidth = selectData.screenToggle ? "100%" : "800px";
+  const screenHeight = selectData.screenToggle ? "calc(100% - 40px)" : "650px";
 
  
   const onClick  =() => {
@@ -33,17 +34,17 @@ const WindowForm = (selectData: selectType) => {
         width: `${screenWidth}`,
         height: `${screenHeight}`,
         zIndex: selectData.zIndex,
-        left: selectData.fullscreen
+        left: selectData.screenToggle
           ? 0
           : selectData.position.x == 0
           ? "50%"
           : selectData.position.x,
-        top: selectData.fullscreen
+        top: selectData.screenToggle
           ? 0
           : selectData.position.y == 0
           ? "50%"
           : selectData.position.y,
-        transform: selectData.fullscreen
+        transform: selectData.screenToggle
           ? "translate(0,0)"
           : "translate(-50%,-50%)",
       }}
@@ -55,9 +56,9 @@ const WindowForm = (selectData: selectType) => {
         {...selectData}
       />
       <div className={selectData.active ? "window-body" : "window-body out"}>
-        <Toolbar {...selectData} />
-        <FormMain {...selectData} />
-        {/* <Test3 /> */}
+        
+        {selectData.type === "WINDOW_FORM" ? <Toolbar {...selectData} /> : null}
+        {selectData.type === "WINDOW_FORM" ? <FormMain {...selectData} /> : <TodoForm {...selectData}/>}
       </div>
     </div>
   );

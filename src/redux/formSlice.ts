@@ -42,8 +42,8 @@ const formSlice = createSlice({
       // state.formArray.splice(action.payload.index, 1);
     },
     fullscreen(state, action: PayloadAction<{ id: number }>) {
-      state.formArray[action.payload.id].fullscreen =
-        !state.formArray[action.payload.id].fullscreen;
+      state.formArray[action.payload.id].screenToggle =
+        !state.formArray[action.payload.id].screenToggle;
     },
     hideForm(state, action: PayloadAction<{ idx: number }>) {
       const i = action.payload.idx;

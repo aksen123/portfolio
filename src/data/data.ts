@@ -112,11 +112,12 @@ export type ProjectType = {
   project_img: string[];
   url: string;
   skill: string[];
-  fullscreen : boolean;
+  screenToggle : boolean;
   position: {x:number, y:number};
   active: boolean;
   hide: boolean;
   zIndex: number;
+  type: string;
 };
 export const projectData: ProjectType[] = [
   {
@@ -127,11 +128,12 @@ export const projectData: ProjectType[] = [
     project_img: [MainLogo,myComputer, folder, back],
     url: "https://www.naver.com/",
     skill: [react,html,bootstrap],
-    fullscreen : false,
+    screenToggle : false,
     position: {x:0, y:0},
     active: true,
     hide: false,
-    zIndex: 0
+    zIndex: 0,
+    type: 'WINDOW_FORM'
   },
   {
     id: 1,
@@ -141,11 +143,12 @@ export const projectData: ProjectType[] = [
     project_img: [MainLogo,myComputer, folder, back],
     url: "naver.com/",
     skill: [react,html,bootstrap],
-    fullscreen : false,
+    screenToggle : false,
     position: {x:0, y:0},
     active: true,
     hide: false,
-    zIndex: 0
+    zIndex: 0,
+    type: 'WINDOW_FORM'
   },
   {
     id: 2,
@@ -155,11 +158,12 @@ export const projectData: ProjectType[] = [
     project_img: [MainLogo,myComputer, folder, back],
     url: "http",
     skill: [react,html,bootstrap],
-    fullscreen : false,
+    screenToggle : false,
     position: {x:0, y:0},
     active: true,
     hide: false,
-    zIndex: 0
+    zIndex: 0,
+    type: 'WINDOW_FORM'
   },
   {
     id: 3,
@@ -169,10 +173,26 @@ export const projectData: ProjectType[] = [
     project_img: [MainLogo,myComputer, folder, back],
     url: "abc",
     skill: [react,html,bootstrap],
-    fullscreen : false,
+    screenToggle : false,
     position: {x:0, y:0},
     active: true,
     hide: false,
-    zIndex: 0
+    zIndex: 0,
+    type: 'WINDOW_FORM'
+  },
+  {
+    id: 4,
+    title: "todo",
+    icon: thumbnail,
+    desc: ["설명 1","설명 2", "설명 3", "설명 4", "설명 5"],
+    project_img: [MainLogo,myComputer, folder, back],
+    url: "abc",
+    skill: [react,html,bootstrap],
+    screenToggle : false,
+    position: {x:0, y:0},
+    active: true,
+    hide: false,
+    zIndex: 0,
+    type: 'TODO'
   },
 ];

@@ -37,17 +37,19 @@ $mainColor : #2561D9;
         text-overflow: ellipsis;
         white-space:  nowrap;
         overflow: hidden;
+        &.iconTitle {
+
+          white-space:pre-line;
+          font-size: 12px;
+          width: auto;
+        }
       }
     }
     &.bg {
       background-color: rgba($color: $mainColor, $alpha: 0.8);
       color: #fff;
     }
-    .iconTitle {
-      white-space:pre-wrap;
-      font-size: 12px;
-      width: auto;
-    }
+
     
   }
 }

@@ -13,24 +13,21 @@ const FormHead = ({
   icon,
   title,
   active,
-  hide,
+  screenToggle,
 }: selectType) => {
   const dispatch = useDispatch<AppDispatch>();
-  const { formToggle } = useSelector((state: RootState) => state.toggle);
 
   const onClickHide = (e: React.MouseEvent<HTMLImageElement>): void => {
     e.stopPropagation();
     dispatch(hideForm({ idx: idx }));
   };
-  const screenToggle = (): void => {
+  const toggleScreen = (): void => {
     dispatch(fullscreen({ id: idx }));
   };
   const formClose = (id: number): void => {
     dispatch(closeForm({ index: id }));
-    console.log("close", id);
   };
-  // console.log(id,formArray)
-  const resizeImg = formToggle ? handle_img.resize : handle_img.maxsize;
+  const resizeImg = screenToggle ? handle_img.resize : handle_img.maxsize;
   const testRef = useRef<HTMLDivElement>(null);
 
   const [originPos, setOriginPos] = useState<{x:number,y:number}>({ x: 0, y: 0 });
@@ -47,10 +44,11 @@ const FormHead = ({
       mousePosition.y = e.clientY - parent.offsetTop ;
       setMouseGap(mousePosition);
       const originPosition = { ...originPos };
-      originPosition.x = e.currentTarget.offsetLeft;
-      originPosition.y = e.currentTarget.offsetTop;
+      originPosition.x = parent.offsetLeft;
+      originPosition.y = parent.offsetTop;
       setOriginPos(originPosition);
     }
+
   }
 
   const onDrag = (e: React.DragEvent<HTMLDivElement>): void => {
@@ -78,10 +76,9 @@ const FormHead = ({
           formPosition({
             idx: idx,
             x: originPos.x,
-            y: 0,
+            y: originPos.y,
           })
           );
-          // setPosition(originPos);
         } else {
           dispatch(
             formPosition({
@@ -93,12 +90,11 @@ const FormHead = ({
             // setPosition(IconPosition);
           }
         }
-    console.log('end : ',e.currentTarget)
   };
   return (
     <div
       className={active ? "titleWrap" : "titleWrap out"}
-      onDoubleClick={screenToggle}
+      onDoubleClick={toggleScreen}
       draggable
       onDragStart={dragStart}
       onDrag={onDrag}
@@ -115,7 +111,7 @@ const FormHead = ({
           alt="최소화"
           onClick={onClickHide}
         />
-        <img onClick={screenToggle} width={25} src={resizeImg} alt="최대화" />
+        <img onClick={toggleScreen} width={25} src={resizeImg} alt="최대화" />
         <img
           width={25}
           src={handle_img.close}

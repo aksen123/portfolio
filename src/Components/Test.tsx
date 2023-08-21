@@ -6,9 +6,9 @@ const Test = () => {
   const navigate = useNavigate() 
   const abc = () => {
     // document.documentElement.requestFullscreen();
-    navigate('/test')
-    // setTimeout(()=>{
-    // },1000)
+    setTimeout(()=>{
+      navigate('/test')
+    },1000)
   }
   return (
     <div>

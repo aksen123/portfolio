@@ -62,7 +62,7 @@
   height: calc(100% - 35px);
   display: flex;
   flex-direction: column;
-
+  overflow: hidden;
   &.out {
     border: 5px solid #7587dd;
     border-top: none;

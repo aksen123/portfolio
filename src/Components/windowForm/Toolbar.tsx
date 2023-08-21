@@ -9,8 +9,7 @@ const menuTitle: string[] = [
   "도움말(H)",
 ];
 
-
-const Toolbar = ({ url, icon, zIndex }: ProjectType) => {
+const Toolbar = ({ url, icon, type }: ProjectType) => {
   const onClick = (e: React.DragEvent<HTMLDivElement>) => {
     // e.stopPropagation()
   };
