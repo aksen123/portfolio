@@ -5,7 +5,10 @@ import { AppDispatch } from '../../redux/store'
 import { changCategory,changeText,deleteTodo } from '../../redux/todoSlice'
 import pen from '../../images/pen.png'
 import trash from '../..//images/trash.png'
-const TodoItem = ({id, date,text,category}: TodoType) => {
+import Badge from './Badge'
+
+
+const TodoItem = ({id, date,text,category,badgeTitle,badgeClass}: TodoType) => {
   const [inputText, setInputText] = useState<string>('')
   const [inputDisplay, setInputDisplay] = useState<boolean>(false)
   const dispatch = useDispatch<AppDispatch>();
@@ -33,9 +36,12 @@ const TodoItem = ({id, date,text,category}: TodoType) => {
   return (
     <div className="TodoItem">
       <div className="todoWrap">
+        <div className='dateWrap'>
+        <Badge title={badgeTitle}id={badgeClass} bgClass={`${badgeClass} on`}/>
         <span className={category === Category.DONE ? "date done" : "date"}>
           {date.slice(2)}
         </span>
+        </div>
 
         <span
           className={category === Category.DONE ? "todoText done" : "todoText"}

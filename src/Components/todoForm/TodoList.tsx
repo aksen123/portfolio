@@ -13,7 +13,7 @@ const TodoList = ({title, type} : PropsType) => {
   return (
     <div className='TodoList'>
       <h2>{title}</h2>
-      {todoList.map((item,i) => item.category === type ? <TodoItem {...item}/> : false)}
+      {todoList.map((item,i) => item.category === type ? <TodoItem key={i} {...item}/> : false)}
     </div>
   )
 }

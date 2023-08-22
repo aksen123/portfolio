@@ -10,8 +10,7 @@ import { RootState, AppDispatch } from "../redux/store";
 import { hideMenu } from "../redux/toggleSlice";
 import { projectData, toolbar_img } from "../data/data";
 import { openForm } from "../redux/formSlice";
-import Test3 from "../Components/Test3";
-
+import { TodoType } from "../redux/todoSlice";
 export class Rect {
   constructor(
     public x: number,
@@ -34,9 +33,17 @@ export class Rect {
   }
 }
 
-
-
 const Main = () => {
+  const setTodo = (): [] => {
+    let todo = null;
+    if(localStorage.getItem('mwTodo') !== null) {
+       todo  = JSON.parse(localStorage.getItem('mwTodo') as string)
+    }else {
+      todo = []
+    }
+      return todo
+  }
+  setTodo()
   const testRef = useRef<any>(null);
 
   const dispatch = useDispatch<AppDispatch>();
@@ -49,9 +56,9 @@ const Main = () => {
   // 더블 클릭시 폴더 띄우기
   const onDoubleClick = (id: number): void => {
     dispatch(openForm({ index: id }));
-    dispatch(hideMenu({value:''}))
+    dispatch(hideMenu({ value: "" }));
   };
-   const rects = (): Rect[] => {
+  const rects = (): Rect[] => {
     let rects: Rect[] = [];
     let width = Math.floor(window.innerWidth / 70);
     let height = Math.floor((window.innerHeight - 40) / 70);
@@ -61,32 +68,30 @@ const Main = () => {
         rects = [...rects, new Rect(i * 70, j * 70, 70, 70)];
       }
     }
-    return rects
-  }
+    return rects;
+  };
   const mainClick = (): void => {
     dispatch(hideMenu({ value: "" }));
     const remove = document.querySelectorAll(".Icon");
     remove.forEach((it) => it.classList.remove("bg"));
   };
-  
+
   return (
     <div className="Main" ref={testRef}>
       <div className="main-screen" onClick={mainClick}>
-      {projectData.map((data,i) => (
-        <IconDescTop 
-        key={i}
-          title={data.title}
-          iconImg={data.icon}
-          onDoubleClick={()=>onDoubleClick(data.id)}
-          rects={()=>rects()}
-          initX={rects()[i].x}
-          initY={rects()[i].y}
-        />
-
-      ))}
-
+        {projectData.map((data, i) => (
+          <IconDescTop
+            key={i}
+            title={data.title}
+            iconImg={data.icon}
+            onDoubleClick={() => onDoubleClick(data.id)}
+            rects={() => rects()}
+            initX={rects()[i].x}
+            initY={rects()[i].y}
+          />
+        ))}
       </div>
-      
+
       {formArray.length > 0 &&
         formArray.map((form, i) => <WindowForm key={i} {...form} idx={i} />)}
       {subMenu && <SubMenu />}

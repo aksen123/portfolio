@@ -4,8 +4,16 @@ import { RootState,AppDispatch } from '../../redux/store'
 import { addTodo } from '../../redux/todoSlice'
 import { Category } from '../../redux/todoSlice'
 import dayjs from 'dayjs'
+import Badge from './Badge'
+
+export type BadgeType = {
+  title:string;
+  class:string
+}
+
 const CreateTodo = () => {
   const [text, setText] = useState<string>('')
+  const [badge, setBadge] = useState<BadgeType>({title:'테스트1', class:'test1'})
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
     setText(e.target.value)
   }
@@ -17,10 +25,13 @@ const CreateTodo = () => {
       id: Date.now(),
       date: dayjs().format("YYYY-MM-DD"),
       text: text,
-      category: Category.TODO
+      category: Category.TODO,
+      badgeTitle:badge.title,
+      badgeClass:badge.class
     }
     dispatch(addTodo({todo : newTodo}))
     setText('')
+    // setBadge({title: '', class: ''})
   }
   return (
     <div className='CreateTodo'>
@@ -28,14 +39,14 @@ const CreateTodo = () => {
       <form onSubmit={add}>
       <input value={text} onChange={onChange} type="text" className="todoInput" placeholder='내용 입력후, Enter를 누르세요'/>
       <div className="boxWrap">
-      <input type="radio" name="test" id="" />
-      <input type="radio" name="test" id="" />
-      <input type="radio" name="test" id="" />
+        <Badge title='테스트1' bgClass='test1' id='test1'setBadge={setBadge}/>
+        <Badge title='테스트2' id='test2'setBadge={setBadge}/>
+        <Badge title='테스트3' id='test3'setBadge={setBadge}/>
+        
       </div>
       </form>
     </div>
   )
 }
-// text , id ,date, category
 
 export default CreateTodo

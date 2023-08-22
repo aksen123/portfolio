@@ -9,7 +9,7 @@ import { RootState, AppDispatch } from "../../redux/store";
 import { hideMenu } from "../../redux/toggleSlice";
 import { PositionType } from "../taskbar/IconDescTop";
 import { activeTab } from "../../redux/formSlice";
-import Test3 from "../Test3";
+import Iframe from "./Iframe";
 import TodoForm from "../todoForm/TodoForm";
 
 export type selectType = ProjectType & {
@@ -19,18 +19,16 @@ export type selectType = ProjectType & {
 const WindowForm = (selectData: selectType) => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const screenWidth = selectData.screenToggle ? "100%" : "800px";
+  const screenWidth = selectData.screenToggle  ? "100%" : "800px";
   const screenHeight = selectData.screenToggle ? "calc(100% - 40px)" : "650px";
 
- 
   const onClick  =() => {
     dispatch(hideMenu({ value: "" }));
     dispatch(activeTab({idx: selectData.idx}))
-    console.log('form')
   }
   const todoPosition =  {
     width: `${screenWidth}`,
-    height: `100%`,
+    height: `calc(100% - 40px)`,
     zIndex: selectData.zIndex,
     right:0,
     top: 0,
@@ -39,17 +37,17 @@ const WindowForm = (selectData: selectType) => {
     width: `${screenWidth}`,
     height: `${screenHeight}`,
     zIndex: selectData.zIndex,
-    left: selectData.screenToggle
+    left: selectData.screenToggle 
       ? 0
       : selectData.position.x == 0
       ? "50%"
       : selectData.position.x,
-    top: selectData.screenToggle
+    top: selectData.screenToggle 
       ? 0
       : selectData.position.y == 0
       ? "50%"
       : selectData.position.y,
-    transform: selectData.screenToggle
+    transform: selectData.screenToggle 
       ? "translate(0,0)"
       : "translate(-50%,-50%)",
   }
@@ -66,7 +64,7 @@ const WindowForm = (selectData: selectType) => {
       <div className={selectData.active ? "window-body" : "window-body out"}>
         
         {selectData.type === "WINDOW_FORM" ? <Toolbar {...selectData} /> : null}
-        {selectData.type === "WINDOW_FORM" ? <FormMain {...selectData} /> :selectData.type === "TODO" ? <TodoForm {...selectData}/> : <Test3 />}
+        {selectData.type === "WINDOW_FORM" ? <FormMain {...selectData} /> :selectData.type === "TODO" ? <TodoForm {...selectData}/> : <Iframe {...selectData}/>}
       </div>
     </div>
   );

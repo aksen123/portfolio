@@ -2,15 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { PayloadAction } from "@reduxjs/toolkit";
 import { projectData, ProjectType } from "../data/data";
 
-// type ProjectType = {
-//   id: number;
-//   title: string;
-//   icon: string;
-//   desc: string[];
-//   project_img: string[];
-//   url: string;
-//   skill: string[];
-// };
+
 type InitType = {
   formArray: ProjectType[];
   form_zIndex:number;
@@ -41,7 +33,7 @@ const formSlice = createSlice({
       state.formArray = state.formArray.map(
         (form) => ({ ...form, active: false })
       );
-      state.formArray.push({...projectData[action.payload.id], zIndex: ++state.form_zIndex, type: 'PROJECT'})
+      state.formArray.push({...projectData[action.payload.id], zIndex: ++state.form_zIndex, type: 'PROJECT', screenToggle : true})
     },
     closeForm(state, action: PayloadAction<{ index: number }>) {
       state.formArray = state.formArray.filter((form,i) => i !== action.payload.index);

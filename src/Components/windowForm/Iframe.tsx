@@ -1,11 +1,16 @@
 import React from 'react'
-
-const Iframe = () => {
+import { ProjectType } from '../../data/data';
+import './windowForm.scss'
+const Iframe = ({url}: ProjectType) => {
   return (
-    <div>
-      
+    <div className="Iframe">
+      <iframe
+        src={url}
+        width="100%"
+        height="100%"
+      ></iframe>
     </div>
-  )
+  );
 }
 
 export default Iframe
