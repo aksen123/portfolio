@@ -62,6 +62,7 @@ const IconDescTop = ({ iconImg, title, onDoubleClick ,rects, initX, initY }: Ico
       draggable="true"
       ref={iconRef}
       onClick={iconOnClick}
+      onMouseDown={iconOnClick}
       onDoubleClick={onDoubleClick}
       onDragStart={dragStart}
       onDragEnd={dragEnd}

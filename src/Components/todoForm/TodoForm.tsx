@@ -11,10 +11,11 @@ import { setToDos } from '../../redux/todoSlice'
 
 const TodoForm = ({title,screenToggle}: ProjectType) => {
 
-  
+
   const dispatch = useDispatch<AppDispatch>()
 
   useEffect(()=>{
+    
     dispatch(setToDos())
   },[])
   return (

@@ -29,7 +29,7 @@ const updateTodo = (toDos : TodoType[]) => {
 const setTodo = (): [] => {
   let todo = null;
   if(localStorage.getItem('mwTodo') !== null) {
-     todo  = JSON.parse(localStorage.getItem('mwTodo') as string)
+    todo  = JSON.parse(localStorage.getItem('mwTodo') as string)
   }else {
     todo = []
   }
