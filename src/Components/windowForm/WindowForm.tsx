@@ -28,26 +28,34 @@ const WindowForm = (selectData: selectType) => {
     dispatch(activeTab({idx: selectData.idx}))
     console.log('form')
   }
+  const todoPosition =  {
+    width: `${screenWidth}`,
+    height: `100%`,
+    zIndex: selectData.zIndex,
+    right:0,
+    top: 0,
+  } 
+  const formPosition = {
+    width: `${screenWidth}`,
+    height: `${screenHeight}`,
+    zIndex: selectData.zIndex,
+    left: selectData.screenToggle
+      ? 0
+      : selectData.position.x == 0
+      ? "50%"
+      : selectData.position.x,
+    top: selectData.screenToggle
+      ? 0
+      : selectData.position.y == 0
+      ? "50%"
+      : selectData.position.y,
+    transform: selectData.screenToggle
+      ? "translate(0,0)"
+      : "translate(-50%,-50%)",
+  }
   return (
     <div
-      style={{
-        width: `${screenWidth}`,
-        height: `${screenHeight}`,
-        zIndex: selectData.zIndex,
-        left: selectData.screenToggle
-          ? 0
-          : selectData.position.x == 0
-          ? "50%"
-          : selectData.position.x,
-        top: selectData.screenToggle
-          ? 0
-          : selectData.position.y == 0
-          ? "50%"
-          : selectData.position.y,
-        transform: selectData.screenToggle
-          ? "translate(0,0)"
-          : "translate(-50%,-50%)",
-      }}
+      style={selectData.type ==='TODO' ? todoPosition : formPosition}
       className={selectData.hide ? "WindowForm hide" : "WindowForm"}
       draggable
       onClick={onClick}

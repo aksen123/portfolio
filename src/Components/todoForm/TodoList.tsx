@@ -10,7 +10,6 @@ type PropsType = {
 }
 const TodoList = ({title, type} : PropsType) => {
   const {todoList} = useSelector((state:RootState) =>state.todo)
-  console.log(todoList)
   return (
     <div className='TodoList'>
       <h2>{title}</h2>

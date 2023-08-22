@@ -49,8 +49,6 @@ const formSlice = createSlice({
       const i = action.payload.idx;
       state.formArray[i].hide = !state.formArray[i].hide;
       state.formArray[i].active = state.formArray[i].active ? false: false;
-
-      console.log('active :',state.formArray[i].active);
     },
     formPosition(
       state,
