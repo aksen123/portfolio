@@ -1,0 +1,23 @@
+.StartPage {
+  width:  100vw;
+  height: 100vh;
+}
+.pageTop {
+  width: 100%;
+  height: 10%;
+  background: linear-gradient(to right, #05319D, #3634AE );
+}
+.pageMain {
+  width: 100%;
+  height: 80%;
+  background-color: #597FDD;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  
+  .left, .right {
+    width: 50%;
+    border: 1px solid #fff;
+  }
+}
