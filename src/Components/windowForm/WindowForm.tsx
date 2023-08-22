@@ -66,7 +66,7 @@ const WindowForm = (selectData: selectType) => {
       <div className={selectData.active ? "window-body" : "window-body out"}>
         
         {selectData.type === "WINDOW_FORM" ? <Toolbar {...selectData} /> : null}
-        {selectData.type === "WINDOW_FORM" ? <FormMain {...selectData} /> : <TodoForm {...selectData}/>}
+        {selectData.type === "WINDOW_FORM" ? <FormMain {...selectData} /> :selectData.type === "TODO" ? <TodoForm {...selectData}/> : <Test3 />}
       </div>
     </div>
   );

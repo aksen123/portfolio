@@ -1,5 +1,8 @@
 import React from "react";
 import { toolbar_img, ProjectType } from "../../data/data";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../redux/store";
+import { openProject } from "../../redux/formSlice";
 const menuTitle: string[] = [
   "파일(F)",
   "편집(E)",
@@ -9,10 +12,11 @@ const menuTitle: string[] = [
   "도움말(H)",
 ];
 
-const Toolbar = ({ url, icon, type }: ProjectType) => {
-  const onClick = (e: React.DragEvent<HTMLDivElement>) => {
-    // e.stopPropagation()
-  };
+const Toolbar = ({ url, icon, type, id }: ProjectType) => {
+  const dispatch =useDispatch<AppDispatch>()
+  const onClick = (id : number) => {
+    dispatch(openProject({id: id}))
+  }
 
   return (
     <div className="Toolbar">
@@ -75,7 +79,7 @@ const Toolbar = ({ url, icon, type }: ProjectType) => {
         </div>
         {/* onClick > go-button 추가하기 */}
 
-        <div className="go-button">
+        <div className="go-button" onClick={(e :React.MouseEvent<HTMLDivElement>)=>{onClick(id); e.stopPropagation()}}>
           <img src={toolbar_img.go} alt="" />
           <span>이동</span>
         </div>

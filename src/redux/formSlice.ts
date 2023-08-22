@@ -33,9 +33,15 @@ const formSlice = createSlice({
     },
     openForm(state, action: PayloadAction<{ index: number }>) {
       state.formArray = state.formArray.map(
-        (form) => (form = { ...form, active: false })
+        (form) => ({ ...form, active: false })
       );
       state.formArray.push({...projectData[action.payload.index], zIndex: ++state.form_zIndex});
+    },
+    openProject(state, action: PayloadAction<{ id: number }>) {
+      state.formArray = state.formArray.map(
+        (form) => ({ ...form, active: false })
+      );
+      state.formArray.push({...projectData[action.payload.id], zIndex: ++state.form_zIndex, type: 'PROJECT'})
     },
     closeForm(state, action: PayloadAction<{ index: number }>) {
       state.formArray = state.formArray.filter((form,i) => i !== action.payload.index);
@@ -76,4 +82,5 @@ export const {
   formPosition,
   activeTab,
   hideForm,
+  openProject
 } = formSlice.actions;
