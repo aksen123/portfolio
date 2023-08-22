@@ -8,64 +8,100 @@ export type TodoType = {
   category: Category;
   badgeTitle: string;
   badgeClass: string;
-}
+};
 export enum Category {
   TODO = "TO_DO",
   DOING = "DOING",
   DONE = "DONE",
 }
-
+export enum BadgeValue {
+  NORMAL = 0,
+  
+}
 type InitType = {
   todoList: TodoType[];
-}
+  bgTitle: string;
+  bgClass: string;
+};
 
 const initialState: InitType = {
-  todoList:  [],
-}
+  todoList: [],
+  bgTitle:'테스트1',
+  bgClass:'test1'
+};
 
-const updateTodo = (toDos : TodoType[]) => {
-  localStorage.setItem('mwTodo',JSON.stringify(toDos))
-}
+const updateTodo = (toDos: TodoType[]) => {
+  localStorage.setItem("mwTodo", JSON.stringify(toDos));
+};
 const setTodo = (): [] => {
   let todo = null;
-  if(localStorage.getItem('mwTodo') !== null) {
-    todo  = JSON.parse(localStorage.getItem('mwTodo') as string)
-  }else {
-    todo = []
+  if (localStorage.getItem("mwTodo") !== null) {
+    todo = JSON.parse(localStorage.getItem("mwTodo") as string);
+  } else {
+    todo = [];
   }
-    return todo
-}
+  return todo;
+};
 const todoSlice = createSlice({
-  name: 'todo',
+  name: "todo",
   initialState,
-  reducers : {
+  reducers: {
     setToDos(state) {
-      state.todoList = [...setTodo(), ...state.todoList]
+      state.todoList = setTodo();
     },
-    addTodo(state, action:PayloadAction<{todo : TodoType}>) {
-      const newTodo = action.payload.todo
-      state.todoList.push(newTodo)
-      updateTodo(state.todoList)
+    addTodo(state, action: PayloadAction<{ todo: TodoType }>) {
+      const newTodo = action.payload.todo;
+      state.todoList.push(newTodo);
+      updateTodo(state.todoList);
     },
-    changCategory(state, action:PayloadAction<{id: number, category : Category }>) {
-      const {id, category} = action.payload
-      state.todoList.map(it => it.id === id ? it.category = category : it )
-      updateTodo(state.todoList)
+    changCategory(
+      state,
+      action: PayloadAction<{ id: number; category: Category }>
+    ) {
+      const { id, category } = action.payload;
+      state.todoList.map((it) =>
+        it.id === id ? (it.category = category) : it
+      );
+      updateTodo(state.todoList);
     },
-    changeText(state,action:PayloadAction<{id : number, text: string}>) {
-      const {id, text} = action.payload
-      state.todoList.map(it => it.id === id ? it.text = text : it )
-      updateTodo(state.todoList)
-    },
-    deleteTodo(state,action:PayloadAction<{id : number}>) {
-      const {id} = action.payload
-      state.todoList = state.todoList.filter(todo => todo.id !== id)
-      updateTodo(state.todoList)
-    },
+    changeText(
+      state,
+      action: PayloadAction<{
+        id: number;
+        text: string;
+      }>
+    ) {
+      const { id, text} = action.payload;
+      state.todoList = state.todoList.map((it) =>
+        it.id === id
+          ? { ...it, text: text, badgeTitle: state.bgTitle , badgeClass: state.bgClass }
+          : it
+      );
+      // console.log(state.todoList);
+      console.log(state.bgClass,state.bgTitle)
 
-  }
-})
+      updateTodo(state.todoList);
+    },
+    deleteTodo(state, action: PayloadAction<{ id: number }>) {
+      const { id } = action.payload;
+      state.todoList = state.todoList.filter((todo) => todo.id !== id);
+      updateTodo(state.todoList);
+    },
+    clickBadge(state,action: PayloadAction<{title: string, bgClass: string}>) {
+      const {title, bgClass} = action.payload;
+      state.bgTitle = title;
+      state.bgClass = bgClass;
+      console.log(state.bgClass,state.bgTitle)
+    }
+  },
+});
 
-export default todoSlice.reducer
-export const { addTodo, changCategory, changeText, deleteTodo, setToDos } =
-  todoSlice.actions;
+export default todoSlice.reducer;
+export const {
+  addTodo,
+  changCategory,
+  changeText,
+  deleteTodo,
+  setToDos,
+  clickBadge,
+} = todoSlice.actions;

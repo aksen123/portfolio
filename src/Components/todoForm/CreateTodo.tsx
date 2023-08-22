@@ -5,15 +5,16 @@ import { addTodo } from '../../redux/todoSlice'
 import { Category } from '../../redux/todoSlice'
 import dayjs from 'dayjs'
 import Badge from './Badge'
+import { BadgeType } from './TodoForm'
 
-export type BadgeType = {
-  title:string;
-  class:string
+type PropsType = {
+  badge: BadgeType,
+  setBadge: React.Dispatch<React.SetStateAction<BadgeType>>
 }
 
 const CreateTodo = () => {
-  const [text, setText] = useState<string>('')
-  const [badge, setBadge] = useState<BadgeType>({title:'테스트1', class:'test1'})
+  const [text, setText] = useState<string>('');
+  const {bgClass,bgTitle} = useSelector((state:RootState) => state.todo)
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
     setText(e.target.value)
   }
@@ -26,12 +27,11 @@ const CreateTodo = () => {
       date: dayjs().format("YYYY-MM-DD"),
       text: text,
       category: Category.TODO,
-      badgeTitle:badge.title,
-      badgeClass:badge.class
+      badgeTitle:bgTitle,
+      badgeClass:bgClass
     }
     dispatch(addTodo({todo : newTodo}))
     setText('')
-    // setBadge({title: '', class: ''})
   }
   return (
     <div className='CreateTodo'>
@@ -39,9 +39,9 @@ const CreateTodo = () => {
       <form onSubmit={add}>
       <input value={text} onChange={onChange} type="text" className="todoInput" placeholder='내용 입력후, Enter를 누르세요'/>
       <div className="boxWrap">
-        <Badge title='테스트1' bgClass='test1' id='test1'setBadge={setBadge}/>
-        <Badge title='테스트2' id='test2'setBadge={setBadge}/>
-        <Badge title='테스트3' id='test3'setBadge={setBadge}/>
+        <Badge title='테스트1' Class='test1' id='test1'/>
+        <Badge title='테스트2' id='test2'/>
+        <Badge title='테스트3' id='test3'/>
         
       </div>
       </form>
