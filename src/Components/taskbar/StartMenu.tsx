@@ -8,7 +8,12 @@ import { toggleSubmenu, hideMenu } from "../../redux/toggleSlice";
 import { openForm } from "../../redux/formSlice";
 import { rightIcon_data, menu_img } from "../../data/data";
 import { descTopIcon } from "../../data/data";
-const StartMenu = () => {
+
+export interface Props {
+  logOff : ()=>void
+}
+
+const StartMenu = ({logOff}:Props) => {
   const dispatch = useDispatch<AppDispatch>();
 
   const onClick = (id: number): void => {
@@ -65,7 +70,7 @@ const StartMenu = () => {
           iconImg={menu_img.off}
           title="종료(U)"
           classValue="menu"
-          onClick={() => {}}
+          onClick={logOff}
         />
       </div>
     </div>

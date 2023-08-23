@@ -8,10 +8,11 @@ import WindowForm from "../Components/windowForm/WindowForm";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "../redux/store";
 import { hideMenu } from "../redux/toggleSlice";
-import { projectData, toolbar_img } from "../data/data";
 import { openForm } from "../redux/formSlice";
 import { mainIcons } from "../data/data";
 import { descTopIcon } from "../data/data";
+import Logoff from "../Components/taskbar/Logoff";
+
 export class Rect {
   constructor(
     public x: number,
@@ -35,7 +36,7 @@ export class Rect {
 }
 
 const Main = () => {
-
+  const [end, setEnd] = useState(false)
   const testRef = useRef<any>(null);
 
   const dispatch = useDispatch<AppDispatch>();
@@ -44,6 +45,7 @@ const Main = () => {
   const { startMenuToggle, subMenu } = useSelector(
     (state: RootState) => state.toggle
   );
+
 
   // 더블 클릭시 폴더 띄우기
   const onDoubleClick = (id: number): void => {
@@ -67,7 +69,9 @@ const Main = () => {
     const remove = document.querySelectorAll(".Icon");
     remove.forEach((it) => it.classList.remove("bg"));
   };
-
+  const logOff = ():void => {
+    setEnd(!end)
+  }
   return (
     <div className="Main" ref={testRef}>
       <div className="main-screen" onClick={mainClick}>
@@ -104,8 +108,9 @@ const Main = () => {
       {formArray.length > 0 &&
         formArray.map((form, i) => <WindowForm key={i} {...form} idx={i} />)}
       {subMenu && <SubMenu />}
-      {startMenuToggle && <StartMenu />}
+      {startMenuToggle && <StartMenu logOff={logOff} />}
       <TaskBar />
+       {end && <Logoff logOff={logOff} />}
     </div>
   );
 };
