@@ -48,7 +48,7 @@ const bootstrap =
   "https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white";
 const github =
   "https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white";
-
+const git ="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white"
 
 export const toolbar_img = {
   windowLogo,
@@ -142,7 +142,7 @@ export const projectData: ProjectType[] = [
     desc: ["설명 1","설명 2", "설명 3", "설명 4", "설명 5"],
     project_img: [MainLogo,myComputer, folder, back],
     url: "https://finance.naver.com/",
-    skill: [react,html,bootstrap],
+    skill: [react,html,bootstrap,bootstrap,bootstrap],
     screenToggle : false,
     position: {x:0, y:0},
     active: true,

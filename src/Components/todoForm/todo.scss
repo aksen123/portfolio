@@ -181,20 +181,41 @@
       }
     }
   }
+  // ======= 수정 Form =======
   .correction {
     display: none;
+
     &.on {
       display: block;
     }
-    input {
-      width: 100%;
-      padding: 5px 0;
-      font-size: 20px;
-      border: none;
-      outline: none;
-      &::placeholder {
-        font-size: 15px;
 
+    .input-wrap {
+      display: flex;
+
+      input {
+        flex: 1;
+        padding: 5px 0;
+        font-size: 20px;
+        border: none;
+        outline: none;
+
+        &::placeholder {
+          font-size: 15px;
+        }
+      }
+      button {
+        padding: 5px 0;
+        width: 100px;
+        border: none
+      }
+    }
+    .badge-wrap {
+      margin-top: 10px;
+      width: 100%;
+      text-align: center;
+      .Badge {
+        margin-right: 5px;
+        width: 100px;
       }
     }
   }

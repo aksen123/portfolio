@@ -14,10 +14,7 @@ export enum Category {
   DOING = "DOING",
   DONE = "DONE",
 }
-export enum BadgeValue {
-  NORMAL = 0,
-  
-}
+
 type InitType = {
   todoList: TodoType[];
   bgTitle: string;
@@ -64,21 +61,21 @@ const todoSlice = createSlice({
       );
       updateTodo(state.todoList);
     },
-    changeText(
+    changeToDo(
       state,
       action: PayloadAction<{
         id: number;
         text: string;
+        title : string;
+        bgClass: string;
       }>
     ) {
-      const { id, text} = action.payload;
+      const { id, text,title,bgClass} = action.payload;
       state.todoList = state.todoList.map((it) =>
         it.id === id
-          ? { ...it, text: text, badgeTitle: state.bgTitle , badgeClass: state.bgClass }
+          ? { ...it, text: text, badgeTitle:title  , badgeClass: bgClass }
           : it
       );
-      // console.log(state.todoList);
-      console.log(state.bgClass,state.bgTitle)
 
       updateTodo(state.todoList);
     },
@@ -100,7 +97,7 @@ export default todoSlice.reducer;
 export const {
   addTodo,
   changCategory,
-  changeText,
+  changeToDo,
   deleteTodo,
   setToDos,
   clickBadge,

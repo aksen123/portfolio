@@ -10,10 +10,6 @@ import { AppDispatch } from '../../redux/store'
 import { setToDos } from '../../redux/todoSlice'
 
 
-export type BadgeType = {
-  title:string;
-  class:string
-}
 
 
 const TodoForm = ({title,screenToggle}: ProjectType) => {

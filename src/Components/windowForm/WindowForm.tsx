@@ -19,8 +19,8 @@ export type selectType = ProjectType & {
 const WindowForm = (selectData: selectType) => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const screenWidth = selectData.screenToggle  ? "100%" : "800px";
-  const screenHeight = selectData.screenToggle ? "calc(100% - 40px)" : "650px";
+  const screenWidth = selectData.screenToggle  ? "100%" : "900px";
+  const screenHeight = selectData.screenToggle ? "calc(100% - 40px)" : "700px";
 
   const onClick  =() => {
     dispatch(hideMenu({ value: "" }));

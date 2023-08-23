@@ -11,8 +11,7 @@ import { selectType } from "./WindowForm";
 
 
 
-const FormMain = (selectData:selectType) => {
-  // const {selectData} = useSelector((state:RootState) => state.form)
+const FormMain = ({id,idx,title,project_img,skill,desc,screenToggle}:selectType) => {
   const dispatch = useDispatch<AppDispatch>();
   const [contentView, setContentView] = useState<boolean>(true);
 
@@ -25,7 +24,6 @@ const FormMain = (selectData:selectType) => {
   };
   const titleImg = contentView ? up : down;
   const titleBorder = contentView ? "5px 5px 0 0" : "5px 5px 5px 5px";
-  // console.log(selectData.project_img)
   return (
     <div className="FormMain-wrap">
       <div className="main-left">
@@ -52,7 +50,7 @@ const FormMain = (selectData:selectType) => {
                 iconImg={data.icon}
                 title={data.title}
                 classValue="side"
-                onClick={()=>onclick(data.id,selectData.idx)}
+                onClick={()=>onclick(data.id,idx)}
               />
             ))}
           </div>
@@ -60,18 +58,18 @@ const FormMain = (selectData:selectType) => {
         </div>
       </div>
       <div className="main-right">
-        <div className="content form-title">{selectData.title}</div>
+        <div className="content form-title">{title}</div>
         <div className="content img">
-          <Slide project_img={selectData.project_img} />
+          <Slide project_img={project_img} />
         </div>
         <div className="content skill">
-          {selectData.skill.map((it, idx) => (
+          {skill.map((it, idx) => (
             <img src={it} key={`skill${idx}`} />
           ))}
         </div>
         <div className="content desc">
           <ul>
-            {selectData.desc.map((it, idx) => (
+            {desc.map((it, idx) => (
               <li key={"desc" + idx}>{it}</li>
             ))}
           </ul>

@@ -1,6 +1,6 @@
 import React from 'react'
 import './todo.scss'
-import { BadgeType } from './TodoForm'
+import { BadgeType } from './TodoItem'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '../../redux/store'
 import { clickBadge } from '../../redux/todoSlice'
@@ -11,20 +11,17 @@ type Props =  {
   Class?: string;
 }
 
-
-
 const Badge = ({title,id, setBadge, Class} :Props ) => {
   const dispatch = useDispatch<AppDispatch>();
   const onClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const parent = e.currentTarget.parentElement
-    console.log(parent?.querySelectorAll('.Badge'))
-    if(id) {
-      
-      const creator = document.querySelector('.CreateTodo')
-      const badges = creator?.querySelectorAll('.Badge')
-      badges?.forEach(it => it.className = 'Badge')
-      e.currentTarget.className = `Badge ${id}`
+    const badges = parent?.querySelectorAll('.Badge')
+    badges?.forEach(it => it.className = 'Badge')
+    e.currentTarget.className = `Badge ${id}`
+    if(!setBadge) {
       dispatch(clickBadge({title: title, bgClass: id as string}))
+    }else {
+      setBadge({title: title, class: id as string})
     }
   
   }

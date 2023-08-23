@@ -5,7 +5,7 @@ import { addTodo } from '../../redux/todoSlice'
 import { Category } from '../../redux/todoSlice'
 import dayjs from 'dayjs'
 import Badge from './Badge'
-import { BadgeType } from './TodoForm'
+import { BadgeType } from './TodoItem'
 
 type PropsType = {
   badge: BadgeType,

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
 import { addTodo } from '../../redux/todoSlice'
 import { Category } from '../../redux/todoSlice'
-import { BadgeType } from './TodoForm'
+import { BadgeType } from './TodoItem'
 type PropsType = {
   title: string
   type : Category

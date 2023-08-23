@@ -2,11 +2,16 @@ import React, { useState } from "react";
 import { TodoType, Category } from "../../redux/todoSlice";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../redux/store";
-import { changCategory, changeText, deleteTodo } from "../../redux/todoSlice";
+import { changCategory, changeToDo, deleteTodo } from "../../redux/todoSlice";
 import pen from "../../images/pen.png";
 import trash from "../..//images/trash.png";
 import Badge from "./Badge";
-import { BadgeType } from "./TodoForm";
+
+export type BadgeType = {
+  title:string;
+  class:string
+}
+
 
 const TodoItem = ({
   id,
@@ -18,8 +23,8 @@ const TodoItem = ({
 }: TodoType) => {
   const [inputText, setInputText] = useState<string>("");
   const [inputDisplay, setInputDisplay] = useState<boolean>(false);
+  const [badge, setBadge] = useState<BadgeType>({ title: "", class: "" });
   const dispatch = useDispatch<AppDispatch>();
-
   const onClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
     e.stopPropagation();
     dispatch(
@@ -29,7 +34,14 @@ const TodoItem = ({
   
   const onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    dispatch(changeText({ id: id, text: inputText }));
+    dispatch(
+      changeToDo({
+        id: id,
+        text: inputText === '' ? text : inputText,
+        title: badge.title,
+        bgClass: badge.class,
+      })
+    );
     setInputText("");
     setInputDisplay(false);
   };
@@ -51,7 +63,6 @@ const TodoItem = ({
         <div className="dateWrap">
           <Badge
             title={badgeTitle}
-            id={badgeClass}
             Class={`${badgeClass} on`}
           />
           <span className={category === Category.DONE ? "date done" : "date"}>
@@ -90,12 +101,20 @@ const TodoItem = ({
         className={inputDisplay ? "correction on" : "correction"}
         onSubmit={onSubmit}
       >
+        <div className="input-wrap">
         <input
           type="text"
           placeholder=" 수정내용 입력 후 Enter"
           value={inputText}
           onChange={onChange}
-        />
+          />
+        <button>수정</button>
+          </div>
+          <div className="badge-wrap">
+            <Badge setBadge={setBadge} title="테스트1" Class="test1" id="test1" />
+            <Badge setBadge={setBadge} title="테스트2" id="test2" />
+            <Badge setBadge={setBadge} title="테스트3" id="test3" />
+          </div>
       </form>
     </div>
   );
