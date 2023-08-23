@@ -70,7 +70,7 @@ const FormMain = ({id,idx,title,project_img,skill,desc,screenToggle}:selectType)
         <div className="content desc">
           <ul>
             {desc.map((it, idx) => (
-              <li key={"desc" + idx}>{it}</li>
+              <li key={idx}>{it}</li>
             ))}
           </ul>
         </div>

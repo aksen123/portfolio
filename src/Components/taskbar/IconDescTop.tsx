@@ -36,7 +36,6 @@ const IconDescTop = ({ iconImg, title, onDoubleClick ,rects, initX, initY }: Ico
     originPosition.x = e.currentTarget.offsetLeft;
     originPosition.y = e.currentTarget.offsetTop;
     setOriginPos(originPosition);
-    console.log(originPosition)
     iconRef.current?.classList.add("bg");
   };
 
@@ -46,10 +45,7 @@ const IconDescTop = ({ iconImg, title, onDoubleClick ,rects, initX, initY }: Ico
     const changePosition = rects().find(rect => rect.check(e.clientX, e.clientY))
 
     if (
-      e.clientX  < 0 ||
-      e.clientY  < 0 ||
-      e.clientX > window.innerWidth ||
-      e.clientY > window.innerHeight - 40
+      !changePosition
     ) {
       setPosition(originPos);
     } else {

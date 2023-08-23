@@ -40,7 +40,7 @@ const Slide = ({ project_img }: ImagesType) => {
       <div className="slide-content-wrap">
         <div
           className="slide-content"
-          style={{ transform: `translateX(${moveImg * 250}px)` }}
+          style={{ transform: `translateX(${moveImg * 450}px)` }}
           // ref={slideRef}
         >
           {project_img.map((img, i) => (

@@ -41,7 +41,7 @@ const CreateTodo = () => {
       <div className="boxWrap">
         <Badge title='보통' Class='badge1' id='badge1'/>
         <Badge title='중요함' id='badge2'/>
-        <Badge title='더 중요함' id='badge3'/>
+        <Badge title='더 중요' id='badge3'/>
         
       </div>
       </form>

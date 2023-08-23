@@ -37,17 +37,19 @@ $mainColor : #2561D9;
         text-overflow: ellipsis;
         white-space:  nowrap;
         overflow: hidden;
+        font-size: 15px;
+        color: #fff;
         &.iconTitle {
 
           white-space:pre-line;
-          font-size: 12px;
+          font-size: 11px;
           width: auto;
         }
       }
     }
     &.bg {
       background-color: rgba($color: $mainColor, $alpha: 0.8);
-      color: #fff;
+      
     }
 
     
@@ -79,15 +81,23 @@ $mainColor : #2561D9;
   .start-btn {
     width: 90px;
     height: inherit;
-
-    background: linear-gradient(#219500 1%, #0dc909 6%, #18f218 10%, #29eb13 14%, #12e836 19%, #0dea1c 63%, #0df142 81%, #0fed0f 88%, #11e92e 91%, #13e21a 94%, #0dc909 97%, #219500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: default;
+    background: linear-gradient(#2c672c 1%, #4acb4a 6%, #52d752 10%, #39ad39 14%, #26a626 19%, #3ab73a 63%, #49AF49 81%, #49AF49 88%, #39a65d 91%, #3e945b 94%, #49cf75 97%, #42b769);
 
     &:hover {
-      opacity: 0.9;
+     opacity: 0.8;
     }
 
     &:active {
       box-shadow: inset 3px 3px 15px #219500;
+    }
+    span {
+      color: #fff;
+      font-weight: bold;
     }
   }
 

@@ -21,6 +21,7 @@ const formSlice = createSlice({
       state.formArray[action.payload.index] = {
         ...projectData[action.payload.id],
         position: { ...state.formArray[action.payload.index].position },
+        screenToggle : state.formArray[action.payload.index].screenToggle
       };
     },
     openForm(state, action: PayloadAction<{ index: number }>) {

@@ -10,7 +10,8 @@ import { RootState, AppDispatch } from "../redux/store";
 import { hideMenu } from "../redux/toggleSlice";
 import { projectData, toolbar_img } from "../data/data";
 import { openForm } from "../redux/formSlice";
-import { TodoType } from "../redux/todoSlice";
+import { mainIcons } from "../data/data";
+import { descTopIcon } from "../data/data";
 export class Rect {
   constructor(
     public x: number,
@@ -70,17 +71,34 @@ const Main = () => {
   return (
     <div className="Main" ref={testRef}>
       <div className="main-screen" onClick={mainClick}>
-        {projectData.map((data, i) => (
+        {mainIcons.map((data, i) => (
           <IconDescTop
             key={i}
             title={data.title}
             iconImg={data.icon}
-            onDoubleClick={() => onDoubleClick(data.id)}
+            // onDoubleClick={() => onDoubleClick(data.id)}
             rects={() => rects()}
             initX={rects()[i].x}
             initY={rects()[i].y}
           />
         ))}
+        <IconDescTop
+          title="Projects"
+          iconImg={descTopIcon.descFolder}
+          rects={() => rects()}
+          initX={rects()[3].x}
+          initY={rects()[3].y}
+          onDoubleClick={() => onDoubleClick(0)}
+        />
+        <IconDescTop
+          title="To Do"
+          iconImg={descTopIcon.todo}
+          rects={() => rects()}
+          initX={rects()[4].x}
+          initY={rects()[4].y}
+          onDoubleClick={() => onDoubleClick(4)}
+        />
+
       </div>
 
       {formArray.length > 0 &&

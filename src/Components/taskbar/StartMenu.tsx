@@ -5,13 +5,15 @@ import img from "../../images/folder.png";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../redux/store";
 import { toggleSubmenu, hideMenu } from "../../redux/toggleSlice";
+import { openForm } from "../../redux/formSlice";
 import { rightIcon_data, menu_img } from "../../data/data";
-
+import { descTopIcon } from "../../data/data";
 const StartMenu = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const onClick = (): void => {
-    dispatch(toggleSubmenu({ value: "" }));
+  const onClick = (id: number): void => {
+    dispatch(openForm({ index: id }));
+    dispatch(hideMenu({ value: "" }));
   };
   return (
     <div className="Start-menu">
@@ -25,6 +27,18 @@ const StartMenu = () => {
       </div>
       <div className="icon-wrapper">
         <div className="icon-wrap left">
+            <IconWrap 
+            title='projects'
+              iconImg={descTopIcon.descFolder}
+              classValue="menu"
+              onClick={()=>onClick(0)}
+            />
+            <IconWrap 
+            title='To Do'
+              iconImg={descTopIcon.todo}
+              classValue="menu"
+              onClick={()=>onClick(4)}
+            />
           <div className="all-project">
             <hr className="line" />
             <IconWrap
