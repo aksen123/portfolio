@@ -32,7 +32,7 @@ import folder_img from "../images/icon/menuIcon/folder_image.png";
 
 export const menu_img = { menuTop, off, play };
 export const handle_img = { close, miniSize, maxsize, resize };
-
+export const mainLogo = MainLogo
 // Skill badge
 const html =
   "https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white";

@@ -34,16 +34,7 @@ export class Rect {
 }
 
 const Main = () => {
-  const setTodo = (): [] => {
-    let todo = null;
-    if(localStorage.getItem('mwTodo') !== null) {
-       todo  = JSON.parse(localStorage.getItem('mwTodo') as string)
-    }else {
-      todo = []
-    }
-      return todo
-  }
-  setTodo()
+
   const testRef = useRef<any>(null);
 
   const dispatch = useDispatch<AppDispatch>();
