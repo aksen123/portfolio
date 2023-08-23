@@ -20,15 +20,16 @@ const Slide = ({ project_img }: ImagesType) => {
     } else setMoveImg(moveImg + num);
   };
 
-  useEffect(() => {
-    if (slideRef.current) {
-      slideRef.current.style.transition = "none";
-      setMoveImg(0);
-      setTimeout(() => {
-        if (slideRef.current) slideRef.current.style.transition = "0.5s";
-      }, 500);
-    }
-  }, [project_img]);
+  // useEffect(() => {
+  //   if (slideRef.current) {
+  //     slideRef.current.style.transition = "none";
+  //     setMoveImg(0);
+  //     setTimeout(() => {
+  //       if (slideRef.current) slideRef.current.style.transition = "0.5s";
+  //     }, 500);
+  //   }
+  // }, [project_img]);
+
   return (
     <div className="Slide">
       <FaCircleChevronLeft
@@ -40,7 +41,7 @@ const Slide = ({ project_img }: ImagesType) => {
         <div
           className="slide-content"
           style={{ transform: `translateX(${moveImg * 250}px)` }}
-          ref={slideRef}
+          // ref={slideRef}
         >
           {project_img.map((img, i) => (
             <img src={img} key={`slide${i}`} />

@@ -12,7 +12,7 @@ const StartPage = () => {
   const goMain = ():void => {
     // document.documentElement.requestFullscreen();
     setTimeout(() => {
-      navigate("/loading");
+      navigate("/loading",{replace: true});
     }, 1000);
   }
 

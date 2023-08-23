@@ -16,7 +16,10 @@ type Props =  {
 const Badge = ({title,id, setBadge, Class} :Props ) => {
   const dispatch = useDispatch<AppDispatch>();
   const onClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const parent = e.currentTarget.parentElement
+    console.log(parent?.querySelectorAll('.Badge'))
     if(id) {
+      
       const creator = document.querySelector('.CreateTodo')
       const badges = creator?.querySelectorAll('.Badge')
       badges?.forEach(it => it.className = 'Badge')
