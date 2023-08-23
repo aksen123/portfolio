@@ -111,9 +111,9 @@ const TodoItem = ({
         <button>수정</button>
           </div>
           <div className="badge-wrap">
-            <Badge setBadge={setBadge} title="테스트1" Class="test1" id="test1" />
-            <Badge setBadge={setBadge} title="테스트2" id="test2" />
-            <Badge setBadge={setBadge} title="테스트3" id="test3" />
+            <Badge setBadge={setBadge} title="보통" Class="badge1" id="badge1" />
+            <Badge setBadge={setBadge} title="중요함" id="badge2" />
+            <Badge setBadge={setBadge} title="더 중요함" id="badge3" />
           </div>
       </form>
     </div>

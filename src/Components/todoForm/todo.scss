@@ -45,7 +45,7 @@
   border-radius: 10px;
   border: 1px solid #000;
   font-weight: bold;
-  &.test1 {
+  &.badge1 {
     background-color: #000;
     border-color: #000;
     color: #fff;
@@ -55,9 +55,9 @@
       border: none;
     }
   }
-  &.test2 {
-    background-color: red;
-    border-color: red;
+  &.badge2 {
+    background-color: gold;
+    border-color: gold;
     color: #fff;
     &.on {
       font-size: 12px;
@@ -65,9 +65,9 @@
       border: none;
     }
   }
-  &.test3 {
-    background-color: green;
-    border-color: green;
+  &.badge3 {
+    background-color: red;
+    border-color: red;
     color: #fff;
     &.on {
       font-size: 12px;
@@ -109,6 +109,8 @@
     color: #fff;
     border-bottom: 1px dotted #fff;
     padding-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
   }
 }
 
@@ -204,6 +206,8 @@
         }
       }
       button {
+        background-color: #095afc;
+        color: #fff;
         padding: 5px 0;
         width: 100px;
         border: none

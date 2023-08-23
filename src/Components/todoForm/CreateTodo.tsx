@@ -39,9 +39,9 @@ const CreateTodo = () => {
       <form onSubmit={add}>
       <input value={text} onChange={onChange} type="text" className="todoInput" placeholder='내용 입력후, Enter를 누르세요'/>
       <div className="boxWrap">
-        <Badge title='테스트1' Class='test1' id='test1'/>
-        <Badge title='테스트2' id='test2'/>
-        <Badge title='테스트3' id='test3'/>
+        <Badge title='보통' Class='badge1' id='badge1'/>
+        <Badge title='중요함' id='badge2'/>
+        <Badge title='더 중요함' id='badge3'/>
         
       </div>
       </form>

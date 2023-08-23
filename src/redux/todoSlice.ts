@@ -23,8 +23,8 @@ type InitType = {
 
 const initialState: InitType = {
   todoList: [],
-  bgTitle:'테스트1',
-  bgClass:'test1'
+  bgTitle:'보통',
+  bgClass:'badge1'
 };
 
 const updateTodo = (toDos: TodoType[]) => {
