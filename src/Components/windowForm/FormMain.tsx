@@ -48,6 +48,7 @@ const FormMain = ({id,idx,title,project_img,skill,desc,screenToggle}:selectType)
             }
           >
             {projectData.map((data) => (
+              data.id < 6 ?
               <IconWrap
                 key={`${data.id}`}
                 iconImg={data.icon}
@@ -55,6 +56,7 @@ const FormMain = ({id,idx,title,project_img,skill,desc,screenToggle}:selectType)
                 classValue="side"
                 onClick={()=>onclick(data.id,idx)}
               />
+              : null
             ))}
           </div>
           </div>

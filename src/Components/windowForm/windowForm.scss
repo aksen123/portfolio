@@ -473,4 +473,43 @@
   height: 100%;
   background-color: #fff;
   text-align: center;
+    span {
+      display: block;
+      margin-top: 40px;
+    }
+}
+
+.Readme {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(53, 53, 53);
+  font-size: 40px;
+  font-weight: 500;
+  padding: 50px;
+  color:#fff;
+  .info {
+    margin-left: 50px;
+    .skill {
+      margin-left: 70px;
+    }
+  }
+  .contact {
+    margin-left: 50px;
+  }
+  .let {
+    color:#3482b9; 
+    margin-right: 10px;
+  }
+  .white {
+    color: #fff;
+  }
+  .flicker {
+    animation: flicker 1s step-end infinite;
+  }
+}
+@keyframes flicker {
+  50% {
+    opacity: 0;
+  }
+
 }

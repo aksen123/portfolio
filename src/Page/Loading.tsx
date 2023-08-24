@@ -8,7 +8,7 @@ const Loading = () => {
   
   useEffect(()=>{
     setTimeout(()=>{
-      // navigate('/main', {replace: true})
+      navigate('/main', {replace: true})
     }, 2000)
   },[])
   return (

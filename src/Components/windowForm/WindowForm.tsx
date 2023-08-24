@@ -12,7 +12,7 @@ import { activeTab } from "../../redux/formSlice";
 import Iframe from "./Iframe";
 import TodoForm from "../todoForm/TodoForm";
 import Notion from "./Notion";
-
+import Readme from "./Readme";
 
 
 export type selectType = ProjectType & {
@@ -71,7 +71,7 @@ const WindowForm = (selectData: selectType) => {
         ) : selectData.type === "TODO" ? (
           <TodoForm {...selectData} />
         ) : (
-          <Notion />
+          selectData.type === 'README' ?<Readme /> : <Iframe{...selectData} />
         )}
       </div>
     </div>

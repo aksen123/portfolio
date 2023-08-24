@@ -1,26 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { NotionRenderer } from "react-notion";
+import {NotionRenderer} from 'react-notion'
 import "./windowForm.scss";
-
+import axios from 'axios';
 const Notion = () => {
-  
+  // fb52391cfd5847de90fc7980acbf819a?pvs=4
   const [notionBlockMap, setNotionBlockMap] = useState({});
+  const [response, setResponse] = useState<any>({});
   useEffect(() => {
-    (async () => {
-        const notionBlockMap = await (
-            await fetch(
-                "https://notion-api.splitbee.io/v1/page/fb52391cfd5847de90fc7980acbf819a?pvs=4"
-            )
-        ).json();
-        setNotionBlockMap(notionBlockMap);
-    })();
+    const NOTION_PAGE_ID = '3fb52391cfd5847de90fc7980acbf819a?pvs=4';
+    axios
+      .get(`https://notion-api.splitbee.io/v1/page/${NOTION_PAGE_ID}`)
+      .then(({ data }) => {
+        setResponse(data);
+      });
   }, []);
-  console.log(notionBlockMap)
+  // console.log(response.keys())
+  
   return (
     <div className="Notion">
-      {Object.keys(notionBlockMap).length ? (
-        <NotionRenderer blockMap={notionBlockMap} fullPage={true} />
-      ) : null}
+   { Object.keys(response).length && <NotionRenderer blockMap={response} fullPage={false} />}
+    
     </div>
   );
 };
