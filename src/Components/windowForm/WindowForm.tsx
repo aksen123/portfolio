@@ -53,18 +53,7 @@ const WindowForm = (selectData: selectType) => {
       : "translate(-50%,-50%)",
   }
 
-  const [notionBlockMap, setNotionBlockMap] = useState({});
-  useEffect(() => {
-      (async () => {
-          const notionBlockMap = await (
-              await fetch(
-                  "https://notion-api.splitbee.io/v1/page/fb52391cfd5847de90fc7980acbf819a?pvs=4"
-              )
-          ).json();
-          setNotionBlockMap(notionBlockMap);
-      })();
-    }, []);
-    console.log(notionBlockMap)
+
 
   return (
     <div
@@ -82,7 +71,7 @@ const WindowForm = (selectData: selectType) => {
         ) : selectData.type === "TODO" ? (
           <TodoForm {...selectData} />
         ) : (
-          <Notion notionBlockMap={notionBlockMap} />
+          <Notion />
         )}
       </div>
     </div>
