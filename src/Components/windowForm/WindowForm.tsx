@@ -11,6 +11,9 @@ import { PositionType } from "../taskbar/IconDescTop";
 import { activeTab } from "../../redux/formSlice";
 import Iframe from "./Iframe";
 import TodoForm from "../todoForm/TodoForm";
+import Notion from "./Notion";
+
+
 
 export type selectType = ProjectType & {
   idx: number;
@@ -49,23 +52,39 @@ const WindowForm = (selectData: selectType) => {
       ? "translate(0,0)"
       : "translate(-50%,-50%)",
   }
+
+  const [notionBlockMap, setNotionBlockMap] = useState({});
+  useEffect(() => {
+      (async () => {
+          const notionBlockMap = await (
+              await fetch(
+                  "https://notion-api.splitbee.io/v1/page/fb52391cfd5847de90fc7980acbf819a?pvs=4"
+              )
+          ).json();
+          setNotionBlockMap(notionBlockMap);
+      })();
+    }, []);
+    console.log(notionBlockMap)
+
   return (
     <div
-      style={selectData.type ==='TODO' ? todoPosition : formPosition}
+      style={selectData.type === "TODO" ? todoPosition : formPosition}
       className={selectData.hide ? "WindowForm hide" : "WindowForm"}
       draggable
       onClick={onClick}
     >
-      <FormHead
-        {...selectData}
-      />
-  
-      <div className={selectData.active ? "window-body" : "window-body out"}>
-        
-        {selectData.type === "WINDOW_FORM" ? <Toolbar {...selectData} /> : null}
-        {selectData.type === "WINDOW_FORM" ? <FormMain {...selectData} /> :selectData.type === "TODO" ? <TodoForm {...selectData}/> : <Iframe {...selectData}/>}
-      </div>
+      <FormHead {...selectData} />
 
+      <div className={selectData.active ? "window-body" : "window-body out"}>
+        {selectData.type === "WINDOW_FORM" ? <Toolbar {...selectData} /> : null}
+        {selectData.type === "WINDOW_FORM" ? (
+          <FormMain {...selectData} />
+        ) : selectData.type === "TODO" ? (
+          <TodoForm {...selectData} />
+        ) : (
+          <Notion notionBlockMap={notionBlockMap} />
+        )}
+      </div>
     </div>
   );
 };

@@ -11,7 +11,7 @@ const Test2 = () => {
     },1000)
   },[])
   return (
-    <div>
+    <div style={{width:'100%', height:'100%', backgroundColor:'#000'}}>
       <h1>test</h1>
     </div>
   )
