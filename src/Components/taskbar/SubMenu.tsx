@@ -14,13 +14,14 @@ const SubMenu = () => {
   return (
     <div className="SubMenu">
       {projectData.map((data, i) => (
+        data.id < 4 ?
         <IconWrap
           key={data.title}
           iconImg={data.icon}
           title={data.title}
           classValue='menu'
           onClick={()=>onClick(data.id)}
-        />
+        /> : null
       ))}
     </div>
   );

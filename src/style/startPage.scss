@@ -18,7 +18,7 @@
 .pageMain {
   width: 100%;
   height: 80%;
-  background-color: #597FDD;
+  background: linear-gradient(to right, #5C7FDD, #8FAFF0,#7193E6);
   position: relative;
   overflow: hidden;
   display: flex;
@@ -175,4 +175,22 @@ p {
   100% {
     opacity: 0;
   }
+}
+
+// ======= End =======
+.End {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to right, #5C7FDD, #8FAFF0,#7193E6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 100px;
+    .Logo {
+      scale: 2;
+    }
+    h2 {
+      color: #fff;
+    }
 }

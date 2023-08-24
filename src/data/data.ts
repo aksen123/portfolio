@@ -35,6 +35,7 @@ import { windowImg,gbgImg,diaryImg,nikeImg } from './projectImg';
 import bgbIcon from '../images/icon/gyeongbokgung-icon.png'
 import emotion from '../images/icon/emotion.png'
 import nike from '../images/icon/nike.png'
+import vscode from '../images/icon/vscode.png'
 
 
 export const menu_img = { menuTop, off, play };
@@ -56,7 +57,7 @@ export const mainIcons = [
     title: '내 네트워크 환경'
   },
 ]
-export const descTopIcon = {descFolder, todo}
+export const descTopIcon = {descFolder, todo,vscode}
 
 
 // Skill badge
@@ -164,7 +165,7 @@ export const projectData: ProjectType[] = [
       "React / Typescript 기반 개발",
       "Redux 활용 전역 상태관리",
       "Redux 활용 폴더 최대화,최소화,폴더 위치 상태 관리",
-      "localStorage, Redux 활용 투두리스트 작성 및 수정 기능 구현",
+      "localStorage, Redux 활용 투두리스트 작성,수정,삭제 기능 구현",
       "폴더,아이콘 Drag & Drop",
       "HTML / SCSS / BOOTSTRAP 화면 퍼블리싱",
     ],
@@ -247,7 +248,7 @@ export const projectData: ProjectType[] = [
     desc: [""],
     project_img: [""],
     url: "abc",
-    skill: [react, html, bootstrap],
+    skill: [''],
     screenToggle: false,
     position: { x: 0, y: 0 },
     active: true,
@@ -258,11 +259,11 @@ export const projectData: ProjectType[] = [
   {
     id: 5,
     title: "Read Me",
-    icon: todo,
+    icon: vscode,
     desc: [""],
     project_img: [""],
     url: "abc",
-    skill: [react, html, bootstrap],
+    skill: [''],
     screenToggle: false,
     position: { x: 0, y: 0 },
     active: true,

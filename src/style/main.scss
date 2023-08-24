@@ -316,22 +316,26 @@ $mainColor : #2561D9;
       height: 50%;
       background: linear-gradient(to right, #5C7FDD, #8FAFF0,#7193E6);
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 10px;
       cursor: default;
-      &:hover img {
-        filter: brightness(1.2);
-      }
-      &:hover span {
-        text-decoration: underline;
-      }
-      &:active img{
-        filter: brightness(0.8);
-      }
-      &:active span{
-        text-decoration: none;
+      .off{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        &:hover img {
+          filter: brightness(1.2);
+        }
+        &:hover span {
+          text-decoration: underline;
+        }
+        &:active img{
+          filter: brightness(0.8);
+        }
+        &:active span{
+          text-decoration: none;
+        }
       }
     }
   }

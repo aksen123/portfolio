@@ -11,7 +11,6 @@ import { PositionType } from "../taskbar/IconDescTop";
 import { activeTab } from "../../redux/formSlice";
 import Iframe from "./Iframe";
 import TodoForm from "../todoForm/TodoForm";
-import Notion from "./Notion";
 import Readme from "./Readme";
 
 

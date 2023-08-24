@@ -33,6 +33,12 @@ const StartMenu = ({logOff}:Props) => {
       <div className="icon-wrapper">
         <div className="icon-wrap left">
             <IconWrap 
+            title='README'
+              iconImg={descTopIcon.vscode}
+              classValue="menu"
+              onClick={()=>onClick(5)}
+            />
+            <IconWrap 
             title='projects'
               iconImg={descTopIcon.descFolder}
               classValue="menu"

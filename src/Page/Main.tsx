@@ -87,19 +87,27 @@ const Main = () => {
           />
         ))}
         <IconDescTop
-          title="Projects"
-          iconImg={descTopIcon.descFolder}
+          title="README"
+          iconImg={descTopIcon.vscode}
           rects={() => rects()}
           initX={rects()[3].x}
           initY={rects()[3].y}
+          onDoubleClick={() => onDoubleClick(5)}
+        />
+        <IconDescTop
+          title="Projects"
+          iconImg={descTopIcon.descFolder}
+          rects={() => rects()}
+          initX={rects()[4].x}
+          initY={rects()[4].y}
           onDoubleClick={() => onDoubleClick(0)}
         />
         <IconDescTop
           title="To Do"
           iconImg={descTopIcon.todo}
           rects={() => rects()}
-          initX={rects()[4].x}
-          initY={rects()[4].y}
+          initX={rects()[5].x}
+          initY={rects()[5].y}
           onDoubleClick={() => onDoubleClick(4)}
         />
 

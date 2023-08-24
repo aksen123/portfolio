@@ -3,8 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './Page/Main';
 import StartPage from './Page/StartPage';
 import Loading from './Page/Loading';
-import Test from './Components/Test';
-import Test2 from './Components/Test2';
+import End from './Page/End';
 function App() {
   return (
     <>
@@ -13,6 +12,7 @@ function App() {
           <Route path='/' element={<StartPage />}/>
           <Route path='/loading' element={<Loading />}/>
           <Route path='/main' element={<Main />}/>
+          <Route path='/end' element={<End />}/>
         </Routes>
       </BrowserRouter>
     </>

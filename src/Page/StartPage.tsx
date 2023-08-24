@@ -10,7 +10,7 @@ const StartPage = () => {
 
   const navigate = useNavigate() 
   const goMain = ():void => {
-    // document.documentElement.requestFullscreen();
+    document.documentElement.requestFullscreen();
     setTimeout(() => {
       navigate("/loading",{replace: true});
     }, 1000);

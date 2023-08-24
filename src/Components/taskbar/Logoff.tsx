@@ -6,6 +6,15 @@ import { Props } from './StartMenu'
 
 const Logoff = ({logOff}: Props) => {
   const navigate = useNavigate()
+  const goEnd =()=>{
+    if((document.fullscreenElement !== null)){
+      document.exitFullscreen()
+    }
+    logOff()
+    navigate('/end',{replace: true})
+    setTimeout(()=>{
+    },1000)
+  }
   return (
     <div className='Logoff'>
       <div className="off-wrap">
@@ -13,9 +22,11 @@ const Logoff = ({logOff}: Props) => {
           <span>종료 하시겠습니까?</span>
           <img width={50} src={mainLogo} alt="" />
         </div>
-        <div className="main">
+        <div className="main" >
+          <div className="off" onClick={goEnd}>
           <img width={50} src={menu_img.off} alt="" />
-          <span>종료하기</span>
+          <span >종료하기</span>
+          </div>
         </div>
         <div className="bottom">
           <button onClick={logOff}>취소</button>
