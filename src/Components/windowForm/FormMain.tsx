@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import up from "../../images/icon/accordionbtn.png";
 import down from "../../images/icon/accordionbtnd.png";
 import { useDispatch,useSelector } from "react-redux";
@@ -24,6 +24,9 @@ const FormMain = ({id,idx,title,project_img,skill,desc,screenToggle}:selectType)
   };
   const titleImg = contentView ? up : down;
   const titleBorder = contentView ? "5px 5px 0 0" : "5px 5px 5px 5px";
+  useEffect(()=>{
+
+  },[])
   return (
     <div className="FormMain-wrap">
       <div className="main-left">
@@ -59,8 +62,8 @@ const FormMain = ({id,idx,title,project_img,skill,desc,screenToggle}:selectType)
       </div>
       <div className="main-right">
         <div className="content form-title">{title}</div>
-        <div className="content img">
-          <Slide project_img={project_img} />
+        <div className={screenToggle ? "content img on" : "content img"}>
+          <Slide project_img={project_img} screenToggle={screenToggle} id={id} />
         </div>
         <div className="content skill">
           {skill.map((it, idx) => (

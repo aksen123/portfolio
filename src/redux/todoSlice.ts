@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { PayloadAction } from "@reduxjs/toolkit";
 
+
+
 export type TodoType = {
   id: number;
   date: string;
@@ -14,7 +16,40 @@ export enum Category {
   DOING = "DOING",
   DONE = "DONE",
 }
-
+const mockData :TodoType[] = [
+  {
+    id: 0,
+    date:"2023-08-22",
+    category: Category.TODO,
+    text: '최적화 하기',
+    badgeClass: 'badge3',
+    badgeTitle:"더 중요"
+  },
+  {
+    id: 1,
+    date:"2023-08-23",
+    category: Category.TODO,
+    text: '취업하기',
+    badgeClass: 'badge3',
+    badgeTitle:"더 중요"
+  },
+  {
+    id: 2,
+    date:"2023-08-20",
+    category: Category.DOING,
+    text: '프로젝트 수정하기',
+    badgeClass: 'badge2',
+    badgeTitle:"중요"
+  },
+  {
+    id: 3,
+    date:"2023-08-24",
+    category: Category.DONE,
+    text: '아침먹기',
+    badgeClass: 'badge2',
+    badgeTitle:"보통"
+  },
+]
 type InitType = {
   todoList: TodoType[];
   bgTitle: string;
@@ -22,7 +57,7 @@ type InitType = {
 };
 
 const initialState: InitType = {
-  todoList: [],
+  todoList: mockData,
   bgTitle:'보통',
   bgClass:'badge1'
 };
@@ -44,7 +79,7 @@ const todoSlice = createSlice({
   initialState,
   reducers: {
     setToDos(state) {
-      state.todoList = setTodo();
+      state.todoList = [...setTodo(), ...state.todoList];
     },
     addTodo(state, action: PayloadAction<{ todo: TodoType }>) {
       const newTodo = action.payload.todo;

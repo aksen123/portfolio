@@ -29,10 +29,12 @@ import folder_img from "../images/icon/menuIcon/folder_image.png";
 import internet from '../images/icon/internet.png'
 import descFolder from '../images/folder.png'
 import todo from '../images/icon/todo.png'
-import { windowImg } from './projectImg';
 
-
-
+//  프로젝트 이미지
+import { windowImg,gbgImg,diaryImg,nikeImg } from './projectImg';
+import bgbIcon from '../images/icon/gyeongbokgung-icon.png'
+import emotion from '../images/icon/emotion.png'
+import nike from '../images/icon/nike.png'
 
 
 export const menu_img = { menuTop, off, play };
@@ -162,8 +164,8 @@ export const projectData: ProjectType[] = [
       "React / Typescript 기반 개발",
       "Redux 활용 전역 상태관리",
       "Redux 활용 폴더 최대화,최소화,폴더 위치 상태 관리",
-      "localStorage, Redux 활용 투두 리스트",
-      "Drag & Drop 적용 폴더,아이콘 위치 변경 기능",
+      "localStorage, Redux 활용 투두리스트 작성 및 수정 기능 구현",
+      "폴더,아이콘 Drag & Drop",
       "HTML / SCSS / BOOTSTRAP 화면 퍼블리싱",
     ],
     project_img: windowImg,
@@ -178,12 +180,19 @@ export const projectData: ProjectType[] = [
   },
   {
     id: 1,
-    title: "test1",
-    icon: folder2,
-    desc: ["설명 1", "설명 2", "설명 3", "설명 4", "설명 5"],
-    project_img: [MainLogo, myComputer, folder, back],
-    url: "https://finance.naver.com/",
-    skill: [react, html, bootstrap, bootstrap, bootstrap],
+    title: "Team - 경복궁 관리소",
+    icon: bgbIcon,
+    desc: [
+      "반응형 웹페이지",
+      "이달의 행사 달력, 무한 슬라이드 구현",
+      "location.search 활용 낮,밤 행사/예약 페이지 분기",
+      "낮,밤 행사 카드 페이지네이션 구현",
+      "예약 페이지 행사 기간별 날짜 선택 구현",
+      "예약페이지 예약 / 예약 확인 구현",
+    ],
+    project_img: gbgImg,
+    url: "https://gyeongbokgung-c8579.web.app/",
+    skill: [html, css, JS, jQuery, bootstrap],
     screenToggle: false,
     position: { x: 0, y: 0 },
     active: true,
@@ -193,12 +202,17 @@ export const projectData: ProjectType[] = [
   },
   {
     id: 2,
-    title: "test2",
-    icon: folders,
-    desc: ["설명 1", "설명 2", "설명 3", "설명 4", "설명 5"],
-    project_img: [MainLogo, myComputer, folder, back],
-    url: "https://news.naver.com/main/list.naver?mode=LPOD&mid=sec&sid1=001&sid2=140&oid=001&isYeonhapFlash=Y&aid=0014144750",
-    skill: [react, html, bootstrap],
+    title: "감정일기장",
+    icon: emotion,
+    desc: [
+      "HTML / CSS 화면 퍼블리싱",
+      "react-router활용 페이지 분기",
+      "localStorage활용 일기 저장 및 출력",
+      "다이어리 내용,날짜 수정 기능 구현",
+    ],
+    project_img: diaryImg,
+    url: "https://emotion-diary-b6847.web.app",
+    skill: [react, JS, html, css],
     screenToggle: false,
     position: { x: 0, y: 0 },
     active: true,
@@ -208,12 +222,17 @@ export const projectData: ProjectType[] = [
   },
   {
     id: 3,
-    title: "test3",
-    icon: thumbnail,
-    desc: ["설명 1", "설명 2", "설명 3", "설명 4", "설명 5"],
-    project_img: [MainLogo, myComputer, folder, back],
-    url: "https://sports.news.naver.com/index",
-    skill: [react, html, bootstrap],
+    title: "나이키 홈페이지(클론코딩)",
+    icon: nike,
+    desc: [
+      "나이키 메인,로그인 페이지 클론 코딩",
+      "styled-components 활용 화면 퍼블리싱",
+      "redux 활용 로그인 / 로그아웃 구현",
+      "react-router 활용 로그인 전,후 페이지 분기",
+    ],
+    project_img: nikeImg,
+    url: "https://delightful-cobbler-0c7405.netlify.app/",
+    skill: [react,redux ,html, styled, ],
     screenToggle: false,
     position: { x: 0, y: 0 },
     active: true,
@@ -224,9 +243,9 @@ export const projectData: ProjectType[] = [
   {
     id: 4,
     title: "todo",
-    icon: thumbnail,
-    desc: ["설명 1", "설명 2", "설명 3", "설명 4", "설명 5"],
-    project_img: [MainLogo, myComputer, folder, back],
+    icon: todo,
+    desc: [""],
+    project_img: [""],
     url: "abc",
     skill: [react, html, bootstrap],
     screenToggle: false,

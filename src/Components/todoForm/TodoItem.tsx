@@ -23,7 +23,7 @@ const TodoItem = ({
 }: TodoType) => {
   const [inputText, setInputText] = useState<string>("");
   const [inputDisplay, setInputDisplay] = useState<boolean>(false);
-  const [badge, setBadge] = useState<BadgeType>({ title: "", class: "" });
+  const [badge, setBadge] = useState<BadgeType>({ title: "보통", class: "badge1" });
   const dispatch = useDispatch<AppDispatch>();
   const onClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
     e.stopPropagation();

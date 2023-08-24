@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import FormHead from "./FormHead";
 import Toolbar from "./Toolbar";
 import FormMain from "./FormMain";
@@ -18,10 +18,8 @@ export type selectType = ProjectType & {
 };
 const WindowForm = (selectData: selectType) => {
   const dispatch = useDispatch<AppDispatch>();
-
   const screenWidth = selectData.screenToggle  ? "100%" : "900px";
   const screenHeight = selectData.screenToggle ? "calc(100% - 40px)" : "700px";
-
   const onClick  =() => {
     dispatch(hideMenu({ value: "" }));
     dispatch(activeTab({idx: selectData.idx}))
@@ -61,11 +59,13 @@ const WindowForm = (selectData: selectType) => {
       <FormHead
         {...selectData}
       />
+  
       <div className={selectData.active ? "window-body" : "window-body out"}>
         
         {selectData.type === "WINDOW_FORM" ? <Toolbar {...selectData} /> : null}
         {selectData.type === "WINDOW_FORM" ? <FormMain {...selectData} /> :selectData.type === "TODO" ? <TodoForm {...selectData}/> : <Iframe {...selectData}/>}
       </div>
+
     </div>
   );
 };
