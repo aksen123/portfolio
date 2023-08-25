@@ -4,10 +4,13 @@ import github from '../images/icon/git.png'
 import start from '../images/startImg.png'
 import Logo from '../Components/logo/Logo'
 import {useNavigate} from 'react-router-dom';
-
-
+import { setToDos } from '../redux/todoSlice'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '../redux/store'
 const StartPage = () => {
+  const dispatch = useDispatch<AppDispatch>();
 
+  dispatch(setToDos())
   const navigate = useNavigate() 
   const goMain = ():void => {
     document.documentElement.requestFullscreen();

@@ -17,9 +17,9 @@ const TodoForm = ({title,screenToggle}: ProjectType) => {
 
   const dispatch = useDispatch<AppDispatch>()
 
-  useEffect(()=>{
-    dispatch(setToDos())
-  },[])
+  // useEffect(()=>{
+  //   dispatch(setToDos())
+  // },[])
   return (
     <div className='TodoForm'>
       <CreateTodo  />

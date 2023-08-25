@@ -12,6 +12,7 @@ import { openForm } from "../redux/formSlice";
 import { mainIcons } from "../data/data";
 import { descTopIcon } from "../data/data";
 import Logoff from "../Components/taskbar/Logoff";
+import { setToDos } from '../redux/todoSlice'
 
 export class Rect {
   constructor(
@@ -72,6 +73,9 @@ const Main = () => {
   const logOff = ():void => {
     setEnd(!end)
   }
+  useEffect(()=>{
+    dispatch(setToDos())
+  },[])
   return (
     <div className="Main" ref={testRef}>
       <div className="main-screen" onClick={mainClick}>

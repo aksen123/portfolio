@@ -65,21 +65,15 @@ const initialState: InitType = {
 const updateTodo = (toDos: TodoType[]) => {
   localStorage.setItem("mwTodo", JSON.stringify(toDos));
 };
-const setTodo = (): [] => {
-  let todo = null;
-  if (localStorage.getItem("mwTodo") !== null) {
-    todo = JSON.parse(localStorage.getItem("mwTodo") as string);
-  } else {
-    todo = [];
-  }
-  return todo;
-};
+
 const todoSlice = createSlice({
   name: "todo",
   initialState,
   reducers: {
     setToDos(state) {
-      state.todoList = [...setTodo(), ...state.todoList];
+      const set = [...new Set([...todoSetting(), ...mockData].map(it => JSON.stringify(it)))]
+      state.todoList = set.map(it => it = JSON.parse(it))  ;
+
     },
     addTodo(state, action: PayloadAction<{ todo: TodoType }>) {
       const newTodo = action.payload.todo;
@@ -137,3 +131,12 @@ export const {
   setToDos,
   clickBadge,
 } = todoSlice.actions;
+export const todoSetting = (): [] => {
+  let todo = null;
+  if (localStorage.getItem("mwTodo") !== null) {
+    todo = JSON.parse(localStorage.getItem("mwTodo") as string);
+  } else {
+    todo = [];
+  }
+  return todo;
+};
