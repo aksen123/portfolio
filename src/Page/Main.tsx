@@ -76,6 +76,7 @@ const Main = () => {
   useEffect(()=>{
     dispatch(setToDos())
   },[])
+  
   return (
     <div className="Main" ref={testRef}>
       <div className="main-screen" onClick={mainClick}>
