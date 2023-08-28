@@ -9,7 +9,7 @@ type InitType = {
 };
 
 const initialState: InitType = {
-  formArray: [],
+  formArray: [projectData[4]],
   form_zIndex: 0,
 };
 

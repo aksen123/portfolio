@@ -71,7 +71,6 @@ const todoSlice = createSlice({
   initialState,
   reducers: {
     setToDos(state) {
-      console.log('hi')
       const set = [...new Set([...todoSetting(), ...mockData].map(it => JSON.stringify(it)))]
       state.todoList = set.map(it => it = JSON.parse(it))  ;
     },
