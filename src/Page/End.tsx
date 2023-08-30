@@ -2,6 +2,7 @@ import React,{useEffect} from 'react'
 import '../style/startPage.scss'
 import Logo from '../Components/logo/Logo'
 import { useNavigate } from 'react-router-dom'
+import LoadingAnimate from '../Components/logo/LoadingAnimate'
 const End = () => {
   const navigate = useNavigate()
   setTimeout(()=>{
@@ -10,7 +11,8 @@ const End = () => {
   return (
     <div className='End'>
       <Logo />
-      <h2>Mindows 종료 하는중 ...</h2>
+      <h1> 종료 하는중 ...</h1>
+      <LoadingAnimate />
     </div>
   )
 }
