@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react'
 import '../style/startPage.scss'
 import Logo from '../Components/logo/Logo'
-import { useNavigate } from 'react-router'
+import { useNavigate } from 'react-router-dom'
 const End = () => {
   const navigate = useNavigate()
   setTimeout(()=>{

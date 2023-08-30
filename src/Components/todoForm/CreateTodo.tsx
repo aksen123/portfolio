@@ -22,15 +22,19 @@ const CreateTodo = () => {
 
   const add = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const newTodo = {
-      id: Date.now(),
-      date: dayjs().format("YYYY-MM-DD"),
-      text: text,
-      category: Category.TODO,
-      badgeTitle:bgTitle,
-      badgeClass:bgClass
+    if(text !== ''){
+      const newTodo = {
+        id: Date.now(),
+        date: dayjs().format("YYYY-MM-DD"),
+        text: text,
+        category: Category.TODO,
+        badgeTitle:bgTitle,
+        badgeClass:bgClass
+      }
+      dispatch(addTodo({todo : newTodo}))
+    } else {
+      alert('내용을 입력해주세요')
     }
-    dispatch(addTodo({todo : newTodo}))
     setText('')
   }
   return (
