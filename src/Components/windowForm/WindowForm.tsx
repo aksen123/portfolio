@@ -28,7 +28,7 @@ const WindowForm = (selectData: selectType) => {
   }
   const todoPosition =  {
     width: `${screenWidth}`,
-    height: `calc(100% - 40px)`,
+    height: `calc(100% - 45px)`,
     zIndex: selectData.zIndex,
     right:0,
     top: 0,
