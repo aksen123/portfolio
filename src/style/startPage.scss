@@ -229,6 +229,7 @@ p {
       padding: 20px;
       display: flex;
       gap: 20px;
+      color: #fff;
       .desc {
         width: 50%;
         display: flex;
@@ -239,7 +240,6 @@ p {
           text-align: center;
           font-weight: bold;
           font-size: 24px;
-          color: #fff;
         }
         img {
           width: 50%;
@@ -255,22 +255,31 @@ p {
         display: flex;
         flex-direction: column;
 
-
-        // margin-bottom: 20px;
+        margin-bottom: 15px;
         label {
-          margin-bottom: 10px;
+          margin-bottom: 5px;
+          ;
         }
-        input,textarea {
+        input,textarea,button {
           outline: none;
           font-size: 20px;
           padding: 5px;
+          border: none;
+          border-radius: 5px;
         }
         textarea {
           height: 200px;
           resize: none;
         }
         button {
-          padding: 5px;
+          margin-top: 5px;
+          background-color: #fff;
+          &:active {
+            box-shadow: inset 1px 1px 5px #555;
+          }
+          &:hover {
+            background-color: rgba($color: #fff, $alpha: 0.8);
+          }
         }
       }
     }

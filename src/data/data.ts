@@ -170,7 +170,7 @@ export const projectData: ProjectType[] = [
       "HTML / SCSS / BOOTSTRAP 화면 퍼블리싱",
     ],
     project_img: windowImg,
-    url: "https://www.naver.com/",
+    url: "",
     skill: [html, react, redux, JS, TS, scss, bootstrap, git],
     screenToggle: false,
     position: { x: 0, y: 0 },
