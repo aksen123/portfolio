@@ -7,9 +7,6 @@ import { Props } from './StartMenu'
 const Logoff = ({logOff}: Props) => {
   const navigate = useNavigate()
   const goEnd =()=>{
-    if((document.fullscreenElement !== null)){
-      document.exitFullscreen()
-    }
     logOff()
     navigate('/end',{replace: true})
     setTimeout(()=>{

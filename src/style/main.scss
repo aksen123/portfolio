@@ -2,9 +2,11 @@ $mainColor : #2561D9;
 
 .Main {
   background-image: url('../images/bg.jpg');
+  background-position:center ;
+  background-size: cover;
+  background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
-  background-position: center;
   position: relative;
   overflow: hidden;
   .main-screen {

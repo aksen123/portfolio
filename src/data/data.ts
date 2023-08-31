@@ -18,7 +18,7 @@ import go from "../images/icon/go.png";
 
 import play from "../images/icon/play.png";
 import off from "../images/button/shutdown.png";
-import menuTop from "../images/menuImg.png";
+import menuTop from "../images/startImg.png";
 import folder2 from "../images/icon/menuIcon/folder.png";
 import recentDoc from "../images/icon/menuIcon/recentdoc.png";
 import clipboard from "../images/icon/menuIcon/clipboard.png";

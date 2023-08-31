@@ -6,6 +6,9 @@ import LoadingAnimate from '../Components/logo/LoadingAnimate'
 const End = () => {
   const navigate = useNavigate()
   setTimeout(()=>{
+    if((document.fullscreenElement !== null)){
+      document.exitFullscreen()
+    }
     navigate('/contact')
   },2000)
   return (
