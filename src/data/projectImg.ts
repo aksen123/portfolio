@@ -2,6 +2,7 @@
 import todo from "../images/project/todolist.png";
 import main from "../images/project/main.png";
 import loading from "../images/project/loading.png";
+import contact from '../images/project/contact.png'
 import logOff from "../images/project/log-off.png";
 
 // 경복궁
@@ -23,7 +24,7 @@ import nike2 from "../images/project/nike/nike2.png";
 import nike3 from "../images/project/nike/nike3.png";
 import nike4 from "../images/project/nike/nike4.png";
 
-export const windowImg: string[] = [loading, main, logOff, todo];
+export const windowImg: string[] = [loading, main, logOff,contact];
 export const gbgImg: string[] = [
   gungMain,
   event,

@@ -27,7 +27,7 @@ const WindowForm = (selectData: selectType) => {
     dispatch(activeTab({idx: selectData.idx}))
   }
   const todoPosition =  {
-    width: `${screenWidth}`,
+    width: selectData.screenToggle  ? "100%" : "700px",
     height: `calc(100% - 45px)`,
     zIndex: selectData.zIndex,
     right:0,

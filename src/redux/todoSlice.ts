@@ -19,30 +19,6 @@ export enum Category {
 const mockData :TodoType[] = [
   {
     id: 0,
-    date:"2023-08-22",
-    category: Category.TODO,
-    text: '최적화 하기',
-    badgeClass: 'badge3',
-    badgeTitle:"더 중요"
-  },
-  {
-    id: 1,
-    date:"2023-08-23",
-    category: Category.TODO,
-    text: '취업하기',
-    badgeClass: 'badge3',
-    badgeTitle:"더 중요"
-  },
-  {
-    id: 2,
-    date:"2023-08-20",
-    category: Category.DOING,
-    text: '프로젝트 수정하기',
-    badgeClass: 'badge2',
-    badgeTitle:"중요"
-  },
-  {
-    id: 3,
     date:"2023-08-24",
     category: Category.DONE,
     text: '아침먹기',
