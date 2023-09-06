@@ -58,7 +58,7 @@ const Contact = () => {
               <input
                 type="text"
                 name="user_phone"
-                placeholder="연락처를 입력해 주세요 (선택사항)"
+                placeholder="연락처를 입력해 주세요"
               />
             </div>
             <div className="input">

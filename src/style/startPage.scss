@@ -1,6 +1,7 @@
 .StartPage {
   width: 100vw;
   height: 100vh;
+  
 }
 
 .pageTop {
@@ -77,6 +78,19 @@
   }
 }
 
+// Preview
+.Preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+}
+
+
+
+// ======= logo ========
 .Logo,
 p {
   margin-right: 50px;
@@ -220,6 +234,7 @@ p {
     h1 {
       font-size: 3rem;
       color: #fff;
+      margin: 0;
     }
 
     .contact-wrap {
@@ -268,7 +283,7 @@ p {
           border-radius: 5px;
         }
         textarea {
-          height: 200px;
+          height: 150px;
           resize: none;
         }
         button {

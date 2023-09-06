@@ -7,10 +7,10 @@ type ScreenType = Pick<ProjectType, "screenToggle">;
 type PropsType = {
   project_img: string[];
   screenToggle: boolean;
-  id: number;
+  id?: number;
 }
 
-const Slide = ({ project_img, screenToggle,id }: PropsType) => {
+const Slide = ({ project_img, screenToggle }: PropsType) => {
   const max_num: number = project_img.length - 1;
   const [moveImg, setMoveImg] = useState<number>(0);
   const slideRef = useRef<HTMLDivElement | null>(null);
