@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaCircleChevronLeft, FaCircleChevronRight } from "react-icons/fa6";
 import { toolbar_img, ProjectType } from "../../data/data";
-
+import './windowForm.scss'
 type ImagesType = Pick<ProjectType, "project_img">
 type ScreenType = Pick<ProjectType, "screenToggle">;
 type PropsType = {
