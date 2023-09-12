@@ -181,11 +181,25 @@ $mainColor : #2561D9;
         gap: 10px;
         margin-right: 40px;
         color: #fff;
-
+        animation:imgBrightness 0.5s infinite linear;
         &:hover {
           background-color: #2561d9;
+          animation: none;
         }
       }
+    }
+  }
+  @keyframes imgBrightness {
+    0% {
+      filter:brightness(0%)
+    }
+  
+    50% {
+      filter: brightness(150%)
+    }
+  
+    100% {
+      filter: brightness(0%)
     }
   }
 

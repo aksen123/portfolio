@@ -75,7 +75,7 @@ const Toolbar = ({ url, icon, type, id }: ProjectType) => {
             <img width={15} src={icon} alt="" />
             {url}
           </div>
-          <img src={toolbar_img.down} alt="" />
+          <img className="down-img" src={toolbar_img.down} alt="" />
         </div>
         {/* onClick > go-button 추가하기 */}
 
