@@ -7,52 +7,47 @@ import { ProjectType } from "../../data/data";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "../../redux/store";
 import { hideMenu } from "../../redux/toggleSlice";
-import { PositionType } from "../taskbar/IconDescTop";
 import { activeTab } from "../../redux/formSlice";
 import Iframe from "./Iframe";
 import TodoForm from "../todoForm/TodoForm";
 import Readme from "./Readme";
-
-
+import Lotto from "../game/Lotto";
 export type selectType = ProjectType & {
   idx: number;
-
 };
 const WindowForm = (selectData: selectType) => {
   const dispatch = useDispatch<AppDispatch>();
-  const screenWidth = selectData.screenToggle  ? "100%" : "900px";
+  const screenWidth = selectData.screenToggle ? "100%" : "900px";
   const screenHeight = selectData.screenToggle ? "calc(100% - 40px)" : "600px";
-  const onClick  =() => {
+  const onClick = () => {
     dispatch(hideMenu({ value: "" }));
-    dispatch(activeTab({idx: selectData.idx}))
-  }
-  const todoPosition =  {
-    width: selectData.screenToggle  ? "100%" : "700px",
+    dispatch(activeTab({ idx: selectData.idx }));
+  };
+  const todoPosition = {
+    width: selectData.screenToggle ? "100%" : "700px",
     height: `calc(100% - 45px)`,
     zIndex: selectData.zIndex,
-    right:0,
+    right: 0,
     top: 0,
-  } 
+  };
   const formPosition = {
     width: `${screenWidth}`,
     height: `${screenHeight}`,
     zIndex: selectData.zIndex,
-    left: selectData.screenToggle 
+    left: selectData.screenToggle
       ? 0
       : selectData.position.x == 0
       ? "50%"
       : selectData.position.x,
-    top: selectData.screenToggle 
+    top: selectData.screenToggle
       ? 0
       : selectData.position.y == 0
       ? "50%"
       : selectData.position.y,
-    transform: selectData.screenToggle 
+    transform: selectData.screenToggle
       ? "translate(0,0)"
       : "translate(-50%,-50%)",
-  }
-
-
+  };
 
   return (
     <div
@@ -64,13 +59,17 @@ const WindowForm = (selectData: selectType) => {
       <FormHead {...selectData} />
 
       <div className={selectData.active ? "window-body" : "window-body out"}>
-        {selectData.type !== "TODO" ? <Toolbar {...selectData} /> : null}
+        {selectData.type !== "WINDOW_FORM" ? null : <Toolbar {...selectData} />}
         {selectData.type === "WINDOW_FORM" ? (
           <FormMain {...selectData} />
         ) : selectData.type === "TODO" ? (
           <TodoForm {...selectData} />
+        ) : selectData.type === "README" ? (
+          <Readme />
+        ) : selectData.type === "LOTTO" ? (
+          <Lotto />
         ) : (
-          selectData.type === 'README' ?<Readme /> : <Iframe{...selectData} />
+          <Iframe {...selectData} />
         )}
       </div>
     </div>

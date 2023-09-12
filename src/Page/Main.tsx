@@ -115,7 +115,14 @@ const Main = () => {
           initY={rects()[5].y}
           onDoubleClick={() => onDoubleClick(4)}
         />
-
+        <IconDescTop
+          title="Lotto"
+          iconImg={descTopIcon.todo}
+          rects={() => rects()}
+          initX={rects()[6].x}
+          initY={rects()[6].y}
+          onDoubleClick={() => onDoubleClick(6)}
+        />
       </div>
 
       {formArray.length > 0 &&
