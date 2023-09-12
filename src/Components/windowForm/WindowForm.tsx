@@ -21,7 +21,7 @@ export type selectType = ProjectType & {
 const WindowForm = (selectData: selectType) => {
   const dispatch = useDispatch<AppDispatch>();
   const screenWidth = selectData.screenToggle  ? "100%" : "900px";
-  const screenHeight = selectData.screenToggle ? "calc(100% - 40px)" : "700px";
+  const screenHeight = selectData.screenToggle ? "calc(100% - 40px)" : "600px";
   const onClick  =() => {
     dispatch(hideMenu({ value: "" }));
     dispatch(activeTab({idx: selectData.idx}))
@@ -64,7 +64,7 @@ const WindowForm = (selectData: selectType) => {
       <FormHead {...selectData} />
 
       <div className={selectData.active ? "window-body" : "window-body out"}>
-        {selectData.type === "WINDOW_FORM" ? <Toolbar {...selectData} /> : null}
+        {selectData.type !== "TODO" ? <Toolbar {...selectData} /> : null}
         {selectData.type === "WINDOW_FORM" ? (
           <FormMain {...selectData} />
         ) : selectData.type === "TODO" ? (

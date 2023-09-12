@@ -40,11 +40,6 @@ const StartPage = () => {
             <img width={80} src={start} alt=""  />
           <span>시작</span>
           </div>
-          <div className='linkWrap' onClick={togglePreview}>
-            <img width={80} src={start} alt=""  />
-          <span>Preview</span>
-          </div>
-
         </div>
       </div>
       <div className="pageBottom"></div>
