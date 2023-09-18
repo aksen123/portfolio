@@ -19,7 +19,7 @@ export enum Category {
 const mockData :TodoType[] = [
   {
     id: 0,
-    date:"2023-08-24",
+    date:"2023-09-01",
     category: Category.DONE,
     text: '아침먹기',
     badgeClass: 'badge2',

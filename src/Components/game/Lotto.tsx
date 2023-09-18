@@ -19,10 +19,11 @@ const Lotto = () => {
     }
   };
 
+  const [count, setCount] = useState(0)
   useEffect(()=>{
-    console.log("useEffect : ",luckyNumber)
+    console.log("useEffect : ",count)
   },[deleteNum])
-
+  
   const selectNumber = (arr: number[]) => {
     setLuckyNumber([]);
     if (resultRef.current) {
@@ -30,28 +31,36 @@ const Lotto = () => {
       if (arr === pickNum && arr.length < 7) {
         alert("7개 이상 선택해주세요");
       } else {
-
-        let count = 1;
-
         const raffle = setInterval(() => {
+          setCount(count => count + 1)
+          console.log(count)
           const index = Math.floor(Math.random() * arr.length);
           const arrNum = arr[index];
-          luckyNumber.push(arrNum)
+          // luckyNumber.push(arrNum)
+          // console.log([...luckyNumber,arrNum])
+          setLuckyNumber([...luckyNumber,arr[index]])
+          // arr.splice(index,1)
+          // console.log(luckyNumber)
           arr === pickNum ? setPickNum(arr.filter((num) => arrNum !== num)) : setDeleteNum(arr.filter(num => arrNum !== num ));
-          count++;
           if (count > 6) {
+            // console.log(deleteNum);
             clearInterval(raffle);
-            setDeleteNum([...deleteNum]);
+            setDeleteNum([...numberArr]);
             setPickNum([]);
-            count = 1;
-    
-            console.log(arr, "lucky :",luckyNumber)
-            console.log(resultRef.current?.children)
+            setCount(1)
+            // console.log( "lucky :",luckyNumber);
           }
         }, 500);
       }
     }
   };
+
+  const test = () => {
+    const index = Math.floor(Math.random() * deleteNum.length);
+    const arrNum = deleteNum[index];
+    setLuckyNumber([...luckyNumber,arrNum])
+    deleteNum.splice(index,1)
+  }
   return (
     <div className="Lotto">
       <div className="inputs">
@@ -62,6 +71,7 @@ const Lotto = () => {
       <div className="buttons">
         <button onClick={() => selectNumber(deleteNum)}>선택제외</button>
         <button onClick={() => selectNumber(pickNum)}>선택뽑기</button>
+        <button onClick={test}>test</button>
       </div>
       <div className="result" ref={resultRef}>
         {luckyNumber.map((it) => (
