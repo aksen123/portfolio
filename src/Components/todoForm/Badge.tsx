@@ -22,6 +22,7 @@ const Badge = ({title,id, setBadge, Class} :Props ) => {
       dispatch(clickBadge({title: title, bgClass: id as string}))
     }else {
       setBadge({title: title, class: id as string})
+      // console.log(title,id)
     }
   
   }

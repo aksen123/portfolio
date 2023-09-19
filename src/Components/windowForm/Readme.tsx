@@ -1,9 +1,6 @@
 import React from "react";
 import "./windowForm.scss";
-const a = {
-  ab: [],
-  ad: { avv: "123123" },
-};
+
 
 const Readme = () => {
   return (
@@ -22,8 +19,8 @@ const Readme = () => {
           <span className="white">,</span>
         </p>
         <p style={{ color: "#69cdfb" }}>
-          age <span className="white">:</span>
-          <span style={{ color: "#99ce9b" }}> 33</span>
+          age <span className="white">: </span>
+          <span style={{ color: "#99ce9b" }}>{ new Date().getFullYear() - 1990}</span>
           <span className="white">,</span>
         </p>
         <p style={{ color: "#69cdfb" }}>
