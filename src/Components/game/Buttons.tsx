@@ -2,7 +2,8 @@ import React from 'react'
 
 type Props ={
   number : number;
-  onClick: (e: React.MouseEvent<HTMLInputElement>)=>void
+  onClick: (e: React.MouseEvent<HTMLInputElement>)=>void;
+  // ref :React.RefObject<HTMLInputElement>
 }
 
 const Buttons = ({number, onClick}:Props) => {

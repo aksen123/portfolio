@@ -28,4 +28,37 @@
       color: #fff;
     }
   }
+  .result {
+    display: flex;
+    gap: 5px;
+  }
+  .Ball {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .color1 {
+    background-color: #f2b720;
+    color: #fff;
+  }
+  .color2 {
+    background-color: #4072ac;
+    color: #fff;
+  }
+  .color3 {
+    background-color: #de4c0e;
+    color: #fff;
+  }
+  .color4 {
+    background-color: #9195a4;
+    color: #fff;
+  }
+  .color5 {
+    background-color: #13be4b;
+    color: #fff;
+  }
 }
