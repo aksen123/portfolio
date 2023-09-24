@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { PayloadAction } from "@reduxjs/toolkit";
 
-
-
 export type TodoType = {
   id: number;
   date: string;
@@ -16,16 +14,16 @@ export enum Category {
   DOING = "DOING",
   DONE = "DONE",
 }
-const mockData :TodoType[] = [
+const mockData: TodoType[] = [
   {
     id: 0,
-    date:"2023-09-01",
+    date: "2023-09-01",
     category: Category.DONE,
-    text: '아침먹기',
-    badgeClass: 'badge2',
-    badgeTitle:"보통"
+    text: "아침먹기",
+    badgeClass: "badge2", //작성된 투두 뱃지
+    badgeTitle: "보통",
   },
-]
+];
 type InitType = {
   todoList: TodoType[];
   bgTitle: string;
@@ -34,8 +32,8 @@ type InitType = {
 
 const initialState: InitType = {
   todoList: mockData,
-  bgTitle:'보통',
-  bgClass:'badge1'
+  bgTitle: "보통", //새로운 투두 작성할때 뱃지
+  bgClass: "badge1",
 };
 
 const updateTodo = (toDos: TodoType[]) => {
@@ -47,8 +45,12 @@ const todoSlice = createSlice({
   initialState,
   reducers: {
     setToDos(state) {
-      const set = [...new Set([...todoSetting(), ...mockData].map(it => JSON.stringify(it)))]
-      state.todoList = set.map(it => it = JSON.parse(it))  ;
+      const set = [
+        ...new Set(
+          [...todoSetting(), ...mockData].map((it) => JSON.stringify(it))
+        ),
+      ];
+      state.todoList = set.map((it) => (it = JSON.parse(it)));
     },
     addTodo(state, action: PayloadAction<{ todo: TodoType }>) {
       const newTodo = action.payload.todo;
@@ -63,6 +65,7 @@ const todoSlice = createSlice({
       state.todoList.map((it) =>
         it.id === id ? (it.category = category) : it
       );
+      // 카테고리 변경하기
       updateTodo(state.todoList);
     },
     changeToDo(
@@ -70,17 +73,17 @@ const todoSlice = createSlice({
       action: PayloadAction<{
         id: number;
         text: string;
-        title : string;
+        title: string;
         bgClass: string;
       }>
     ) {
-      const { id, text,title,bgClass} = action.payload;
+      const { id, text, title, bgClass } = action.payload;
       state.todoList = state.todoList.map((it) =>
         it.id === id
-          ? { ...it, text: text, badgeTitle:title  , badgeClass: bgClass }
+          ? { ...it, text: text, badgeTitle: title, badgeClass: bgClass }
           : it
       );
-
+      // 투두 수정
       updateTodo(state.todoList);
     },
     deleteTodo(state, action: PayloadAction<{ id: number }>) {
@@ -88,12 +91,16 @@ const todoSlice = createSlice({
       state.todoList = state.todoList.filter((todo) => todo.id !== id);
       updateTodo(state.todoList);
     },
-    clickBadge(state,action: PayloadAction<{title: string, bgClass: string}>) {
-      const {title, bgClass} = action.payload;
+    clickBadge(
+      state,
+      action: PayloadAction<{ title: string; bgClass: string }>
+    ) {
+      const { title, bgClass } = action.payload;
       state.bgTitle = title;
       state.bgClass = bgClass;
-      console.log(state.bgClass,state.bgTitle)
-    }
+      // 투두리스트 작성시 뱃지 변경
+      // console.log(state.bgClass,state.bgTitle)
+    },
   },
 });
 
@@ -106,6 +113,7 @@ export const {
   setToDos,
   clickBadge,
 } = todoSlice.actions;
+
 export const todoSetting = (): [] => {
   let todo = null;
   if (localStorage.getItem("mwTodo") !== null) {
