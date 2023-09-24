@@ -37,10 +37,12 @@ import emotion from '../images/icon/emotion.png'
 import nike from '../images/icon/nike.png'
 import vscode from '../images/icon/vscode.png'
 
+import lotto from '../images/icon/lotto.png'
 
 export const menu_img = { menuTop, off, play };
 export const handle_img = { close, miniSize, maxsize, resize };
 export const mainLogo = MainLogo
+
 
 // main icon
 export const mainIcons = [
@@ -57,7 +59,7 @@ export const mainIcons = [
     title: '내 네트워크 환경'
   },
 ]
-export const descTopIcon = {descFolder, todo,vscode}
+export const descTopIcon = {descFolder, todo,vscode,lotto}
 
 
 // Skill badge

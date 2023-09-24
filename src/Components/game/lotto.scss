@@ -26,6 +26,19 @@
     input:checked + label {
       background-color: red;
       color: #fff;
+
+    }
+  }
+  button {
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    &:hover {
+      background-color: #ddd;
+    }
+    &:active {
+      background-color: #eee;
     }
   }
   .result {

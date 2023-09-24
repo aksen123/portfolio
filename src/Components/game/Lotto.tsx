@@ -10,7 +10,7 @@ const Lotto = () => {
   const [pickNum, setPickNum] = useState<number[]>([]);
   const inputsRef = useRef<HTMLDivElement>(null);
   const countRef = useRef(1);
-
+  const [test, setTest] = useState(false)
   const numberClick = (e: React.MouseEvent<HTMLInputElement>) => {
     console.log(inputsRef.current)
     if (e.currentTarget.checked) {
@@ -22,7 +22,9 @@ const Lotto = () => {
     }
   };
 
+
   const selectNumber = (arr: number[]) => {
+    if(test == true) return;
     setLuckyNumber([]);
     if (arr === pickNum && arr.length < 7) {
       alert("7개 이상 선택해주세요");
@@ -32,6 +34,7 @@ const Lotto = () => {
   };
 
   function raffle(arr: number[]) {
+    setTest(true)
     const index = Math.floor(Math.random() * arr.length);
     const arrNum = arr[index];
     countRef.current += 1;
@@ -42,6 +45,7 @@ const Lotto = () => {
     const newArr = arr.filter((it) => arrNum !== it);
     setTimeout(()=>{
       if (countRef.current > 6) {
+        setTest(false)
         setPickNum([]);
         setDeleteNum([...numberArr])
         countRef.current = 1;

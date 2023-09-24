@@ -117,7 +117,7 @@ const Main = () => {
         />
         <IconDescTop
           title="Lotto"
-          iconImg={descTopIcon.todo}
+          iconImg={descTopIcon.lotto}
           rects={() => rects()}
           initX={rects()[6].x}
           initY={rects()[6].y}
