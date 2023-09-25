@@ -276,7 +276,7 @@ export const projectData: ProjectType[] = [
   {
     id: 6,
     title: "Lotto",
-    icon: vscode,
+    icon: lotto,
     desc: [""],
     project_img: [""],
     url: "",
