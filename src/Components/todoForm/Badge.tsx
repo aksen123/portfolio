@@ -19,7 +19,12 @@ const Badge = ({title,id, setBadge, Class} :Props ) => {
     badges?.forEach(it => it.className = 'Badge')
     e.currentTarget.className = `Badge ${id}`
     if(!setBadge) {
-      dispatch(clickBadge({title: title, bgClass: id as string}))
+      if(id){
+        dispatch(clickBadge({ title: title, bgClass: id as string }))
+      }else {
+        e.currentTarget.className = `Badge ${Class}`
+        return;
+      }
     }else {
       setBadge({title: title, class: id as string})
       // console.log(title,id)

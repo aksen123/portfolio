@@ -64,6 +64,7 @@ const TodoItem = ({
           <Badge
             title={badgeTitle}
             Class={`${badgeClass} on`}
+          
           />
           <span className={category === Category.DONE ? "date done" : "date"}>
             {date.slice(2)}

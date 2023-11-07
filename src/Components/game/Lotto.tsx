@@ -10,7 +10,8 @@ const Lotto = () => {
   const [pickNum, setPickNum] = useState<number[]>([]);
   const inputsRef = useRef<HTMLDivElement>(null);
   const countRef = useRef(1);
-  const [test, setTest] = useState(false)
+  const [test, setTest] = useState<boolean>(false)
+
   const numberClick = (e: React.MouseEvent<HTMLInputElement>) => {
     console.log(inputsRef.current)
     if (e.currentTarget.checked) {
