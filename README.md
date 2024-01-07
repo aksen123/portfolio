@@ -2,9 +2,9 @@
 
 <br /><br />
 
-기간 : 2023.07 ~ 2023.09
+## 기간 ➡️ 2023.07 ~ 2023.09
 <br/>
-링크 : https://mindowsxp-dc710.web.app/
+## 링크 ➡️ https://mindowsxp-dc710.web.app/
 
 ### SKill
 
@@ -20,8 +20,8 @@
 [![My Skills](https://skillicons.dev/icons?i=firebase)](https://github.com/aksen123)
 
 
-### 주요 기능
-  - 시작,종료 페이지 로딩 애니메이션 구현
+### 🖍️
+- 시작,종료 페이지 로딩 애니메이션
 - Redux 활용 상태 관리
     - 바탕 화면 아이콘, 창 드래그&드롭  위치 관리
     - 창 최대화, 최소화, 활성화 관리
