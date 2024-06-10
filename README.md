@@ -1,46 +1,46 @@
-# Getting Started with Create React App
+#  Windows XP 스타일 개인 포트폴리오 입니다🖐️
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> 컨셉인 Windows XP 처럼 PC화면 같이 만들기 위해 아이콘 드래그&드랍, 폴더 창 최대화, 최소화 등을 구현했습니다!
+> > 컨셉에 맞게 반응형은 제작하지 않았고 시작 버튼 클릭시 전체화면으로 전환 됩니다!  
+  
 
-## Available Scripts
+<br /><br />
 
-In the project directory, you can run:
+## 기간 ➡️ 2023.07 ~ 2023.09
 
-### `npm start`
+<br/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 링크 ➡️ https://mindowsxp-dc710.web.app/
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### SKill
 
-### `npm test`
+<br />
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[![My Skills](https://skillicons.dev/icons?i=ts,react,scss,redux)](https://github.com/aksen123)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Deployment
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br />
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[![My Skills](https://skillicons.dev/icons?i=firebase)](https://github.com/aksen123)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 🖍️
+- 시작,종료 페이지 로딩 애니메이션
+- Redux 활용 상태 관리
+    - 바탕 화면 아이콘, 창 드래그&드롭  위치 관리
+    - 창 최대화, 최소화, 활성화 관리
+    - 투두리스트 작성,수정,삭제 기능 (로컬스토리지)
+- 재사용 컴포넌트
+    - 창 컴포넌트 > iframe활용 배포 프로젝트 띄우기, 아이콘 타입 별 크기
+    - 아이콘 컴포넌트  > 창 메뉴 아이콘, 시작 메뉴 아이콘
+    - 뱃지 컴포넌트 > 리스트 생성, 수정, 상태 뱃지
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img src="https://github.com/aksen123/portfolio/assets/126546293/e25fd640-3d16-4b27-bd2e-152b64408fef" width="400" height="400"/>
+<img src="https://github.com/aksen123/portfolio/assets/126546293/d6872e13-e664-4319-bb69-0091b1b15d78" width="400" height="400"/>
+<img src="https://github.com/aksen123/portfolio/assets/126546293/fb844f32-c3e7-478a-9708-81f1ebc8d4eb" width="400" height="400"/>
+<img src="https://github.com/aksen123/portfolio/assets/126546293/562aea0c-5209-48a8-b3b1-bc36fe63b224" width="400" height="400"/>
+<img src="https://github.com/aksen123/portfolio/assets/126546293/ae93c838-5fe5-4027-ac47-220dc91908fd" width="400" height="400"/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
