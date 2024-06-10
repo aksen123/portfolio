@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "../../redux/store";
 import { clickIcon } from "../../redux/toggleSlice";
@@ -8,7 +8,7 @@ type IconProps = {
   iconImg: string;
   title: string;
   onDoubleClick?: () => void;
-  rects: ()=> Rect[];
+  rects: () => Rect[];
   initX: number;
   initY: number;
 };
@@ -17,7 +17,14 @@ export type PositionType = {
   y: number | undefined;
 };
 
-const IconDescTop = ({ iconImg, title, onDoubleClick ,rects, initX, initY }: IconProps) => {
+const IconDescTop = ({
+  iconImg,
+  title,
+  onDoubleClick,
+  rects,
+  initX,
+  initY,
+}: IconProps) => {
   const { iconValue } = useSelector((state: RootState) => state.toggle);
   const dispatch = useDispatch<AppDispatch>();
 
@@ -26,10 +33,12 @@ const IconDescTop = ({ iconImg, title, onDoubleClick ,rects, initX, initY }: Ico
     dispatch(clickIcon({ value: title }));
   };
 
-  const [originPos, setOriginPos] = useState<{x:number,y:number}>({ x: 0, y: 0 });
+  const [originPos, setOriginPos] = useState<{ x: number; y: number }>({
+    x: 0,
+    y: 0,
+  });
   const [position, setPosition] = useState<PositionType>({ x: 0, y: 0 });
   const iconRef = useRef<HTMLDivElement>(null);
-
 
   const dragStart = (e: React.DragEvent<HTMLDivElement>): void => {
     const originPosition = { ...originPos };
@@ -40,16 +49,14 @@ const IconDescTop = ({ iconImg, title, onDoubleClick ,rects, initX, initY }: Ico
   };
 
   const dragEnd = (e: React.DragEvent<HTMLDivElement>): void => {
-    const IconPosition = { ...position };
-
-    const changePosition = rects().find(rect => rect.check(e.clientX, e.clientY))
-
-    if (
-      !changePosition
-    ) {
+    const changePosition = rects().find((rect) =>
+      rect.check(e.clientX, e.clientY)
+    );
+    console.log(changePosition);
+    if (!changePosition) {
       setPosition(originPos);
     } else {
-      setPosition({x:changePosition?.x, y:changePosition?.y})
+      setPosition({ x: changePosition?.x, y: changePosition?.y });
     }
   };
   return (
@@ -62,10 +69,19 @@ const IconDescTop = ({ iconImg, title, onDoubleClick ,rects, initX, initY }: Ico
       onDoubleClick={onDoubleClick}
       onDragStart={dragStart}
       onDragEnd={dragEnd}
-      style={{ left: position.x == 0 ? initX : position.x , top: position.y == 0 ? initY : position.y  }}
+      style={{
+        left: position.x === 0 ? initX : position.x,
+        top: position.y === 0 ? initY : position.y,
+      }}
     >
       <img width={40} src={iconImg} alt="" />
-      <span className={iconValue === title ? title.length > 8 ? "iconTitle" : '' : ''}>{title}</span>
+      <span
+        className={
+          iconValue === title ? (title.length > 8 ? "iconTitle" : "") : ""
+        }
+      >
+        {title}
+      </span>
     </div>
   );
 };

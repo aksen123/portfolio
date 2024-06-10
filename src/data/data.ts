@@ -1,4 +1,4 @@
-import MainLogo from '../images/logo.png'
+import MainLogo from "../images/logo.png";
 import close from "../images/button/close.png";
 import miniSize from "../images/button/minimise.png";
 import maxsize from "../images/button/maximise.png";
@@ -26,41 +26,38 @@ import run from "../images/icon/menuIcon/run.png";
 import print from "../images/icon/menuIcon/printerfax.png";
 import myComputer from "../images/icon/menuIcon/mycomputer.png";
 import folder_img from "../images/icon/menuIcon/folder_image.png";
-import internet from '../images/icon/internet.png'
-import descFolder from '../images/folder.png'
-import todo from '../images/icon/todo.png'
+import internet from "../images/icon/internet.png";
+import descFolder from "../images/folder.png";
+import todo from "../images/icon/todo.png";
 
 //  프로젝트 이미지
-import { windowImg,gbgImg,diaryImg,nikeImg } from './projectImg';
-import bgbIcon from '../images/icon/gyeongbokgung-icon.png'
-import emotion from '../images/icon/emotion.png'
-import nike from '../images/icon/nike.png'
-import vscode from '../images/icon/vscode.png'
+import { windowImg, gbgImg, kioskImg, adminImg } from "./projectImg";
+import bgbIcon from "../images/icon/gyeongbokgung-icon.png";
+import dumpling from "../images/icon/dumpling.png";
+import vscode from "../images/icon/vscode.png";
 
-import lotto from '../images/icon/lotto.png'
+import lotto from "../images/icon/lotto.png";
 
 export const menu_img = { menuTop, off, play };
 export const handle_img = { close, miniSize, maxsize, resize };
-export const mainLogo = MainLogo
-
+export const mainLogo = MainLogo;
 
 // main icon
 export const mainIcons = [
   {
     icon: folder2,
-    title: '내 문서'
+    title: "내 문서",
   },
   {
     icon: myComputer,
-    title: '내 컴퓨터'
+    title: "내 컴퓨터",
   },
   {
     icon: internet,
-    title: '내 네트워크 환경'
+    title: "내 네트워크 환경",
   },
-]
-export const descTopIcon = {descFolder, todo,vscode,lotto}
-
+];
+export const descTopIcon = { descFolder, todo, vscode, lotto };
 
 // Skill badge
 const html =
@@ -69,8 +66,6 @@ const css =
   "https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white";
 const scss =
   "https://img.shields.io/badge/sass-cc6699?style=for-the-badge&logo=sass&logoColor=white";
-const styled =
-  "https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white";
 const JS =
   "https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white";
 const TS =
@@ -84,9 +79,15 @@ const redux =
 const bootstrap =
   "https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white";
 const github =
+  "https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white";
+const git =
   "https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white";
-const git ="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white"
-
+const nextjs =
+  "https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white";
+const recoil =
+  "https://img.shields.io/badge/Recoil-3578E5?style=flat-square&logo=recoil&logoColor=white";
+const tailwind =
+  "https://img.shields.io/badge/tailwindcss-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white";
 export const toolbar_img = {
   windowLogo,
   back,
@@ -99,8 +100,6 @@ export const toolbar_img = {
   go,
   down,
 };
-
-
 
 type RightIconType = {
   iconImg: string;
@@ -149,18 +148,60 @@ export type ProjectType = {
   project_img: string[];
   url: string;
   skill: string[];
-  screenToggle : boolean;
-  position: {x:number, y:number};
+  screenToggle: boolean;
+  position: { x: number; y: number };
   active: boolean;
   hide: boolean;
   zIndex: number;
   type: string;
 };
 
-
 export const projectData: ProjectType[] = [
   {
     id: 0,
+    title: "Dumpling Admin - 체인점 Kiosk",
+    icon: dumpling,
+    desc: [
+      "Firestore 데이터베이스 연동 및 SWR 라이브러리 활용 주문 내역 실시간 확인",
+      "Axios instance, interceptor를 활용해 에러 핸들링 관리",
+      "메뉴 관리 페이지 CRUD 구현",
+      "로그인 권한 별 페이지 분기 ( 전체 관리 / 지점 관리 )",
+      "Window 객체 alert 재정의, alert 호출 시 React-Portal 활용 커스텀 컴포넌트 호출 구현",
+    ],
+    project_img: adminImg,
+    url: "https://admin-khaki-delta.vercel.app/",
+    skill: [nextjs, TS, recoil, tailwind, git, github],
+    screenToggle: false,
+    position: { x: 0, y: 0 },
+    active: true,
+    hide: false,
+    zIndex: 0,
+    type: "WINDOW_FORM",
+  },
+  {
+    id: 1,
+    title: "Dumpling Kiosk - 체인점 Kiosk",
+    icon: dumpling,
+    desc: [
+      "Firestore 데이터베이스 연동 및 SWR 라이브러리 활용 주문 내역 실시간 확인",
+      "Axios instance, interceptor를 활용해 에러 핸들링 관리",
+      "지점 코드 별 페이지 분기",
+      "낮,밤 행사 카드 페이지네이션 구",
+      "TypeScript를 사용하여 정적 타입 검사를 통해 코드의 안정성과 유지보수성 향상",
+      "Window 객체 alert 재정의, alert 호출 시 React-Portal 활용 커스텀 컴포넌트 호출 구현",
+    ],
+    project_img: kioskImg,
+    url: "https://kiosk-beryl.vercel.app/",
+    skill: [nextjs, TS, recoil, tailwind, git, github],
+    screenToggle: false,
+    position: { x: 0, y: 0 },
+    active: true,
+    hide: false,
+    zIndex: 0,
+    type: "WINDOW_FORM",
+  },
+  {
+    id: 2,
     title: "Portfolio Mindow XP",
     icon: MainLogo,
     desc: [
@@ -182,7 +223,7 @@ export const projectData: ProjectType[] = [
     type: "WINDOW_FORM",
   },
   {
-    id: 1,
+    id: 3,
     title: "Team - 경복궁 관리소",
     icon: bgbIcon,
     desc: [
@@ -203,46 +244,7 @@ export const projectData: ProjectType[] = [
     zIndex: 0,
     type: "WINDOW_FORM",
   },
-  {
-    id: 2,
-    title: "감정일기장",
-    icon: emotion,
-    desc: [
-      "HTML / CSS 화면 퍼블리싱",
-      "react-router활용 페이지 분기",
-      "localStorage활용 일기 저장 및 출력",
-      "다이어리 내용,날짜 수정 기능 구현",
-    ],
-    project_img: diaryImg,
-    url: "https://emotion-diary-b6847.web.app",
-    skill: [react, JS, html, css],
-    screenToggle: false,
-    position: { x: 0, y: 0 },
-    active: true,
-    hide: false,
-    zIndex: 0,
-    type: "WINDOW_FORM",
-  },
-  {
-    id: 3,
-    title: "나이키 홈페이지(클론코딩)",
-    icon: nike,
-    desc: [
-      "나이키 메인,로그인 페이지 클론 코딩",
-      "styled-components 활용 화면 퍼블리싱",
-      "redux 활용 로그인 / 로그아웃 구현",
-      "react-router 활용 로그인 전,후 페이지 분기",
-    ],
-    project_img: nikeImg,
-    url: "https://delightful-cobbler-0c7405.netlify.app/",
-    skill: [react,redux ,html, styled, ],
-    screenToggle: false,
-    position: { x: 0, y: 0 },
-    active: true,
-    hide: false,
-    zIndex: 0,
-    type: "WINDOW_FORM",
-  },
+
   {
     id: 4,
     title: "todo",
@@ -250,7 +252,7 @@ export const projectData: ProjectType[] = [
     desc: [""],
     project_img: [""],
     url: "",
-    skill: [''],
+    skill: [""],
     screenToggle: false,
     position: { x: 0, y: 0 },
     active: true,
@@ -265,7 +267,7 @@ export const projectData: ProjectType[] = [
     desc: [""],
     project_img: [""],
     url: "",
-    skill: [''],
+    skill: [""],
     screenToggle: false,
     position: { x: 0, y: 0 },
     active: true,
@@ -280,7 +282,7 @@ export const projectData: ProjectType[] = [
     desc: [""],
     project_img: [""],
     url: "",
-    skill: [''],
+    skill: [""],
     screenToggle: false,
     position: { x: 0, y: 0 },
     active: true,

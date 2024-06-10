@@ -2,10 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 import { PayloadAction } from "@reduxjs/toolkit";
 import { projectData, ProjectType } from "../data/data";
 
-
 type InitType = {
   formArray: ProjectType[];
-  form_zIndex:number;
+  form_zIndex: number;
 };
 
 const initialState: InitType = {
@@ -21,23 +20,35 @@ const formSlice = createSlice({
       state.formArray[action.payload.index] = {
         ...projectData[action.payload.id],
         position: { ...state.formArray[action.payload.index].position },
-        screenToggle : state.formArray[action.payload.index].screenToggle
+        screenToggle: state.formArray[action.payload.index].screenToggle,
       };
     },
     openForm(state, action: PayloadAction<{ index: number }>) {
-      state.formArray = state.formArray.map(
-        (form) => ({ ...form, active: false })
-      );
-      state.formArray.push({...projectData[action.payload.index], zIndex: ++state.form_zIndex});
+      state.formArray = state.formArray.map((form) => ({
+        ...form,
+        active: false,
+      }));
+      state.formArray.push({
+        ...projectData[action.payload.index],
+        zIndex: ++state.form_zIndex,
+      });
     },
     openProject(state, action: PayloadAction<{ id: number }>) {
-      state.formArray = state.formArray.map(
-        (form) => ({ ...form, active: false })
-      );
-      state.formArray.push({...projectData[action.payload.id], zIndex: ++state.form_zIndex, type: 'PROJECT', screenToggle : true})
+      state.formArray = state.formArray.map((form) => ({
+        ...form,
+        active: false,
+      }));
+      state.formArray.push({
+        ...projectData[action.payload.id],
+        zIndex: ++state.form_zIndex,
+        type: "PROJECT",
+        screenToggle: true,
+      });
     },
     closeForm(state, action: PayloadAction<{ index: number }>) {
-      state.formArray = state.formArray.filter((form,i) => i !== action.payload.index);
+      state.formArray = state.formArray.filter(
+        (form, i) => i !== action.payload.index
+      );
       // state.formArray.splice(action.payload.index, 1);
     },
     fullscreen(state, action: PayloadAction<{ id: number }>) {
@@ -47,7 +58,7 @@ const formSlice = createSlice({
     hideForm(state, action: PayloadAction<{ idx: number }>) {
       const i = action.payload.idx;
       state.formArray[i].hide = !state.formArray[i].hide;
-      state.formArray[i].active = state.formArray[i].active ? false: false;
+      state.formArray[i].active = state.formArray[i].active ? false : false;
     },
     formPosition(
       state,
@@ -58,8 +69,12 @@ const formSlice = createSlice({
     },
     activeTab(state, action: PayloadAction<{ idx: number }>) {
       state.formArray = state.formArray.map((form, i) =>
-        i == action.payload.idx
-          ? { ...form, active: form.active ? true : !form.active, zIndex: ++state.form_zIndex }
+        i === action.payload.idx
+          ? {
+              ...form,
+              active: form.active ? true : !form.active,
+              zIndex: ++state.form_zIndex,
+            }
           : { ...form, active: false }
       );
     },
@@ -75,5 +90,5 @@ export const {
   formPosition,
   activeTab,
   hideForm,
-  openProject
+  openProject,
 } = formSlice.actions;

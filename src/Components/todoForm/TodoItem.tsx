@@ -8,10 +8,9 @@ import trash from "../..//images/trash.png";
 import Badge from "./Badge";
 
 export type BadgeType = {
-  title:string;
-  class:string
-}
-
+  title: string;
+  class: string;
+};
 
 const TodoItem = ({
   id,
@@ -23,7 +22,10 @@ const TodoItem = ({
 }: TodoType) => {
   const [inputText, setInputText] = useState<string>("");
   const [inputDisplay, setInputDisplay] = useState<boolean>(false);
-  const [badge, setBadge] = useState<BadgeType>({ title: "보통", class: "badge1" });
+  const [badge, setBadge] = useState<BadgeType>({
+    title: "보통",
+    class: "badge1",
+  });
   const dispatch = useDispatch<AppDispatch>();
   const onClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
     e.stopPropagation();
@@ -31,13 +33,13 @@ const TodoItem = ({
       changCategory({ id: id, category: e.currentTarget.name as Category })
     );
   };
-  
+
   const onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     dispatch(
       changeToDo({
         id: id,
-        text: inputText === '' ? text : inputText,
+        text: inputText === "" ? text : inputText,
         title: badge.title,
         bgClass: badge.class,
       })
@@ -51,7 +53,7 @@ const TodoItem = ({
   };
 
   const toggleInput = (): void => {
-    if (category != Category.DONE) {
+    if (category !== Category.DONE) {
       setInputDisplay(!inputDisplay);
     } else if (window.confirm("삭제하시겠습니까?")) {
       dispatch(deleteTodo({ id: id }));
@@ -61,11 +63,7 @@ const TodoItem = ({
     <div className="TodoItem">
       <div className="todoWrap">
         <div className="dateWrap">
-          <Badge
-            title={badgeTitle}
-            Class={`${badgeClass} on`}
-          
-          />
+          <Badge title={badgeTitle} Class={`${badgeClass} on`} />
           <span className={category === Category.DONE ? "date done" : "date"}>
             {date.slice(2)}
           </span>
@@ -103,19 +101,19 @@ const TodoItem = ({
         onSubmit={onSubmit}
       >
         <div className="input-wrap">
-        <input
-          type="text"
-          placeholder=" 수정내용 입력 후 Enter"
-          value={inputText}
-          onChange={onChange}
+          <input
+            type="text"
+            placeholder=" 수정내용 입력 후 Enter"
+            value={inputText}
+            onChange={onChange}
           />
-        <button>수정</button>
-          </div>
-          <div className="badge-wrap">
-            <Badge setBadge={setBadge} title="보통" Class="badge1" id="badge1" />
-            <Badge setBadge={setBadge} title="중요함" id="badge2" />
-            <Badge setBadge={setBadge} title="더 중요" id="badge3" />
-          </div>
+          <button>수정</button>
+        </div>
+        <div className="badge-wrap">
+          <Badge setBadge={setBadge} title="보통" Class="badge1" id="badge1" />
+          <Badge setBadge={setBadge} title="중요함" id="badge2" />
+          <Badge setBadge={setBadge} title="더 중요" id="badge3" />
+        </div>
       </form>
     </div>
   );

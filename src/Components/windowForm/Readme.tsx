@@ -1,7 +1,6 @@
 import React from "react";
 import "./windowForm.scss";
 
-
 const Readme = () => {
   return (
     <div className="Readme">
@@ -20,23 +19,25 @@ const Readme = () => {
         </p>
         <p style={{ color: "#69cdfb" }}>
           age <span className="white">: </span>
-          <span style={{ color: "#99ce9b" }}>{ new Date().getFullYear() - 1990}</span>
+          <span style={{ color: "#99ce9b" }}>
+            {new Date().getFullYear() - 1990}
+          </span>
           <span className="white">,</span>
         </p>
         <p style={{ color: "#69cdfb" }}>
           skills <span className="white">:</span>
           <span style={{ color: "#700e70" }}> {"["}</span>
-          <span style={{ color: "#be795c" }}> "HTML"</span>
+          <span style={{ color: "#be795c" }}> "JavaScript"</span>
           <span className="white">,</span>
-          <span style={{ color: "#be795c" }}> "CSS"</span>
+          <span style={{ color: "#be795c" }}> "TypeScript"</span>
           <span className="white">,</span>
         </p>
         <p className="skill" style={{ color: "#be795c" }}>
-          "Javascript"
+          "React.JS"
           <span className="white">,</span>
-          <span style={{ color: "#be795c" }}> "Typescript"</span>
+          <span style={{ color: "#be795c" }}> "Next.JS"</span>
           <span className="white">,</span>
-          <span style={{ color: "#be795c" }}> "React"</span>
+          <span style={{ color: "#be795c" }}> "Tailwind CSS"</span>
           <span style={{ color: "#700e70" }}> {"]"}</span>
           <span className="white">, </span>
         </p>
@@ -51,7 +52,7 @@ const Readme = () => {
         </p>
         <p className="contact" style={{ color: "#69cdfb" }}>
           email <span className="white">:</span>
-          <span style={{ color: "#be795c" }}> "psmhome123@naver.com"</span>
+          <span style={{ color: "#be795c" }}> "minwook0523@gmail.com"</span>
         </p>
         <span style={{ color: "#700e70" }}> {"}"}</span>
       </div>

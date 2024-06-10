@@ -1,11 +1,10 @@
-import React, { useState, useRef, useEffect } from "react";
 import FormHead from "./FormHead";
 import Toolbar from "./Toolbar";
 import FormMain from "./FormMain";
 import "./windowForm.scss";
 import { ProjectType } from "../../data/data";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState, AppDispatch } from "../../redux/store";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../redux/store";
 import { hideMenu } from "../../redux/toggleSlice";
 import { activeTab } from "../../redux/formSlice";
 import Iframe from "./Iframe";
@@ -36,12 +35,12 @@ const WindowForm = (selectData: selectType) => {
     zIndex: selectData.zIndex,
     left: selectData.screenToggle
       ? 0
-      : selectData.position.x == 0
+      : selectData.position.x === 0
       ? "50%"
       : selectData.position.x,
     top: selectData.screenToggle
       ? 0
-      : selectData.position.y == 0
+      : selectData.position.y === 0
       ? "50%"
       : selectData.position.y,
     transform: selectData.screenToggle

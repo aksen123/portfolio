@@ -4,45 +4,45 @@ type StateType = {
   startMenuToggle: boolean;
   subMenu: boolean;
   iconValue: string;
-  formToggle: boolean
+  formToggle: boolean;
 };
 type PayloadType = {
-  value:string
-}
+  value: string;
+};
 const initialState: StateType = {
   startMenuToggle: false,
   subMenu: false,
-  iconValue : '',
-  formToggle: false
+  iconValue: "",
+  formToggle: false,
 };
 
 const toggleSlice = createSlice({
   name: "toggle",
   initialState,
   reducers: {
-    toggleStartMenu(state,action:PayloadAction<PayloadType>) {
+    toggleStartMenu(state, action: PayloadAction<PayloadType>) {
       state.startMenuToggle = !state.startMenuToggle;
-      state.subMenu = state.startMenuToggle == false? false : state.subMenu
-      state.iconValue = action.payload.value
+      state.subMenu = state.startMenuToggle === false ? false : state.subMenu;
+      state.iconValue = action.payload.value;
     },
-    toggleSubmenu(state, action:PayloadAction<PayloadType>) {
+    toggleSubmenu(state, action: PayloadAction<PayloadType>) {
       state.subMenu = !state.subMenu;
-      state.iconValue = action.payload.value
+      state.iconValue = action.payload.value;
     },
-    hideMenu(state,action:PayloadAction<PayloadType>) {
-      state.startMenuToggle = false; 
+    hideMenu(state, action: PayloadAction<PayloadType>) {
+      state.startMenuToggle = false;
       state.subMenu = false;
-      state.iconValue = action.payload.value
+      state.iconValue = action.payload.value;
     },
-    clickIcon(state, action:PayloadAction<PayloadType>) {
-      state.iconValue = action.payload.value
+    clickIcon(state, action: PayloadAction<PayloadType>) {
+      state.iconValue = action.payload.value;
     },
-
   },
 });
 
 export default toggleSlice.reducer;
 
-export const { toggleStartMenu, toggleSubmenu, hideMenu,clickIcon } = toggleSlice.actions;
+export const { toggleStartMenu, toggleSubmenu, hideMenu, clickIcon } =
+  toggleSlice.actions;
 
-// export type ToggleType = ReturnType<typeof toggleSlice.reducer> 
+// export type ToggleType = ReturnType<typeof toggleSlice.reducer>

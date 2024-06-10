@@ -1,7 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import toggleReducer from "./toggleSlice";
 import formReducer from "./formSlice";
-import todoReducer from "./todoSlice";
 import todoSlice from "./todoSlice";
 export let store = configureStore({
   reducer: {

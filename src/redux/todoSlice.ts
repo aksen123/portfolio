@@ -17,11 +17,11 @@ export enum Category {
 const mockData: TodoType[] = [
   {
     id: 0,
-    date: "2023-09-01",
-    category: Category.DONE,
-    text: "아침먹기",
-    badgeClass: "badge2", //작성된 투두 뱃지
-    badgeTitle: "보통",
+    date: "2024-06-01",
+    category: Category.TODO,
+    text: "취업하기..!",
+    badgeClass: "badge3", //작성된 투두 뱃지
+    badgeTitle: "더 중요",
   },
 ];
 type InitType = {

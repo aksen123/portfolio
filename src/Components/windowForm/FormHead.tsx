@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./windowForm.scss";
 import { handle_img } from "../../data/data";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   fullscreen,
   closeForm,
@@ -9,7 +9,7 @@ import {
   activeTab,
   formPosition,
 } from "../../redux/formSlice";
-import { RootState, AppDispatch } from "../../redux/store";
+import { AppDispatch } from "../../redux/store";
 import { selectType } from "./WindowForm";
 import { PositionType } from "../taskbar/IconDescTop";
 

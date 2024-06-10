@@ -1,7 +1,5 @@
-import React from "react";
 import "../../style/main.scss";
 import IconWrap from "./IconWrap";
-import img from "../../images/folder.png";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../redux/store";
 import { toggleSubmenu, hideMenu } from "../../redux/toggleSlice";
@@ -10,10 +8,10 @@ import { rightIcon_data, menu_img } from "../../data/data";
 import { descTopIcon } from "../../data/data";
 
 export interface Props {
-  logOff : ()=>void
+  logOff: () => void;
 }
 
-const StartMenu = ({logOff}:Props) => {
+const StartMenu = ({ logOff }: Props) => {
   const dispatch = useDispatch<AppDispatch>();
 
   const onClick = (id: number): void => {
@@ -32,24 +30,24 @@ const StartMenu = ({logOff}:Props) => {
       </div>
       <div className="icon-wrapper">
         <div className="icon-wrap left">
-            <IconWrap 
-            title='README'
-              iconImg={descTopIcon.vscode}
-              classValue="menu"
-              onClick={()=>onClick(5)}
-            />
-            <IconWrap 
-            title='projects'
-              iconImg={descTopIcon.descFolder}
-              classValue="menu"
-              onClick={()=>onClick(0)}
-            />
-            <IconWrap 
-            title='To Do'
-              iconImg={descTopIcon.todo}
-              classValue="menu"
-              onClick={()=>onClick(4)}
-            />
+          <IconWrap
+            title="README"
+            iconImg={descTopIcon.vscode}
+            classValue="menu"
+            onClick={() => onClick(5)}
+          />
+          <IconWrap
+            title="projects"
+            iconImg={descTopIcon.descFolder}
+            classValue="menu"
+            onClick={() => onClick(0)}
+          />
+          <IconWrap
+            title="To Do"
+            iconImg={descTopIcon.todo}
+            classValue="menu"
+            onClick={() => onClick(4)}
+          />
           <div className="all-project">
             <hr className="line" />
             <IconWrap

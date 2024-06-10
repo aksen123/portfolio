@@ -1,14 +1,11 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { FaCircleChevronLeft, FaCircleChevronRight } from "react-icons/fa6";
-import { toolbar_img, ProjectType } from "../../data/data";
-import './windowForm.scss'
-type ImagesType = Pick<ProjectType, "project_img">
-type ScreenType = Pick<ProjectType, "screenToggle">;
+import "./windowForm.scss";
 type PropsType = {
   project_img: string[];
   screenToggle: boolean;
   id?: number;
-}
+};
 
 const Slide = ({ project_img, screenToggle }: PropsType) => {
   const max_num: number = project_img.length - 1;
@@ -37,7 +34,7 @@ const Slide = ({ project_img, screenToggle }: PropsType) => {
       }, 500);
     }
   }, [project_img]);
-  const i = screenToggle ? 550 : 450
+  const width = screenToggle ? 550 : 450;
   return (
     <div className="Slide">
       <FaCircleChevronLeft
@@ -48,11 +45,11 @@ const Slide = ({ project_img, screenToggle }: PropsType) => {
       <div className="slide-content-wrap">
         <div
           className="slide-content"
-          style={{ transform: `translateX(${moveImg *  i }px)` }}
+          style={{ transform: `translateX(${moveImg * width}px)` }}
           ref={slideRef}
         >
           {project_img.map((img, i) => (
-            <img  src={img} key={`slide${i}`} />
+            <img alt="프로젝트 이미지" src={img} key={`slide${i}`} />
           ))}
         </div>
       </div>

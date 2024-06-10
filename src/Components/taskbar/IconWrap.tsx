@@ -1,7 +1,3 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState, AppDispatch } from "../../redux/store";
-import { clickIcon } from "../../redux/toggleSlice";
 type IconProps = {
   iconImg: string;
   title: string;
